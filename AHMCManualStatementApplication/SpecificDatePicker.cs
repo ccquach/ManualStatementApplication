@@ -17,8 +17,9 @@ namespace AHMCManualStatementApplication
             InitializeComponent();
         }
 
-        private void dtPickerSpecificDate_MouseDown(object sender, MouseEventArgs e)
+        private void SpecificDatePicker_Load(object sender, EventArgs e)
         {
+            dtPickerSpecificDate.MinDate = new DateTime(2016, 1, 1);
             dtPickerSpecificDate.MaxDate = DateTime.Now;
         }
 
@@ -29,13 +30,14 @@ namespace AHMCManualStatementApplication
             this.Close();
         }
 
-        private void dtPickerSpecificDate_ValueChanged(object sender, EventArgs e)
+        private void btnDatePickerOK_Click(object sender, EventArgs e)
         {
-            this.ReturnSpecificDate = dtPickerSpecificDate.Value.ToShortDateString();
+            //this.ReturnSpecificDate = dtPickerSpecificDate.Value.ToShortDateString();
+            this.ReturnSpecificDate = dtPickerSpecificDate.Value;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        public string ReturnSpecificDate { get; set; }
+        public DateTime ReturnSpecificDate { get; set; }
     }
 }

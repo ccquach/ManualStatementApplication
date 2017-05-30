@@ -51,8 +51,6 @@
             this.dtPickerSpecificDate.Name = "dtPickerSpecificDate";
             this.dtPickerSpecificDate.Size = new System.Drawing.Size(200, 29);
             this.dtPickerSpecificDate.TabIndex = 1;
-            this.dtPickerSpecificDate.ValueChanged += new System.EventHandler(this.dtPickerSpecificDate_ValueChanged);
-            this.dtPickerSpecificDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPickerSpecificDate_MouseDown);
             // 
             // btnDatePickerOK
             // 
@@ -62,9 +60,11 @@
             this.btnDatePickerOK.TabIndex = 2;
             this.btnDatePickerOK.Text = "OK";
             this.btnDatePickerOK.UseSelectable = true;
+            this.btnDatePickerOK.Click += new System.EventHandler(this.btnDatePickerOK_Click);
             // 
             // btnDatePickerCancel
             // 
+            this.btnDatePickerCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnDatePickerCancel.Location = new System.Drawing.Point(154, 135);
             this.btnDatePickerCancel.Name = "btnDatePickerCancel";
             this.btnDatePickerCancel.Size = new System.Drawing.Size(75, 23);
@@ -86,6 +86,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SpecificDatePicker";
+            this.Load += new System.EventHandler(this.SpecificDatePicker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

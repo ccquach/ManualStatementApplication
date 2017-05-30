@@ -16,6 +16,7 @@ namespace AHMCManualStatementApplication
 {
     public partial class Main : MetroFramework.Forms.MetroForm
     {
+        #region Variables
         int tabIndex;
         string facility = String.Empty;
 
@@ -24,12 +25,13 @@ namespace AHMCManualStatementApplication
 
         string connStr = "Provider=Microsoft.ACE.OLEDB.12.0;" +
                          "Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\ManualStatementDatabase.accdb;" +
-                         "Persist Security Info=False";
+                         "Persist Security Info=False;";
         string query = "";
         OleDbConnection conn = null;
         DataView view;
         StringBuilder sb = new StringBuilder();
         string viewDate = String.Empty;
+        #endregion
 
         public Main()
         {
@@ -38,17 +40,17 @@ namespace AHMCManualStatementApplication
             this.StyleManager = msmMain;
         }
 
+        #region Database connection
         // Start page: Home screen
         private void Form1_Load(object sender, EventArgs e)
         {
             tbCtrlPages.SelectTab(tbHome);
-
             try
             {
                 conn = new OleDbConnection(connStr);
-
-                if (conn.State == ConnectionState.Closed)
+                if (conn.State == ConnectionState.Closed) {
                     conn.Open();
+                }
 
                 ActivateFunctions();
             }
@@ -71,7 +73,9 @@ namespace AHMCManualStatementApplication
                 MessageBox.Show(ex.Message);
             }
         }
+        #endregion
 
+        #region Button accessibility
         // Make functions active when facility selected
         private void ActivateFunctions()
         {
@@ -87,7 +91,9 @@ namespace AHMCManualStatementApplication
                 this.tileNext.Enabled = true;
             }
         }
+        #endregion
 
+        #region Button Navigation
         // Go to previous page
         private void tileBack_Click(object sender, EventArgs e)
         {
@@ -189,6 +195,7 @@ namespace AHMCManualStatementApplication
             tile.TileImage = tileImg;
             tile.TileImageAlign = ContentAlignment.MiddleCenter;
         }
+        #endregion
 
         // Facility button clicked
         private void btnFac_Click(object sender, EventArgs e)
@@ -259,7 +266,14 @@ namespace AHMCManualStatementApplication
                         var result = dtPicker.ShowDialog();
 
                         if (result == DialogResult.OK) {
-                            viewDate = "= '" + dtPicker.ReturnSpecificDate + "'";
+                            if (dtPicker.ReturnSpecificDate.DayOfWeek == DayOfWeek.Saturday || dtPicker.ReturnSpecificDate.DayOfWeek == DayOfWeek.Sunday) {
+                                MessageBox.Show($"{dtPicker.ReturnSpecificDate.ToShortDateString()} is a " +
+                                                $"{dtPicker.ReturnSpecificDate.DayOfWeek}. There are no accounts to display.");
+                                return;
+                            }
+                            else {
+                                viewDate = "= '" + dtPicker.ReturnSpecificDate + "'";
+                            }
                         } else {
                             return;
                         }
@@ -273,8 +287,6 @@ namespace AHMCManualStatementApplication
                 }
 
                 // Query accounts
-                dataGridAccounts.Rows.Clear();
-
                 Cursor.Current = Cursors.WaitCursor;
                 RunQuery();
                 tbCtrlPages.SelectedTab = tbAccounts;
@@ -283,6 +295,19 @@ namespace AHMCManualStatementApplication
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        // Check if review date is a weekend
+        private bool IsWeekend(DateTime reviewDate)
+        {
+            if ((reviewDate.DayOfWeek == DayOfWeek.Saturday) || (reviewDate.DayOfWeek == DayOfWeek.Sunday)) {
+                MessageBox.Show($"{dtPicker.ReturnSpecificDate.ToShortDateString()} is a " +
+                                $"{dtPicker.ReturnSpecificDate.DayOfWeek}. There are no accounts to display.");
+                return true;
+            }
+            else {
+                return false;
             }
         }
 
