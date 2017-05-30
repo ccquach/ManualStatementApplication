@@ -1,0 +1,32 @@
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.exe.config
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.exe
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.pdb
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.dll
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.Fonts.dll
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Form1.resources
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Properties.Resources.resources
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.csproj.GenerateResource.Cache
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.exe
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.pdb
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.csprojResolveAssemblyReference.cache
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AdvancedDataGridView.dll
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AdvancedDataGridView.xml
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\fr\AdvancedDataGridView.resources.dll
+c:\users\cynthia.quach\documents\visual studio 2017\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\ru\AdvancedDataGridView.resources.dll
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Form1.resources
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Form2.resources
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Properties.Resources.resources
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.csproj.GenerateResource.Cache
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AdvancedDataGridView.dll
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.Design.dll
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.dll
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.Fonts.dll
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AdvancedDataGridView.xml
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\fr\AdvancedDataGridView.resources.dll
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\ru\AdvancedDataGridView.resources.dll
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.exe
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.pdb
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.exe.config
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.exe
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.pdb
+U:\Visual Studio\Projects\AHMCManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.csprojResolveAssemblyReference.cache
