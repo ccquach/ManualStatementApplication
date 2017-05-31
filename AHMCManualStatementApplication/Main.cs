@@ -197,6 +197,7 @@ namespace AHMCManualStatementApplication
         }
         #endregion
 
+        #region Facility Selection
         // Facility button clicked
         private void btnFac_Click(object sender, EventArgs e)
         {
@@ -244,6 +245,7 @@ namespace AHMCManualStatementApplication
                 }
             }
         }
+        #endregion
 
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -262,20 +264,19 @@ namespace AHMCManualStatementApplication
                         viewDate = ">= '" + first + "' AND [Date Requested] <= '" + last + "'";
                         break;
                     case "&Specific Date":
-                        SpecificDatePicker dtPicker = new SpecificDatePicker();
-                        var result = dtPicker.ShowDialog();
-
-                        if (result == DialogResult.OK) {
-                            if (dtPicker.ReturnSpecificDate.DayOfWeek == DayOfWeek.Saturday || dtPicker.ReturnSpecificDate.DayOfWeek == DayOfWeek.Sunday) {
-                                MessageBox.Show($"{dtPicker.ReturnSpecificDate.ToShortDateString()} is a " +
-                                                $"{dtPicker.ReturnSpecificDate.DayOfWeek}. There are no accounts to display.");
-                                return;
+                        using (SpecificDatePicker dtPicker = new SpecificDatePicker()) {
+                            var result = dtPicker.ShowDialog();
+                            if (result == DialogResult.OK) {
+                                if (IsWeekend(dtPicker.ReturnSpecificDate)) {
+                                    return;
+                                }
+                                else {
+                                    viewDate = "= '" + dtPicker.ReturnSpecificDate + "'";
+                                }
                             }
                             else {
-                                viewDate = "= '" + dtPicker.ReturnSpecificDate + "'";
+                                return;
                             }
-                        } else {
-                            return;
                         }
                         break;
                     case "&All":
@@ -298,12 +299,13 @@ namespace AHMCManualStatementApplication
             }
         }
 
-        // Check if review date is a weekend
-        private bool IsWeekend(DateTime reviewDate)
+        // Check if selected specific date is a weekend
+        private bool IsWeekend(DateTime? reviewDate)
         {
-            if ((reviewDate.DayOfWeek == DayOfWeek.Saturday) || (reviewDate.DayOfWeek == DayOfWeek.Sunday)) {
-                MessageBox.Show($"{dtPicker.ReturnSpecificDate.ToShortDateString()} is a " +
-                                $"{dtPicker.ReturnSpecificDate.DayOfWeek}. There are no accounts to display.");
+            DateTime reviewDateValue = reviewDate.Value;
+            if ((reviewDateValue.DayOfWeek == DayOfWeek.Saturday) || (reviewDateValue.DayOfWeek == DayOfWeek.Sunday)) {
+                MessageBox.Show($"{reviewDateValue.ToShortDateString()} is a " +
+                                $"{reviewDateValue.DayOfWeek}. There are no accounts to display.");
                 return true;
             }
             else {
@@ -357,7 +359,7 @@ namespace AHMCManualStatementApplication
                 MessageBox.Show(ex.Message);
             }
         }
-
+        
         // Filter accounts by isCompleted
         private void FilterByCompleted()
         {

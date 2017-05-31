@@ -51,6 +51,7 @@
             this.dtPickerSpecificDate.Name = "dtPickerSpecificDate";
             this.dtPickerSpecificDate.Size = new System.Drawing.Size(200, 29);
             this.dtPickerSpecificDate.TabIndex = 1;
+            this.dtPickerSpecificDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPickerSpecificDate_MouseDown);
             // 
             // btnDatePickerOK
             // 
