@@ -300,9 +300,10 @@ namespace AHMCManualStatementApplication
 
                 // Query accounts
                 Cursor.Current = Cursors.WaitCursor;
-                RunQuery();
-                tbCtrlPages.SelectedTab = tbAccounts;
-                dataGridAccounts.Focus();
+                if (RunQuery()) {
+                    tbCtrlPages.SelectedTab = tbAccounts;
+                    dataGridAccounts.Focus();
+                }
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex) {
@@ -325,7 +326,7 @@ namespace AHMCManualStatementApplication
         }
 
         // Query accounts
-        private void RunQuery()
+        private bool RunQuery()
         {
             query = "SELECT log.DateRequested AS [Date Requested], " +
                     "fac.FacilityAbbr AS [Facility], " +
@@ -364,15 +365,17 @@ namespace AHMCManualStatementApplication
                         dataGridAccounts.AutoResizeColumns();
                         dataGridAccounts.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
                         lblTotalRows.Text = String.Format("Total rows: {0}", dataGridAccounts.RowCount);
+                        return true;
                     }
                     else {
                         MessageBox.Show($"There are no accounts to display for: {viewDate}");
-                        return;
+                        return false;
                     }
                 }
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
+                return false;
             }
         }
         
