@@ -38,6 +38,11 @@ namespace AHMCManualStatementApplication
             this.Close();
         }
 
-        public DateTime ReturnSpecificDate { get; set; }
+        public DateTime? ReturnSpecificDate { get; set; }
+
+        private void dtPickerSpecificDate_MouseDown(object sender, MouseEventArgs e)
+        {
+            dtPickerSpecificDate.Open();
+        }
     }
 }

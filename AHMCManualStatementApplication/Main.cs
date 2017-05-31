@@ -30,7 +30,11 @@ namespace AHMCManualStatementApplication
         OleDbConnection conn = null;
         DataView view;
         StringBuilder sb = new StringBuilder();
+
         string viewDate = String.Empty;
+        string viewDateStr = String.Empty;
+        string first = String.Empty;
+        string last = String.Empty;
         #endregion
 
         public Main()
@@ -197,6 +201,7 @@ namespace AHMCManualStatementApplication
         }
         #endregion
 
+        #region Facility Selection
         // Facility button clicked
         private void btnFac_Click(object sender, EventArgs e)
         {
@@ -244,6 +249,7 @@ namespace AHMCManualStatementApplication
                 }
             }
         }
+        #endregion
 
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -253,36 +259,42 @@ namespace AHMCManualStatementApplication
 
                 switch ((sender as ToolStripMenuItem).Text) {
                     case "&Today":
-                        viewDate = "= '" + today.AddMonths(-1).ToString("M/d/yyyy") + "'";
+                        if (today.DayOfWeek == DayOfWeek.Monday) {
+                            first = new DateTime(today.Year, today.AddMonths(-1).Month, today.AddDays(-2).Day).ToShortDateString();
+                            last = today.AddMonths(-1).ToShortDateString();
+                            viewDateStr = ">= '" + first + "' AND [Date Requested] <= '" + last + "'";
+                        }
+                        else {
+                            viewDate = today.AddMonths(-1).ToShortDateString();
+                            viewDateStr = "= '" + viewDate + "'";
+                        }
                         break;
                     case "&Last Month":
                         var month = new DateTime(today.Year, today.Month, 1);
-                        string first = month.AddMonths(-1).ToString("M/d/yyyy");
-                        string last = month.AddDays(-1).ToString("M/d/yyyy");
-                        viewDate = ">= '" + first + "' AND [Date Requested] <= '" + last + "'";
+                        first = month.AddMonths(-1).ToShortDateString();
+                        last = month.AddDays(-1).ToShortDateString();
+                        viewDateStr = ">= '" + first + "' AND [Date Requested] <= '" + last + "'";
                         break;
                     case "&Specific Date":
-                        SpecificDatePicker dtPicker = new SpecificDatePicker();
-                        var result = dtPicker.ShowDialog();
-
-                        if (result == DialogResult.OK) {
-                            if (dtPicker.ReturnSpecificDate.DayOfWeek == DayOfWeek.Saturday || dtPicker.ReturnSpecificDate.DayOfWeek == DayOfWeek.Sunday) {
-                                MessageBox.Show($"{dtPicker.ReturnSpecificDate.ToShortDateString()} is a " +
-                                                $"{dtPicker.ReturnSpecificDate.DayOfWeek}. There are no accounts to display.");
-                                return;
+                        using (SpecificDatePicker dtPicker = new SpecificDatePicker()) {
+                            var result = dtPicker.ShowDialog();
+                            if (result == DialogResult.OK) {
+                                if (IsWeekend(dtPicker.ReturnSpecificDate)) {
+                                    return;
+                                }
+                                else {
+                                    viewDate = dtPicker.ReturnSpecificDate.Value.ToShortDateString();
+                                    viewDateStr = "= '" + viewDate + "'";
+                                }
                             }
                             else {
-                                viewDate = "= '" + dtPicker.ReturnSpecificDate + "'";
+                                return;
                             }
-                        } else {
-                            return;
                         }
                         break;
                     case "&All":
-                        viewDate = String.Empty;
-                        break;
                     default:
-                        viewDate = String.Empty;
+                        viewDateStr = String.Empty;
                         break;
                 }
 
@@ -298,12 +310,13 @@ namespace AHMCManualStatementApplication
             }
         }
 
-        // Check if review date is a weekend
-        private bool IsWeekend(DateTime reviewDate)
+        // Check if selected specific date is a weekend
+        private bool IsWeekend(DateTime? reviewDate)
         {
-            if ((reviewDate.DayOfWeek == DayOfWeek.Saturday) || (reviewDate.DayOfWeek == DayOfWeek.Sunday)) {
-                MessageBox.Show($"{dtPicker.ReturnSpecificDate.ToShortDateString()} is a " +
-                                $"{dtPicker.ReturnSpecificDate.DayOfWeek}. There are no accounts to display.");
+            DateTime reviewDateValue = reviewDate.Value;
+            if ((reviewDateValue.DayOfWeek == DayOfWeek.Saturday) || (reviewDateValue.DayOfWeek == DayOfWeek.Sunday)) {
+                MessageBox.Show($"{reviewDateValue.ToShortDateString()} is a " +
+                                $"{reviewDateValue.DayOfWeek}. There are no accounts to display.");
                 return true;
             }
             else {
@@ -346,18 +359,23 @@ namespace AHMCManualStatementApplication
                     view.RowFilter = sb.ToString();
                     dt = view.ToTable();
 
-                    dataGridAccounts.DataSource = dt;
-                    dataGridAccounts.AutoResizeColumns();
-                    dataGridAccounts.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
-
-                    lblTotalRows.Text = String.Format("Total rows: {0}", dataGridAccounts.RowCount);
+                    if (dt.Rows.Count != 0) {
+                        dataGridAccounts.DataSource = dt;
+                        dataGridAccounts.AutoResizeColumns();
+                        dataGridAccounts.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
+                        lblTotalRows.Text = String.Format("Total rows: {0}", dataGridAccounts.RowCount);
+                    }
+                    else {
+                        MessageBox.Show($"There are no accounts to display for: {viewDate}");
+                        return;
+                    }
                 }
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
-
+        
         // Filter accounts by isCompleted
         private void FilterByCompleted()
         {
@@ -377,8 +395,8 @@ namespace AHMCManualStatementApplication
                 sb.Append(" AND ");
             }
 
-            if (viewDate != String.Empty) {
-                sb.Append("[Date Requested] " + viewDate);
+            if (viewDateStr != String.Empty) {
+                sb.Append("[Date Requested] " + viewDateStr);
             }
             MessageBox.Show(sb.ToString());
         }

@@ -15,3 +15,19 @@ U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplicat
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\ManualStatementApplication.csproj.GenerateResource.Cache
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.exe
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.pdb
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\ManualStatementApplication.csprojResolveAssemblyReference.cache
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Main.resources
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.SpecificDatePicker.resources
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Properties.Resources.resources
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\ManualStatementApplication.csproj.GenerateResource.Cache
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.exe
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.pdb
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.exe.config
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.exe
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.pdb
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.Design.dll
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.dll
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AdvancedDataGridView.xml
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\fr\AdvancedDataGridView.resources.dll
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\ru\AdvancedDataGridView.resources.dll
