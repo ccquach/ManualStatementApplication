@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AHMCManualStatementApplication.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AdvancedDataGridView">
       <HintPath>U:\Visual Studio\Projects\WorklistApplicationProject\packages\ADGV.0.1.0.10\lib\net40\AdvancedDataGridView.dll</HintPath>
@@ -57,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CRUDQueries.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

@@ -367,7 +367,7 @@
             this.tbCtrlPages.Dock = System.Windows.Forms.DockStyle.Right;
             this.tbCtrlPages.Location = new System.Drawing.Point(161, 60);
             this.tbCtrlPages.Name = "tbCtrlPages";
-            this.tbCtrlPages.SelectedIndex = 0;
+            this.tbCtrlPages.SelectedIndex = 2;
             this.tbCtrlPages.Size = new System.Drawing.Size(914, 646);
             this.tbCtrlPages.TabIndex = 0;
             this.tbCtrlPages.UseSelectable = true;
@@ -596,6 +596,7 @@
             this.dataGridAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAccounts.Size = new System.Drawing.Size(904, 538);
             this.dataGridAccounts.TabIndex = 5;
+            this.dataGridAccounts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridAccounts_CellDoubleClick);
             // 
             // tileExport
             // 
@@ -678,7 +679,7 @@
             // 
             // btnAccountGenerate
             // 
-            this.btnAccountGenerate.Location = new System.Drawing.Point(739, 504);
+            this.btnAccountGenerate.Location = new System.Drawing.Point(729, 513);
             this.btnAccountGenerate.Name = "btnAccountGenerate";
             this.btnAccountGenerate.Size = new System.Drawing.Size(112, 25);
             this.btnAccountGenerate.TabIndex = 6;
@@ -700,7 +701,7 @@
             this.txtFinalStmnt.CustomButton.UseSelectable = true;
             this.txtFinalStmnt.CustomButton.Visible = false;
             this.txtFinalStmnt.Lines = new string[0];
-            this.txtFinalStmnt.Location = new System.Drawing.Point(620, 254);
+            this.txtFinalStmnt.Location = new System.Drawing.Point(610, 263);
             this.txtFinalStmnt.MaxLength = 32767;
             this.txtFinalStmnt.Name = "txtFinalStmnt";
             this.txtFinalStmnt.PasswordChar = '\0';
@@ -731,7 +732,7 @@
             this.txtNote.CustomButton.UseSelectable = true;
             this.txtNote.CustomButton.Visible = false;
             this.txtNote.Lines = new string[0];
-            this.txtNote.Location = new System.Drawing.Point(60, 440);
+            this.txtNote.Location = new System.Drawing.Point(50, 449);
             this.txtNote.MaxLength = 32767;
             this.txtNote.Name = "txtNote";
             this.txtNote.PasswordChar = '\0';
@@ -762,7 +763,7 @@
             this.txtNoteDate.CustomButton.UseSelectable = true;
             this.txtNoteDate.CustomButton.Visible = false;
             this.txtNoteDate.Lines = new string[0];
-            this.txtNoteDate.Location = new System.Drawing.Point(60, 394);
+            this.txtNoteDate.Location = new System.Drawing.Point(50, 403);
             this.txtNoteDate.MaxLength = 32767;
             this.txtNoteDate.Name = "txtNoteDate";
             this.txtNoteDate.PasswordChar = '\0';
@@ -793,7 +794,7 @@
             this.txtPtLiab.CustomButton.UseSelectable = true;
             this.txtPtLiab.CustomButton.Visible = false;
             this.txtPtLiab.Lines = new string[0];
-            this.txtPtLiab.Location = new System.Drawing.Point(185, 254);
+            this.txtPtLiab.Location = new System.Drawing.Point(175, 263);
             this.txtPtLiab.MaxLength = 32767;
             this.txtPtLiab.Name = "txtPtLiab";
             this.txtPtLiab.PasswordChar = '\0';
@@ -824,7 +825,7 @@
             this.txtSecondStmnt.CustomButton.UseSelectable = true;
             this.txtSecondStmnt.CustomButton.Visible = false;
             this.txtSecondStmnt.Lines = new string[0];
-            this.txtSecondStmnt.Location = new System.Drawing.Point(620, 206);
+            this.txtSecondStmnt.Location = new System.Drawing.Point(610, 215);
             this.txtSecondStmnt.MaxLength = 32767;
             this.txtSecondStmnt.Name = "txtSecondStmnt";
             this.txtSecondStmnt.PasswordChar = '\0';
@@ -855,7 +856,7 @@
             this.txtPatientName.CustomButton.UseSelectable = true;
             this.txtPatientName.CustomButton.Visible = false;
             this.txtPatientName.Lines = new string[0];
-            this.txtPatientName.Location = new System.Drawing.Point(185, 206);
+            this.txtPatientName.Location = new System.Drawing.Point(175, 215);
             this.txtPatientName.MaxLength = 32767;
             this.txtPatientName.Name = "txtPatientName";
             this.txtPatientName.PasswordChar = '\0';
@@ -886,7 +887,7 @@
             this.txtFirstStmnt.CustomButton.UseSelectable = true;
             this.txtFirstStmnt.CustomButton.Visible = false;
             this.txtFirstStmnt.Lines = new string[0];
-            this.txtFirstStmnt.Location = new System.Drawing.Point(620, 162);
+            this.txtFirstStmnt.Location = new System.Drawing.Point(610, 171);
             this.txtFirstStmnt.MaxLength = 32767;
             this.txtFirstStmnt.Name = "txtFirstStmnt";
             this.txtFirstStmnt.PasswordChar = '\0';
@@ -917,7 +918,7 @@
             this.txtAccount.CustomButton.UseSelectable = true;
             this.txtAccount.CustomButton.Visible = false;
             this.txtAccount.Lines = new string[0];
-            this.txtAccount.Location = new System.Drawing.Point(185, 162);
+            this.txtAccount.Location = new System.Drawing.Point(175, 171);
             this.txtAccount.MaxLength = 32767;
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.PasswordChar = '\0';
@@ -948,7 +949,7 @@
             this.txtRequestedDate.CustomButton.UseSelectable = true;
             this.txtRequestedDate.CustomButton.Visible = false;
             this.txtRequestedDate.Lines = new string[0];
-            this.txtRequestedDate.Location = new System.Drawing.Point(620, 118);
+            this.txtRequestedDate.Location = new System.Drawing.Point(610, 127);
             this.txtRequestedDate.MaxLength = 32767;
             this.txtRequestedDate.Name = "txtRequestedDate";
             this.txtRequestedDate.PasswordChar = '\0';
@@ -979,7 +980,7 @@
             this.txtFacility.CustomButton.UseSelectable = true;
             this.txtFacility.CustomButton.Visible = false;
             this.txtFacility.Lines = new string[0];
-            this.txtFacility.Location = new System.Drawing.Point(185, 118);
+            this.txtFacility.Location = new System.Drawing.Point(175, 127);
             this.txtFacility.MaxLength = 32767;
             this.txtFacility.Name = "txtFacility";
             this.txtFacility.PasswordChar = '\0';
@@ -999,7 +1000,7 @@
             // 
             this.metroLabel12.AutoSize = true;
             this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel12.Location = new System.Drawing.Point(483, 258);
+            this.metroLabel12.Location = new System.Drawing.Point(473, 267);
             this.metroLabel12.Name = "metroLabel12";
             this.metroLabel12.Size = new System.Drawing.Size(104, 19);
             this.metroLabel12.TabIndex = 4;
@@ -1009,7 +1010,7 @@
             // 
             this.metroLabel13.AutoSize = true;
             this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel13.Location = new System.Drawing.Point(60, 356);
+            this.metroLabel13.Location = new System.Drawing.Point(50, 365);
             this.metroLabel13.Name = "metroLabel13";
             this.metroLabel13.Size = new System.Drawing.Size(48, 19);
             this.metroLabel13.TabIndex = 4;
@@ -1019,7 +1020,7 @@
             // 
             this.metroLabel8.AutoSize = true;
             this.metroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel8.Location = new System.Drawing.Point(60, 258);
+            this.metroLabel8.Location = new System.Drawing.Point(50, 267);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(102, 19);
             this.metroLabel8.TabIndex = 4;
@@ -1029,7 +1030,7 @@
             // 
             this.metroLabel11.AutoSize = true;
             this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel11.Location = new System.Drawing.Point(483, 210);
+            this.metroLabel11.Location = new System.Drawing.Point(473, 219);
             this.metroLabel11.Name = "metroLabel11";
             this.metroLabel11.Size = new System.Drawing.Size(100, 19);
             this.metroLabel11.TabIndex = 4;
@@ -1039,7 +1040,7 @@
             // 
             this.metroLabel7.AutoSize = true;
             this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel7.Location = new System.Drawing.Point(60, 210);
+            this.metroLabel7.Location = new System.Drawing.Point(50, 219);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(92, 19);
             this.metroLabel7.TabIndex = 4;
@@ -1049,7 +1050,7 @@
             // 
             this.metroLabel10.AutoSize = true;
             this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel10.Location = new System.Drawing.Point(483, 166);
+            this.metroLabel10.Location = new System.Drawing.Point(473, 175);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(95, 19);
             this.metroLabel10.TabIndex = 4;
@@ -1059,7 +1060,7 @@
             // 
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel6.Location = new System.Drawing.Point(60, 166);
+            this.metroLabel6.Location = new System.Drawing.Point(50, 175);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(59, 19);
             this.metroLabel6.TabIndex = 4;
@@ -1069,7 +1070,7 @@
             // 
             this.metroLabel9.AutoSize = true;
             this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel9.Location = new System.Drawing.Point(483, 122);
+            this.metroLabel9.Location = new System.Drawing.Point(473, 131);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(73, 19);
             this.metroLabel9.TabIndex = 4;
@@ -1079,7 +1080,7 @@
             // 
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel5.Location = new System.Drawing.Point(60, 122);
+            this.metroLabel5.Location = new System.Drawing.Point(50, 131);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(50, 19);
             this.metroLabel5.TabIndex = 4;
@@ -1090,7 +1091,7 @@
             this.ckBoxCompleted.AutoSize = true;
             this.ckBoxCompleted.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
             this.ckBoxCompleted.ForeColor = System.Drawing.SystemColors.Control;
-            this.ckBoxCompleted.Location = new System.Drawing.Point(759, 69);
+            this.ckBoxCompleted.Location = new System.Drawing.Point(749, 78);
             this.ckBoxCompleted.Name = "ckBoxCompleted";
             this.ckBoxCompleted.Size = new System.Drawing.Size(92, 19);
             this.ckBoxCompleted.TabIndex = 3;
@@ -1158,7 +1159,7 @@
             this.txtState.CustomButton.UseSelectable = true;
             this.txtState.CustomButton.Visible = false;
             this.txtState.Lines = new string[0];
-            this.txtState.Location = new System.Drawing.Point(625, 262);
+            this.txtState.Location = new System.Drawing.Point(624, 264);
             this.txtState.MaxLength = 32767;
             this.txtState.Name = "txtState";
             this.txtState.PasswordChar = '\0';
@@ -1189,7 +1190,7 @@
             this.txtZipcode.CustomButton.UseSelectable = true;
             this.txtZipcode.CustomButton.Visible = false;
             this.txtZipcode.Lines = new string[0];
-            this.txtZipcode.Location = new System.Drawing.Point(625, 308);
+            this.txtZipcode.Location = new System.Drawing.Point(624, 310);
             this.txtZipcode.MaxLength = 32767;
             this.txtZipcode.Name = "txtZipcode";
             this.txtZipcode.PasswordChar = '\0';
@@ -1220,7 +1221,7 @@
             this.txtDischarge.CustomButton.UseSelectable = true;
             this.txtDischarge.CustomButton.Visible = false;
             this.txtDischarge.Lines = new string[0];
-            this.txtDischarge.Location = new System.Drawing.Point(178, 308);
+            this.txtDischarge.Location = new System.Drawing.Point(177, 310);
             this.txtDischarge.MaxLength = 32767;
             this.txtDischarge.Name = "txtDischarge";
             this.txtDischarge.PasswordChar = '\0';
@@ -1251,7 +1252,7 @@
             this.txtDemoPtLiab.CustomButton.UseSelectable = true;
             this.txtDemoPtLiab.CustomButton.Visible = false;
             this.txtDemoPtLiab.Lines = new string[0];
-            this.txtDemoPtLiab.Location = new System.Drawing.Point(178, 262);
+            this.txtDemoPtLiab.Location = new System.Drawing.Point(177, 264);
             this.txtDemoPtLiab.MaxLength = 32767;
             this.txtDemoPtLiab.Name = "txtDemoPtLiab";
             this.txtDemoPtLiab.PasswordChar = '\0';
@@ -1282,7 +1283,7 @@
             this.txtCity.CustomButton.UseSelectable = true;
             this.txtCity.CustomButton.Visible = false;
             this.txtCity.Lines = new string[0];
-            this.txtCity.Location = new System.Drawing.Point(625, 214);
+            this.txtCity.Location = new System.Drawing.Point(624, 216);
             this.txtCity.MaxLength = 32767;
             this.txtCity.Name = "txtCity";
             this.txtCity.PasswordChar = '\0';
@@ -1313,7 +1314,7 @@
             this.txtDemoPtName.CustomButton.UseSelectable = true;
             this.txtDemoPtName.CustomButton.Visible = false;
             this.txtDemoPtName.Lines = new string[0];
-            this.txtDemoPtName.Location = new System.Drawing.Point(178, 214);
+            this.txtDemoPtName.Location = new System.Drawing.Point(177, 216);
             this.txtDemoPtName.MaxLength = 32767;
             this.txtDemoPtName.Name = "txtDemoPtName";
             this.txtDemoPtName.PasswordChar = '\0';
@@ -1344,7 +1345,7 @@
             this.txtAddress2.CustomButton.UseSelectable = true;
             this.txtAddress2.CustomButton.Visible = false;
             this.txtAddress2.Lines = new string[0];
-            this.txtAddress2.Location = new System.Drawing.Point(625, 170);
+            this.txtAddress2.Location = new System.Drawing.Point(624, 172);
             this.txtAddress2.MaxLength = 32767;
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.PasswordChar = '\0';
@@ -1375,7 +1376,7 @@
             this.txtDemoAccount.CustomButton.UseSelectable = true;
             this.txtDemoAccount.CustomButton.Visible = false;
             this.txtDemoAccount.Lines = new string[0];
-            this.txtDemoAccount.Location = new System.Drawing.Point(178, 170);
+            this.txtDemoAccount.Location = new System.Drawing.Point(177, 172);
             this.txtDemoAccount.MaxLength = 32767;
             this.txtDemoAccount.Name = "txtDemoAccount";
             this.txtDemoAccount.PasswordChar = '\0';
@@ -1406,7 +1407,7 @@
             this.txtAddress1.CustomButton.UseSelectable = true;
             this.txtAddress1.CustomButton.Visible = false;
             this.txtAddress1.Lines = new string[0];
-            this.txtAddress1.Location = new System.Drawing.Point(625, 126);
+            this.txtAddress1.Location = new System.Drawing.Point(624, 128);
             this.txtAddress1.MaxLength = 32767;
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.PasswordChar = '\0';
@@ -1426,7 +1427,7 @@
             // 
             this.metroLabel22.AutoSize = true;
             this.metroLabel22.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel22.Location = new System.Drawing.Point(500, 266);
+            this.metroLabel22.Location = new System.Drawing.Point(499, 268);
             this.metroLabel22.Name = "metroLabel22";
             this.metroLabel22.Size = new System.Drawing.Size(40, 19);
             this.metroLabel22.TabIndex = 7;
@@ -1436,7 +1437,7 @@
             // 
             this.metroLabel24.AutoSize = true;
             this.metroLabel24.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel24.Location = new System.Drawing.Point(500, 312);
+            this.metroLabel24.Location = new System.Drawing.Point(499, 314);
             this.metroLabel24.Name = "metroLabel24";
             this.metroLabel24.Size = new System.Drawing.Size(57, 19);
             this.metroLabel24.TabIndex = 7;
@@ -1457,7 +1458,7 @@
             this.txtDemoFacility.CustomButton.UseSelectable = true;
             this.txtDemoFacility.CustomButton.Visible = false;
             this.txtDemoFacility.Lines = new string[0];
-            this.txtDemoFacility.Location = new System.Drawing.Point(178, 126);
+            this.txtDemoFacility.Location = new System.Drawing.Point(177, 128);
             this.txtDemoFacility.MaxLength = 32767;
             this.txtDemoFacility.Name = "txtDemoFacility";
             this.txtDemoFacility.PasswordChar = '\0';
@@ -1477,7 +1478,7 @@
             // 
             this.metroLabel23.AutoSize = true;
             this.metroLabel23.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel23.Location = new System.Drawing.Point(53, 312);
+            this.metroLabel23.Location = new System.Drawing.Point(52, 314);
             this.metroLabel23.Name = "metroLabel23";
             this.metroLabel23.Size = new System.Drawing.Size(69, 19);
             this.metroLabel23.TabIndex = 7;
@@ -1487,7 +1488,7 @@
             // 
             this.metroLabel21.AutoSize = true;
             this.metroLabel21.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel21.Location = new System.Drawing.Point(500, 218);
+            this.metroLabel21.Location = new System.Drawing.Point(499, 220);
             this.metroLabel21.Name = "metroLabel21";
             this.metroLabel21.Size = new System.Drawing.Size(33, 19);
             this.metroLabel21.TabIndex = 8;
@@ -1497,7 +1498,7 @@
             // 
             this.metroLabel14.AutoSize = true;
             this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel14.Location = new System.Drawing.Point(53, 266);
+            this.metroLabel14.Location = new System.Drawing.Point(52, 268);
             this.metroLabel14.Name = "metroLabel14";
             this.metroLabel14.Size = new System.Drawing.Size(102, 19);
             this.metroLabel14.TabIndex = 7;
@@ -1507,7 +1508,7 @@
             // 
             this.metroLabel20.AutoSize = true;
             this.metroLabel20.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel20.Location = new System.Drawing.Point(500, 174);
+            this.metroLabel20.Location = new System.Drawing.Point(499, 176);
             this.metroLabel20.Name = "metroLabel20";
             this.metroLabel20.Size = new System.Drawing.Size(70, 19);
             this.metroLabel20.TabIndex = 9;
@@ -1517,7 +1518,7 @@
             // 
             this.metroLabel15.AutoSize = true;
             this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel15.Location = new System.Drawing.Point(53, 218);
+            this.metroLabel15.Location = new System.Drawing.Point(52, 220);
             this.metroLabel15.Name = "metroLabel15";
             this.metroLabel15.Size = new System.Drawing.Size(92, 19);
             this.metroLabel15.TabIndex = 8;
@@ -1527,7 +1528,7 @@
             // 
             this.metroLabel19.AutoSize = true;
             this.metroLabel19.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel19.Location = new System.Drawing.Point(500, 130);
+            this.metroLabel19.Location = new System.Drawing.Point(499, 132);
             this.metroLabel19.Name = "metroLabel19";
             this.metroLabel19.Size = new System.Drawing.Size(70, 19);
             this.metroLabel19.TabIndex = 10;
@@ -1537,7 +1538,7 @@
             // 
             this.metroLabel16.AutoSize = true;
             this.metroLabel16.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel16.Location = new System.Drawing.Point(53, 174);
+            this.metroLabel16.Location = new System.Drawing.Point(52, 176);
             this.metroLabel16.Name = "metroLabel16";
             this.metroLabel16.Size = new System.Drawing.Size(59, 19);
             this.metroLabel16.TabIndex = 9;
@@ -1547,7 +1548,7 @@
             // 
             this.metroLabel17.AutoSize = true;
             this.metroLabel17.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel17.Location = new System.Drawing.Point(53, 130);
+            this.metroLabel17.Location = new System.Drawing.Point(52, 132);
             this.metroLabel17.Name = "metroLabel17";
             this.metroLabel17.Size = new System.Drawing.Size(50, 19);
             this.metroLabel17.TabIndex = 10;
@@ -1615,7 +1616,7 @@
             this.metroLabel25.Text = "GENERATE STATEMENT";
             this.metroLabel25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1625,7 +1626,7 @@
             this.Controls.Add(this.panelNavMain);
             this.Controls.Add(this.tbCtrlPages);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Main";
             this.ShowIcon = false;
             this.Text = "AHMC Manual Statement";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

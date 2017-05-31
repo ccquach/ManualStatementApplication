@@ -14,7 +14,12 @@ using AHMCManualStatementApplication.Properties;
 
 namespace AHMCManualStatementApplication
 {
-    public partial class Main : MetroFramework.Forms.MetroForm
+    interface IMain
+    {
+        string PatientName { get; set; }
+    }
+
+    public partial class Main : MetroFramework.Forms.MetroForm, IMain
     {
         #region Variables
         int tabIndex;
@@ -35,6 +40,15 @@ namespace AHMCManualStatementApplication
         string viewDateStr = String.Empty;
         string first = String.Empty;
         string last = String.Empty;
+
+        public string account = String.Empty;
+        #endregion
+
+        #region Properties
+        public string PatientName {
+            get { return this.txtPatientName.Text; }
+            set { this.txtPatientName.Text = value; }
+        }
         #endregion
 
         public Main()
@@ -251,6 +265,7 @@ namespace AHMCManualStatementApplication
         }
         #endregion
 
+        #region Date view selection
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try {
@@ -409,6 +424,35 @@ namespace AHMCManualStatementApplication
             Cursor.Current = Cursors.WaitCursor;
             RunQuery();
             Cursor.Current = Cursors.Default;
+        }
+        #endregion
+
+        private void dataGridAccounts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var g = sender as DataGridView;
+            if (g != null) {
+                try {
+                    var p = g.PointToClient(MousePosition);
+                    var hti = g.HitTest(p.X, p.Y);
+
+                    if (hti.Type == DataGridViewHitTestType.ColumnHeader) {
+                        var columnIndex = hti.ColumnIndex;
+                    }
+                    else if (dataGridAccounts.SelectedRows.Count != 0) {
+                        // Get selected account number
+                        DataGridViewRow row = this.dataGridAccounts.SelectedRows[0];
+                        account = row.Cells["Account #"].Value.ToString();
+                        
+                        // Query account info
+                        CRUDQueries getInfo = new CRUDQueries();
+                        getInfo.readQuery(IMain, conn, account, facility);
+                        tbCtrlPages.SelectedTab = tbStatementHistory;
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }
