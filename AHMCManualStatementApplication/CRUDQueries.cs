@@ -40,7 +40,6 @@ namespace AHMCManualStatementApplication
 
         public void readQuery(IMain form, OleDbConnection conn, string account, string activeFacility)
         {
-            this.form = form;
             query = "SELECT log.*, fac.FacilityAbbr " +
                     "FROM tblManualStmntLog AS log " +
                     "LEFT JOIN tblFacility AS fac " +
@@ -57,7 +56,7 @@ namespace AHMCManualStatementApplication
                                 select acct;
 
                 // Fill account info
-                
+
             }
         }
     }

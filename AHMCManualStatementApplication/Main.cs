@@ -445,7 +445,7 @@ namespace AHMCManualStatementApplication
                         
                         // Query account info
                         CRUDQueries getInfo = new CRUDQueries();
-                        getInfo.readQuery(IMain, conn, account, facility);
+                        getInfo.readQuery(this, conn, account, facility);
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }
                 }
