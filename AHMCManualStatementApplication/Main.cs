@@ -26,6 +26,7 @@ namespace AHMCManualStatementApplication
         string StatementFinal { get; set; }
         string DateNoteEntered { get; set; }
         string NoteEntered { get; set; }
+        bool Completed { get; set; }
         string DemoFacility { get; set; }
         string DemoAccount { get; set; }
         string DemoPatientName { get; set; }
@@ -115,6 +116,11 @@ namespace AHMCManualStatementApplication
         public string NoteEntered {
             get { return this.txtNote.Text; }
             set { this.txtNote.Text = value; }
+        }
+
+        public bool Completed {
+            get { return this.ckBoxCompleted.Checked; }
+            set { this.ckBoxCompleted.Checked = value; }
         }
 
         // Demographics
@@ -581,7 +587,9 @@ namespace AHMCManualStatementApplication
                         
                         // Query account info
                         CRUDQueries getInfo = new CRUDQueries();
+                        Cursor.Current = Cursors.WaitCursor;
                         getInfo.ReadQuery(this, conn, account, facility);
+                        Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }
                 }

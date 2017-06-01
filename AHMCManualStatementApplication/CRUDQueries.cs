@@ -19,25 +19,26 @@ namespace AHMCManualStatementApplication
 
         public void ReadQuery(IMain form, OleDbConnection conn, string account, string facility)
         {
-            query = "SELECT log.*, fac.FacilityAbbr " +
-                    "FROM tblManualStmntLog AS log " +
-                    "LEFT JOIN tblFacility AS fac " +
-                    "ON log.FacilityID = fac.FacilityID";
+            query = @"SELECT log.*, fac.FacilityAbbr 
+                      FROM tblManualStmntLog AS log 
+                      LEFT JOIN tblFacility AS fac
+                      ON log.FacilityID = fac.FacilityID";
 
             using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn)) {
                 DataSet set = new DataSet();
                 adapter.Fill(set, "Accounts");
 
-                // Execute query
+                // Execute statement log query
                 var linqQuery = from acct in set.Tables["Accounts"].AsEnumerable()
                                 where acct.Field<string>("AcctNumber") == account &&
                                       acct.Field<string>("FacilityAbbr") == facility
                                 select acct;
 
-                // Fill account info
+                // Fill account statement info
                 // STATEMENT HISTORY:
                 form.Facility = facility;
                 form.Account = account;
+                form.Completed = linqQuery.SingleOrDefault().Field<bool>("Completed");
 
                 form.PatientName = linqQuery.SingleOrDefault().Field<string>("PatientName");
                 form.PatientLiability = linqQuery.SingleOrDefault().Field<double>("PatResp").ToString("#,##0.00");
@@ -61,7 +62,45 @@ namespace AHMCManualStatementApplication
 
                 form.DemoPatientName = linqQuery.SingleOrDefault().Field<string>("PatientName");
                 form.DemoPatientLiability= linqQuery.SingleOrDefault().Field<double>("PatResp").ToString("#,##0.00");
-                
+            }
+
+            // Get facility db abbreviation
+            string dbFacility = String.Empty;
+            if (facility == "ARMC") {
+                dbFacility = "amh";
+            }
+            else {
+                dbFacility = facility;
+            }
+
+            // Connect to demo table in facility database
+            string connStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
+                             $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{dbFacility}_cpsi_odbc_dw.mdb;" +
+                             $"Persist Security Info=False;";
+
+            using (OleDbConnection connDemo = new OleDbConnection(connStr)) {
+                query = $"SELECT PATIENT_NUMBER, IP1DISC_DATE, IP1PAT_ADDR1, IP1PAT_ADDR2, " +
+                        $"IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                        $"FROM {dbFacility}_demo_audit ";
+
+                using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, connDemo)) {
+                    DataSet set = new DataSet();
+                    adapter.Fill(set, "Demo");
+
+                    // Execute demo query
+                    var linqQuery = from acct in set.Tables["Demo"].AsEnumerable()
+                                    where acct.Field<string>("PATIENT_NUMBER") == account
+                                    select acct;
+
+                    // Fill account demo info
+                    form.DischargeDate = linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").HasValue ?
+                        linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").Value.ToShortDateString() : String.Empty;
+                    form.AddressLine1 = linqQuery.SingleOrDefault().Field<string?>("IP1PAT_ADDR1") ?? String.Empty;
+                    form.AddressLine2 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR2");
+                    form.City = linqQuery.SingleOrDefault().Field<string>("IP1PAT_CITY");
+                    form.State = linqQuery.SingleOrDefault().Field<string>("IP1PAT_STATE");
+                    form.Zipcode = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ZIP");
+                }
             }
         }
     }
