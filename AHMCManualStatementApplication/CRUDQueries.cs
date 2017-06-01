@@ -11,34 +11,13 @@ namespace AHMCManualStatementApplication
 {
     class CRUDQueries
     {
-        private readonly IMain form;
-
         #region Variables
-        // VARIABLES: query
+        // VARIABLES
+        private readonly IMain form;
         public string query;
-
-        // VARIABLES: statement history
-        public string facility;
-        public string patientName;
-        public decimal ptLiability;
-        public DateTime dateRequest;
-        public DateTime dateStmtOne;
-        public DateTime dateStmtTwo;
-        public DateTime dateStmtFin;
-        public DateTime dateNote;
-        public string note;
-        public bool completed;
-
-        // VARIABLES: demographics
-        public DateTime dateDischarge;
-        public string address1;
-        public string address2;
-        public string city;
-        public string state;
-        public string zipCode;
         #endregion
 
-        public void readQuery(IMain form, OleDbConnection conn, string account, string activeFacility)
+        public void ReadQuery(IMain form, OleDbConnection conn, string account, string facility)
         {
             query = "SELECT log.*, fac.FacilityAbbr " +
                     "FROM tblManualStmntLog AS log " +
@@ -52,11 +31,37 @@ namespace AHMCManualStatementApplication
                 // Execute query
                 var linqQuery = from acct in set.Tables["Accounts"].AsEnumerable()
                                 where acct.Field<string>("AcctNumber") == account &&
-                                      acct.Field<string>("FacilityAbbr") == activeFacility
+                                      acct.Field<string>("FacilityAbbr") == facility
                                 select acct;
 
                 // Fill account info
+                // STATEMENT HISTORY:
+                form.Facility = facility;
+                form.Account = account;
 
+                form.PatientName = linqQuery.SingleOrDefault().Field<string>("PatientName");
+                form.PatientLiability = linqQuery.SingleOrDefault().Field<double>("PatResp").ToString("#,##0.00");
+                form.DateRequested = linqQuery.SingleOrDefault().Field<DateTime?>("DateRequested").HasValue ?
+                    linqQuery.SingleOrDefault().Field<DateTime?>("DateRequested").Value.ToShortDateString() : String.Empty;
+
+                form.StatementFirst = linqQuery.SingleOrDefault().Field<DateTime?>("DateFirstStmnt").HasValue ? 
+                    linqQuery.SingleOrDefault().Field<DateTime?>("DateFirstStmnt").Value.ToShortDateString() : String.Empty;
+                form.StatementSecond = linqQuery.SingleOrDefault().Field<DateTime?>("DateSecondStmnt").HasValue ?
+                    linqQuery.SingleOrDefault().Field<DateTime?>("DateSecondStmnt").Value.ToShortDateString() : String.Empty;
+                form.StatementFinal = linqQuery.SingleOrDefault().Field<DateTime?>("DateFinalStmnt").HasValue ?
+                    linqQuery.SingleOrDefault().Field<DateTime?>("DateFinalStmnt").Value.ToShortDateString() : String.Empty;
+
+                form.DateNoteEntered = linqQuery.SingleOrDefault().Field<DateTime?>("DateNoteEntered").HasValue ?
+                    linqQuery.SingleOrDefault().Field<DateTime?>("DateNoteEntered").Value.ToShortDateString() : String.Empty;
+                form.NoteEntered = linqQuery.SingleOrDefault().Field<string>("Notes");
+
+                // DEMOGRAPHICS:
+                form.DemoFacility = facility;
+                form.DemoAccount = account;
+
+                form.DemoPatientName = linqQuery.SingleOrDefault().Field<string>("PatientName");
+                form.DemoPatientLiability= linqQuery.SingleOrDefault().Field<double>("PatResp").ToString("#,##0.00");
+                
             }
         }
     }

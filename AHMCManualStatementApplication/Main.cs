@@ -16,7 +16,26 @@ namespace AHMCManualStatementApplication
 {
     interface IMain
     {
+        string Facility { get; set; }
+        string Account { get; set; }
         string PatientName { get; set; }
+        string PatientLiability { get; set; }
+        string DateRequested { get; set; }
+        string StatementFirst { get; set; }
+        string StatementSecond { get; set; }
+        string StatementFinal { get; set; }
+        string DateNoteEntered { get; set; }
+        string NoteEntered { get; set; }
+        string DemoFacility { get; set; }
+        string DemoAccount { get; set; }
+        string DemoPatientName { get; set; }
+        string DemoPatientLiability { get; set; }
+        string DischargeDate { get; set; }
+        string AddressLine1 { get; set; }
+        string AddressLine2 { get; set; }
+        string City { get; set; }
+        string State { get; set; }
+        string Zipcode { get; set; }
     }
 
     public partial class Main : MetroFramework.Forms.MetroForm, IMain
@@ -47,9 +66,105 @@ namespace AHMCManualStatementApplication
         #endregion
 
         #region Properties
+        // Statement History
+        public string Facility {
+            get { return this.txtFacility.Text; }
+            set { this.txtFacility.Text = value; }
+        }
+
+        public string Account {
+            get { return this.txtAccount.Text; }
+            set { this.txtAccount.Text = value; }
+        }
+
         public string PatientName {
             get { return this.txtPatientName.Text; }
             set { this.txtPatientName.Text = value; }
+        }
+
+        public string PatientLiability {
+            get { return this.txtPtLiab.Text; }
+            set { this.txtPtLiab.Text = value; }
+        }
+
+        public string DateRequested {
+            get { return this.txtRequestedDate.Text; }
+            set { this.txtRequestedDate.Text = value; }
+        }
+
+        public string StatementFirst {
+            get { return this.txtFirstStmnt.Text; }
+            set { this.txtFirstStmnt.Text = value; }
+        }
+
+        public string StatementSecond {
+            get { return this.txtSecondStmnt.Text; }
+            set { this.txtSecondStmnt.Text = value; }
+        }
+
+        public string StatementFinal {
+            get { return this.txtFinalStmnt.Text; }
+            set { this.txtFinalStmnt.Text = value; }
+        }
+
+        public string DateNoteEntered {
+            get { return this.txtNoteDate.Text; }
+            set { this.txtNoteDate.Text = value; }
+        }
+
+        public string NoteEntered {
+            get { return this.txtNote.Text; }
+            set { this.txtNote.Text = value; }
+        }
+
+        // Demographics
+        public string DemoFacility {
+            get { return this.txtDemoFacility.Text; }
+            set { this.txtDemoFacility.Text = value; }
+        }
+
+        public string DemoAccount {
+            get { return this.txtDemoAccount.Text; }
+            set { this.txtDemoAccount.Text = value; }
+        }
+
+        public string DemoPatientName {
+            get { return this.txtDemoPtName.Text; }
+            set { this.txtDemoPtName.Text = value; }
+        }
+
+        public string DemoPatientLiability {
+            get { return this.txtDemoPtLiab.Text; }
+            set { this.txtDemoPtLiab.Text = value; }
+        }
+        public string DischargeDate {
+            get { return this.txtDischarge.Text; }
+            set { this.txtDischarge.Text = value; }
+        }
+
+        public string AddressLine1 {
+            get { return this.txtAddress1.Text; }
+            set { this.txtAddress1.Text = value; }
+        }
+
+        public string AddressLine2 {
+            get { return this.txtAddress2.Text; }
+            set { this.txtAddress2.Text = value; }
+        }
+
+        public string City {
+            get { return this.txtCity.Text; }
+            set { this.txtCity.Text = value; }
+        }
+
+        public string State {
+            get { return this.txtState.Text; }
+            set { this.txtState.Text = value; }
+        }
+
+        public string Zipcode {
+            get { return this.txtZipcode.Text; }
+            set { this.txtZipcode.Text = value; }
         }
         #endregion
 
@@ -466,7 +581,7 @@ namespace AHMCManualStatementApplication
                         
                         // Query account info
                         CRUDQueries getInfo = new CRUDQueries();
-                        getInfo.readQuery(this, conn, account, facility);
+                        getInfo.ReadQuery(this, conn, account, facility);
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }
                 }

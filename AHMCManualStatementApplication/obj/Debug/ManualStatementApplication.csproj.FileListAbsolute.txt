@@ -8,7 +8,6 @@ U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplicat
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AdvancedDataGridView.xml
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\fr\AdvancedDataGridView.resources.dll
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\ru\AdvancedDataGridView.resources.dll
-U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\ManualStatementApplication.csprojResolveAssemblyReference.cache
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Main.resources
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.SpecificDatePicker.resources
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Properties.Resources.resources
