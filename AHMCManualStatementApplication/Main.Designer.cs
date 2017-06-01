@@ -118,6 +118,9 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.tbGenerateStmnt = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
+            this.btnFirstStatement = new MetroFramework.Controls.MetroRadioButton();
+            this.btnSecondStatement = new MetroFramework.Controls.MetroRadioButton();
+            this.btnFinalStatement = new MetroFramework.Controls.MetroRadioButton();
             this.panelNavMain.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelNext.SuspendLayout();
@@ -367,7 +370,7 @@
             this.tbCtrlPages.Dock = System.Windows.Forms.DockStyle.Right;
             this.tbCtrlPages.Location = new System.Drawing.Point(161, 60);
             this.tbCtrlPages.Name = "tbCtrlPages";
-            this.tbCtrlPages.SelectedIndex = 2;
+            this.tbCtrlPages.SelectedIndex = 1;
             this.tbCtrlPages.Size = new System.Drawing.Size(914, 646);
             this.tbCtrlPages.TabIndex = 0;
             this.tbCtrlPages.UseSelectable = true;
@@ -493,6 +496,9 @@
             // tbAccounts
             // 
             this.tbAccounts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbAccounts.Controls.Add(this.btnFinalStatement);
+            this.tbAccounts.Controls.Add(this.btnSecondStatement);
+            this.tbAccounts.Controls.Add(this.btnFirstStatement);
             this.tbAccounts.Controls.Add(this.ckBoxUncompletedFilter);
             this.tbAccounts.Controls.Add(this.ckBoxCompletedFilter);
             this.tbAccounts.Controls.Add(this.lblTotalRows);
@@ -542,7 +548,7 @@
             // 
             this.lblTotalRows.AutoSize = true;
             this.lblTotalRows.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblTotalRows.Location = new System.Drawing.Point(13, 33);
+            this.lblTotalRows.Location = new System.Drawing.Point(19, 59);
             this.lblTotalRows.Name = "lblTotalRows";
             this.lblTotalRows.Size = new System.Drawing.Size(78, 19);
             this.lblTotalRows.TabIndex = 6;
@@ -579,7 +585,7 @@
             this.dataGridAccounts.EnableHeadersVisualStyles = false;
             this.dataGridAccounts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridAccounts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridAccounts.Location = new System.Drawing.Point(0, 64);
+            this.dataGridAccounts.Location = new System.Drawing.Point(0, 101);
             this.dataGridAccounts.MultiSelect = false;
             this.dataGridAccounts.Name = "dataGridAccounts";
             this.dataGridAccounts.ReadOnly = true;
@@ -594,7 +600,7 @@
             this.dataGridAccounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridAccounts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridAccounts.Size = new System.Drawing.Size(904, 538);
+            this.dataGridAccounts.Size = new System.Drawing.Size(904, 501);
             this.dataGridAccounts.TabIndex = 5;
             this.dataGridAccounts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridAccounts_CellDoubleClick);
             // 
@@ -1616,6 +1622,38 @@
             this.metroLabel25.Text = "GENERATE STATEMENT";
             this.metroLabel25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // btnFirstStatement
+            // 
+            this.btnFirstStatement.AutoSize = true;
+            this.btnFirstStatement.Checked = true;
+            this.btnFirstStatement.Location = new System.Drawing.Point(280, 11);
+            this.btnFirstStatement.Name = "btnFirstStatement";
+            this.btnFirstStatement.Size = new System.Drawing.Size(102, 15);
+            this.btnFirstStatement.TabIndex = 8;
+            this.btnFirstStatement.TabStop = true;
+            this.btnFirstStatement.Text = "First Statement";
+            this.btnFirstStatement.UseSelectable = true;
+            // 
+            // btnSecondStatement
+            // 
+            this.btnSecondStatement.AutoSize = true;
+            this.btnSecondStatement.Location = new System.Drawing.Point(280, 37);
+            this.btnSecondStatement.Name = "btnSecondStatement";
+            this.btnSecondStatement.Size = new System.Drawing.Size(119, 15);
+            this.btnSecondStatement.TabIndex = 8;
+            this.btnSecondStatement.Text = "Second Statement";
+            this.btnSecondStatement.UseSelectable = true;
+            // 
+            // btnFinalStatement
+            // 
+            this.btnFinalStatement.AutoSize = true;
+            this.btnFinalStatement.Location = new System.Drawing.Point(280, 63);
+            this.btnFinalStatement.Name = "btnFinalStatement";
+            this.btnFinalStatement.Size = new System.Drawing.Size(105, 15);
+            this.btnFinalStatement.TabIndex = 8;
+            this.btnFinalStatement.Text = "Final Statement";
+            this.btnFinalStatement.UseSelectable = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1745,6 +1783,9 @@
         private MetroFramework.Controls.MetroLabel lblTotalRows;
         private MetroFramework.Controls.MetroCheckBox ckBoxUncompletedFilter;
         private MetroFramework.Controls.MetroCheckBox ckBoxCompletedFilter;
+        private MetroFramework.Controls.MetroRadioButton btnFinalStatement;
+        private MetroFramework.Controls.MetroRadioButton btnSecondStatement;
+        private MetroFramework.Controls.MetroRadioButton btnFirstStatement;
     }
 }
 
