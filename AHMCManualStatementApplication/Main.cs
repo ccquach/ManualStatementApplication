@@ -63,6 +63,7 @@ namespace AHMCManualStatementApplication
         string last = String.Empty;
         bool isRangeDate = false;
 
+        CRUDQueries crudQueries = new CRUDQueries();
         public string account = String.Empty;
         #endregion
 
@@ -584,11 +585,10 @@ namespace AHMCManualStatementApplication
                         // Get selected account number
                         DataGridViewRow row = this.dataGridAccounts.SelectedRows[0];
                         account = row.Cells["Account #"].Value.ToString();
-                        
+
                         // Query account info
-                        CRUDQueries getInfo = new CRUDQueries();
                         Cursor.Current = Cursors.WaitCursor;
-                        getInfo.ReadQuery(this, conn, account, facility);
+                        crudQueries.ReadQuery(this, conn, account, facility);
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }

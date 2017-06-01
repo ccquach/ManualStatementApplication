@@ -95,11 +95,11 @@ namespace AHMCManualStatementApplication
                     // Fill account demo info
                     form.DischargeDate = linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").HasValue ?
                         linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").Value.ToShortDateString() : String.Empty;
-                    form.AddressLine1 = linqQuery.SingleOrDefault().Field<string?>("IP1PAT_ADDR1") ?? String.Empty;
+                    form.AddressLine1 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR1");
                     form.AddressLine2 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR2");
                     form.City = linqQuery.SingleOrDefault().Field<string>("IP1PAT_CITY");
                     form.State = linqQuery.SingleOrDefault().Field<string>("IP1PAT_STATE");
-                    form.Zipcode = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ZIP");
+                    form.Zipcode = linqQuery.SingleOrDefault().Field<int>("IP1PAT_ZIP").ToString();
                 }
             }
         }
