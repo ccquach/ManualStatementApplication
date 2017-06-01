@@ -62,6 +62,9 @@
             this.btnARMC = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.tbAccounts = new MetroFramework.Controls.MetroTabPage();
+            this.btnFinalStatement = new MetroFramework.Controls.MetroRadioButton();
+            this.btnSecondStatement = new MetroFramework.Controls.MetroRadioButton();
+            this.btnFirstStatement = new MetroFramework.Controls.MetroRadioButton();
             this.ckBoxUncompletedFilter = new MetroFramework.Controls.MetroCheckBox();
             this.ckBoxCompletedFilter = new MetroFramework.Controls.MetroCheckBox();
             this.lblTotalRows = new MetroFramework.Controls.MetroLabel();
@@ -118,9 +121,6 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.tbGenerateStmnt = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
-            this.btnFirstStatement = new MetroFramework.Controls.MetroRadioButton();
-            this.btnSecondStatement = new MetroFramework.Controls.MetroRadioButton();
-            this.btnFinalStatement = new MetroFramework.Controls.MetroRadioButton();
             this.panelNavMain.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelNext.SuspendLayout();
@@ -518,6 +518,41 @@
             this.tbAccounts.VerticalScrollbarHighlightOnWheel = false;
             this.tbAccounts.VerticalScrollbarSize = 10;
             // 
+            // btnFinalStatement
+            // 
+            this.btnFinalStatement.AutoSize = true;
+            this.btnFinalStatement.Location = new System.Drawing.Point(280, 63);
+            this.btnFinalStatement.Name = "btnFinalStatement";
+            this.btnFinalStatement.Size = new System.Drawing.Size(105, 15);
+            this.btnFinalStatement.TabIndex = 8;
+            this.btnFinalStatement.Text = "Final Statement";
+            this.btnFinalStatement.UseSelectable = true;
+            this.btnFinalStatement.CheckedChanged += new System.EventHandler(this.btnStmntCycle_CheckedChanged);
+            // 
+            // btnSecondStatement
+            // 
+            this.btnSecondStatement.AutoSize = true;
+            this.btnSecondStatement.Location = new System.Drawing.Point(280, 37);
+            this.btnSecondStatement.Name = "btnSecondStatement";
+            this.btnSecondStatement.Size = new System.Drawing.Size(119, 15);
+            this.btnSecondStatement.TabIndex = 8;
+            this.btnSecondStatement.Text = "Second Statement";
+            this.btnSecondStatement.UseSelectable = true;
+            this.btnSecondStatement.CheckedChanged += new System.EventHandler(this.btnStmntCycle_CheckedChanged);
+            // 
+            // btnFirstStatement
+            // 
+            this.btnFirstStatement.AutoSize = true;
+            this.btnFirstStatement.Checked = true;
+            this.btnFirstStatement.Location = new System.Drawing.Point(280, 11);
+            this.btnFirstStatement.Name = "btnFirstStatement";
+            this.btnFirstStatement.Size = new System.Drawing.Size(102, 15);
+            this.btnFirstStatement.TabIndex = 8;
+            this.btnFirstStatement.TabStop = true;
+            this.btnFirstStatement.Text = "First Statement";
+            this.btnFirstStatement.UseSelectable = true;
+            this.btnFirstStatement.CheckedChanged += new System.EventHandler(this.btnStmntCycle_CheckedChanged);
+            // 
             // ckBoxUncompletedFilter
             // 
             this.ckBoxUncompletedFilter.AutoSize = true;
@@ -529,7 +564,7 @@
             this.ckBoxUncompletedFilter.TabIndex = 7;
             this.ckBoxUncompletedFilter.Text = "Uncompleted";
             this.ckBoxUncompletedFilter.UseSelectable = true;
-            this.ckBoxUncompletedFilter.Click += new System.EventHandler(this.ckBoxFilter_Click);
+            this.ckBoxUncompletedFilter.Click += new System.EventHandler(this.ckBoxCompletedFilter_CheckedChanged);
             // 
             // ckBoxCompletedFilter
             // 
@@ -542,7 +577,7 @@
             this.ckBoxCompletedFilter.TabIndex = 7;
             this.ckBoxCompletedFilter.Text = "Completed";
             this.ckBoxCompletedFilter.UseSelectable = true;
-            this.ckBoxCompletedFilter.Click += new System.EventHandler(this.ckBoxFilter_Click);
+            this.ckBoxCompletedFilter.CheckedChanged += new System.EventHandler(this.ckBoxCompletedFilter_CheckedChanged);
             // 
             // lblTotalRows
             // 
@@ -1621,38 +1656,6 @@
             this.metroLabel25.TabIndex = 2;
             this.metroLabel25.Text = "GENERATE STATEMENT";
             this.metroLabel25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnFirstStatement
-            // 
-            this.btnFirstStatement.AutoSize = true;
-            this.btnFirstStatement.Checked = true;
-            this.btnFirstStatement.Location = new System.Drawing.Point(280, 11);
-            this.btnFirstStatement.Name = "btnFirstStatement";
-            this.btnFirstStatement.Size = new System.Drawing.Size(102, 15);
-            this.btnFirstStatement.TabIndex = 8;
-            this.btnFirstStatement.TabStop = true;
-            this.btnFirstStatement.Text = "First Statement";
-            this.btnFirstStatement.UseSelectable = true;
-            // 
-            // btnSecondStatement
-            // 
-            this.btnSecondStatement.AutoSize = true;
-            this.btnSecondStatement.Location = new System.Drawing.Point(280, 37);
-            this.btnSecondStatement.Name = "btnSecondStatement";
-            this.btnSecondStatement.Size = new System.Drawing.Size(119, 15);
-            this.btnSecondStatement.TabIndex = 8;
-            this.btnSecondStatement.Text = "Second Statement";
-            this.btnSecondStatement.UseSelectable = true;
-            // 
-            // btnFinalStatement
-            // 
-            this.btnFinalStatement.AutoSize = true;
-            this.btnFinalStatement.Location = new System.Drawing.Point(280, 63);
-            this.btnFinalStatement.Name = "btnFinalStatement";
-            this.btnFinalStatement.Size = new System.Drawing.Size(105, 15);
-            this.btnFinalStatement.TabIndex = 8;
-            this.btnFinalStatement.Text = "Final Statement";
-            this.btnFinalStatement.UseSelectable = true;
             // 
             // Main
             // 

@@ -36,10 +36,12 @@ namespace AHMCManualStatementApplication
         DataView view;
         StringBuilder sb = new StringBuilder();
 
+        string stmntCycle = "First Statement";
         string viewDate = String.Empty;
         string viewDateStr = String.Empty;
         string first = String.Empty;
         string last = String.Empty;
+        bool isRangeDate = false;
 
         public string account = String.Empty;
         #endregion
@@ -58,7 +60,7 @@ namespace AHMCManualStatementApplication
             this.StyleManager = msmMain;
         }
 
-        #region Database connection
+        #region Database Connection
         // Start page: Home screen
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -93,7 +95,7 @@ namespace AHMCManualStatementApplication
         }
         #endregion
 
-        #region Button accessibility
+        #region Button Accessibility
         // Make functions active when facility selected
         private void ActivateFunctions()
         {
@@ -277,18 +279,20 @@ namespace AHMCManualStatementApplication
                         if (today.DayOfWeek == DayOfWeek.Monday) {
                             first = new DateTime(today.Year, today.AddMonths(-1).Month, today.AddDays(-2).Day).ToShortDateString();
                             last = today.AddMonths(-1).ToShortDateString();
-                            viewDateStr = ">= '" + first + "' AND [Date Requested] <= '" + last + "'";
+                            viewDateStr = $">= '{first}' AND [{stmntCycle}] <= '{last}'";
+                            isRangeDate = true;
                         }
                         else {
                             viewDate = today.AddMonths(-1).ToShortDateString();
-                            viewDateStr = "= '" + viewDate + "'";
+                            viewDateStr = $"= '{viewDate}'";
                         }
                         break;
                     case "&Last Month":
                         var month = new DateTime(today.Year, today.Month, 1);
                         first = month.AddMonths(-1).ToShortDateString();
                         last = month.AddDays(-1).ToShortDateString();
-                        viewDateStr = ">= '" + first + "' AND [Date Requested] <= '" + last + "'";
+                        viewDateStr = $">= '{first}' AND [{stmntCycle}] <= '{last}'";
+                        isRangeDate = true;
                         break;
                     case "&Specific Date":
                         using (SpecificDatePicker dtPicker = new SpecificDatePicker()) {
@@ -299,7 +303,7 @@ namespace AHMCManualStatementApplication
                                 }
                                 else {
                                     viewDate = dtPicker.ReturnSpecificDate.Value.ToShortDateString();
-                                    viewDateStr = "= '" + viewDate + "'";
+                                    viewDateStr = $"= '{viewDate}'";
                                 }
                             }
                             else {
@@ -348,6 +352,9 @@ namespace AHMCManualStatementApplication
                     "log.AcctNumber AS [Account #], " +
                     "log.PatientName AS [Patient Name], " +
                     "log.PatResp AS [Patient Responsibility], " +
+                    "log.DateFirstStmnt AS [First Statement], " +
+                    "log.DateSecondStmnt AS [Second Statement], " +
+                    "log.DateFinalStmnt AS [Final Statement], " +
                     "log.Completed AS [Completed] " +
                     "FROM tblManualStmntLog AS [log] " +
                     "LEFT JOIN tblFacility AS [fac] " +
@@ -355,7 +362,7 @@ namespace AHMCManualStatementApplication
                     "WHERE fac.FacilityAbbr = @Facility";
 
             try {
-                // Get account data
+                // Get account records
                 OleDbCommand cmd = new OleDbCommand(query, conn);
                 cmd.Parameters.Add("@Facility", OleDbType.VarChar).Value = facility;
 
@@ -372,6 +379,7 @@ namespace AHMCManualStatementApplication
                     sb.Clear();
                     FilterByCompleted();
                     FilterByStatementDate();
+                    MessageBox.Show(sb.ToString());                                                                         //debug
                     view.RowFilter = sb.ToString();
                     dt = view.ToTable();
 
@@ -403,7 +411,18 @@ namespace AHMCManualStatementApplication
             else if (!ckBoxCompletedFilter.Checked && ckBoxUncompletedFilter.Checked) {
                 sb.Append("[Completed] = False");
             }
-            MessageBox.Show(sb.ToString());
+        }
+
+        // Get statement cycle
+        private void btnStmntCycle_CheckedChanged(object sender, EventArgs e)
+        {
+            MetroRadioButton btnStmnt = sender as MetroRadioButton;
+            if (btnStmnt.Checked) {
+                stmntCycle = btnStmnt.Text;
+                Cursor.Current = Cursors.WaitCursor;
+                RunQuery();
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         // Filter by statement date
@@ -414,12 +433,14 @@ namespace AHMCManualStatementApplication
             }
 
             if (viewDateStr != String.Empty) {
-                sb.Append("[Date Requested] " + viewDateStr);
+                if (isRangeDate) {
+                    viewDateStr = $">= '{first}' AND [{stmntCycle}] <= '{last}'";
+                }
+                sb.Append($"[{stmntCycle}] {viewDateStr}");
             }
-            MessageBox.Show(sb.ToString());
         }
 
-        private void ckBoxFilter_Click(object sender, EventArgs e)
+        private void ckBoxCompletedFilter_CheckedChanged(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             RunQuery();
