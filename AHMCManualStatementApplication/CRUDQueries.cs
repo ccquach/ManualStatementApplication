@@ -17,7 +17,13 @@ namespace AHMCManualStatementApplication
         public string query;
         #endregion
 
-        public void ReadQuery(IMain form, OleDbConnection conn, string account, string facility)
+        // Constructor
+        public CRUDQueries(IMain form)
+        {
+            this.form = form;
+        }
+
+        public void ReadQuery(OleDbConnection conn, string account, string facility)
         {
             try {
                 query = @"SELECT log.*, fac.FacilityAbbr 
@@ -103,11 +109,6 @@ namespace AHMCManualStatementApplication
 
                         form.DischargeDate = linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").HasValue ?
                             linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").Value.ToShortDateString() : String.Empty;
-
-                        // Close connection
-                        if (connDemo.State == ConnectionState.Open) {
-                            connDemo.Close();
-                        }
                     }
                 }
             }

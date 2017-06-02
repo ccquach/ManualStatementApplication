@@ -62,8 +62,7 @@ namespace AHMCManualStatementApplication
         string first = String.Empty;
         string last = String.Empty;
         bool isRangeDate = false;
-
-        CRUDQueries crudQueries = new CRUDQueries();
+        
         public string account = String.Empty;
         #endregion
 
@@ -178,7 +177,7 @@ namespace AHMCManualStatementApplication
         public Main()
         {
             InitializeComponent();
-
+            
             this.StyleManager = msmMain;
         }
 
@@ -207,8 +206,9 @@ namespace AHMCManualStatementApplication
         {
             try
             {
-                if (conn.State == ConnectionState.Open)
+                if (conn.State == ConnectionState.Open) {
                     conn.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -588,7 +588,8 @@ namespace AHMCManualStatementApplication
 
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
-                        crudQueries.ReadQuery(this, conn, account, facility);
+                        CRUDQueries crud = new CRUDQueries(this);
+                        crud.ReadQuery(conn, account, facility);
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }
