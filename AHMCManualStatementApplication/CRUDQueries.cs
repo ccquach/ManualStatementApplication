@@ -82,39 +82,64 @@ namespace AHMCManualStatementApplication
                                  $"Persist Security Info=False;";
 
                 using (OleDbConnection connDemo = new OleDbConnection(connStr)) {
-                    // Open connection
                     connDemo.Open();
 
-                    query = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                            $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                            $"FROM {dbFacility}_demo_audit";
+                    OleDbCommand cmd = connDemo.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText= $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                                     $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                                     $"FROM {dbFacility}_demo_audit";
 
-                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, connDemo)) {
-                        DataSet set = new DataSet();
-                        adapter.Fill(set, "Demo");
-
-                        // Execute demo query
-                        var linqQuery = from acct in set.Tables["Demo"].AsEnumerable()
-                                        where acct.Field<string>("PATIENT_NUMBER").Replace(" ","") == account
-                                        select acct;
-
-                        // Fill account demo info
-                        form.PatientName = linqQuery.SingleOrDefault().Field<string>("PATIENT_NAME");
-                        form.DemoPatientName = linqQuery.SingleOrDefault().Field<string>("PATIENT_NAME");
-                        form.AddressLine1 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR1");
-                        form.AddressLine2 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR2");
-                        form.City = linqQuery.SingleOrDefault().Field<string>("IP1PAT_CITY");
-                        form.State = linqQuery.SingleOrDefault().Field<string>("IP1PAT_STATE");
-                        form.Zipcode = linqQuery.SingleOrDefault().Field<int>("IP1PAT_ZIP").ToString();
-
-                        form.DischargeDate = linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").HasValue ?
-                            linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").Value.ToShortDateString() : String.Empty;
+                    using (OleDbDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            form.PatientName = reader.SafeGetValue("PATIENT_NAME");
+                            form.DemoPatientName = reader.SafeGetValue("PATIENT_NAME");
+                            form.DischargeDate = reader.SafeGetValue("IP1DISC_DATE");
+                            form.AddressLine1 = reader.SafeGetValue("IP1PAT_ADDR1");
+                            form.AddressLine2 = reader.SafeGetValue("IP1PAT_ADDR2");
+                            form.City = reader.SafeGetValue("IP1PAT_CITY");
+                            form.State = reader.SafeGetValue("IP1PAT_STATE");
+                            form.Zipcode = reader.SafeGetValue("IP1PAT_ZIP");
+                        }
                     }
                 }
+
+                //using (OleDbConnection connDemo = new OleDbConnection(connStr)) {
+                //    // Open connection
+                //    connDemo.Open();
+
+                //    query = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                //            $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                //            $"FROM {dbFacility}_demo_audit";
+
+                //    using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, connDemo)) {
+                //        DataSet set = new DataSet();
+                //        adapter.Fill(set, "Demo");
+
+                //        // Execute demo query
+                //        var linqQuery = from acct in set.Tables["Demo"].AsEnumerable()
+                //                        where acct.Field<string>("PATIENT_NUMBER").Replace(" ","") == account
+                //                        select acct;
+
+                //        // Fill account demo info
+                //        form.PatientName = linqQuery.SingleOrDefault().Field<string>("PATIENT_NAME");
+                //        form.DemoPatientName = linqQuery.SingleOrDefault().Field<string>("PATIENT_NAME");
+                //        form.AddressLine1 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR1");
+                //        form.AddressLine2 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR2");
+                //        form.City = linqQuery.SingleOrDefault().Field<string>("IP1PAT_CITY");
+                //        form.State = linqQuery.SingleOrDefault().Field<string>("IP1PAT_STATE");
+                //        form.Zipcode = linqQuery.SingleOrDefault().Field<int>("IP1PAT_ZIP").ToString();
+
+                //        form.DischargeDate = linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").HasValue ?
+                //            linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").Value.ToShortDateString() : String.Empty;
+                //    }
+                //}
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        
     }
 }
