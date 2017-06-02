@@ -95,7 +95,7 @@ namespace AHMCManualStatementApplication
 
                         // Execute demo query
                         var linqQuery = from acct in set.Tables["Demo"].AsEnumerable()
-                                        where acct.Field<string>("PATIENT_NUMBER") == account
+                                        where acct.Field<string>("PATIENT_NUMBER").Replace(" ","") == account
                                         select acct;
 
                         // Fill account demo info
