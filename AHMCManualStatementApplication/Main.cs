@@ -177,7 +177,6 @@ namespace AHMCManualStatementApplication
         public Main()
         {
             InitializeComponent();
-            
             this.StyleManager = msmMain;
         }
 
@@ -226,7 +225,8 @@ namespace AHMCManualStatementApplication
                 this.tileGenerate.Enabled = false;
                 this.tileBack.Enabled = false;
                 this.tileNext.Enabled = false;
-            } else {
+            }
+            else {
                 this.tileView.Enabled = true;
                 this.tileGenerate.Enabled = true;
                 this.tileBack.Enabled = true;
@@ -329,6 +329,9 @@ namespace AHMCManualStatementApplication
                     break;
                 case "tileDeleteAccount":
                     tileImg = Resources.delete;
+                    break;
+                case "tileEdit":
+                    tileImg = Resources.edit;
                     break;
                 case "tileExport":
                     tileImg = Resources.export;
@@ -602,5 +605,22 @@ namespace AHMCManualStatementApplication
                 }
             }
         }
+
+        #region User CRUD Functions
+        private void tileAddAccount_Click(object sender, EventArgs e)
+        {
+            try {
+                using (NewAccount newAcct = new NewAccount(facility)) {
+                    var result = newAcct.ShowDialog();
+                    if (result == DialogResult.Yes) {
+                        MessageBox.Show("Test Successful");
+                    }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
     }
 }
