@@ -181,7 +181,7 @@ namespace AHMCManualStatementApplication
             this.StyleManager = msmMain;
         }
 
-        #region Database Connection
+        #region Manual Statement Database Connection
         // Start page: Home screen
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -192,7 +192,6 @@ namespace AHMCManualStatementApplication
                 if (conn.State == ConnectionState.Closed) {
                     conn.Open();
                 }
-
                 ActivateFunctions();
             }
             catch (Exception ex)

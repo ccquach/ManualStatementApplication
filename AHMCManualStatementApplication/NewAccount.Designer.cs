@@ -250,6 +250,7 @@
             this.txtNewAccount.UseSelectable = true;
             this.txtNewAccount.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNewAccount.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtNewAccount.Leave += new System.EventHandler(this.txtNewAccount_Leave);
             // 
             // txtNewPatientName
             // 
@@ -629,6 +630,7 @@
             this.Padding = new System.Windows.Forms.Padding(20, 111, 20, 20);
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Add New Account";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewAccount_FormClosing);
             this.Load += new System.EventHandler(this.NewAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.msmNewAccount)).EndInit();
             this.ResumeLayout(false);
