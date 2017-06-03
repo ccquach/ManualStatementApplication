@@ -37,14 +37,14 @@ namespace AHMCManualStatementApplication
 
                     // Execute statement log query
                     var linqQuery = from acct in set.Tables["Accounts"].AsEnumerable()
-                                    where acct.Field<string>("AcctNumber") == account &&
-                                          acct.Field<string>("FacilityAbbr") == facility
+                                    where acct.Field<string>("AcctNumber") == form.account &&
+                                          acct.Field<string>("FacilityAbbr") == form.facility
                                     select acct;
 
                     // Fill account statement info
                     // STATEMENT HISTORY:
-                    form.Facility = facility;
-                    form.Account = account;
+                    form.Facility = form.facility;
+                    form.Account = form.account;
                     form.Completed = linqQuery.SingleOrDefault().Field<bool>("Completed");
                     form.PatientLiability = linqQuery.SingleOrDefault().Field<double>("PatResp").ToString("#,##0.00");
 
@@ -62,8 +62,8 @@ namespace AHMCManualStatementApplication
                     form.NoteEntered = linqQuery.SingleOrDefault().Field<string>("Notes");
 
                     // DEMOGRAPHICS:
-                    form.DemoFacility = facility;
-                    form.DemoAccount = account;
+                    form.DemoFacility = form.facility;
+                    form.DemoAccount = form.account;
                     form.DemoPatientLiability = linqQuery.SingleOrDefault().Field<double>("PatResp").ToString("#,##0.00");
                 }
 
@@ -73,7 +73,7 @@ namespace AHMCManualStatementApplication
                     dbFacility = "amh";
                 }
                 else {
-                    dbFacility = facility;
+                    dbFacility = form.facility;
                 }
                 
                 // Connect to demo table in facility database
