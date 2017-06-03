@@ -43,7 +43,6 @@ namespace AHMCManualStatementApplication
     {
         #region Variables
         int tabIndex;
-        string facility = String.Empty;
 
         MetroTile tile = null;
         String tileName = String.Empty;
@@ -67,6 +66,8 @@ namespace AHMCManualStatementApplication
         #endregion
 
         #region Properties
+        public string facility { get; set; }
+
         // Statement History
         public string Facility {
             get { return this.txtFacility.Text; }

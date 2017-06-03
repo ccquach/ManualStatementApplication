@@ -581,14 +581,14 @@
             this.btnAddNewAccount.Name = "btnAddNewAccount";
             this.btnAddNewAccount.Size = new System.Drawing.Size(75, 23);
             this.btnAddNewAccount.TabIndex = 4;
-            this.btnAddNewAccount.Text = "Add";
+            this.btnAddNewAccount.Text = "&Add";
             this.btnAddNewAccount.UseSelectable = true;
             this.btnAddNewAccount.Click += new System.EventHandler(this.btnAddNewAccount_Click);
             // 
             // msmNewAccount
             // 
             this.msmNewAccount.Owner = this;
-            this.msmNewAccount.Style = MetroFramework.MetroColorStyle.Purple;
+            this.msmNewAccount.Style = MetroFramework.MetroColorStyle.Red;
             // 
             // NewAccount
             // 

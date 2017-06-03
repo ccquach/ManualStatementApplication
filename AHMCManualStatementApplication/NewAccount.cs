@@ -18,13 +18,16 @@ namespace AHMCManualStatementApplication
         {
             InitializeComponent();
             this.StyleManager = msmNewAccount;
+
+            // Default info
+            MessageBox.Show(facility);
+            this.txtNewFacility.Text = facility;
+            this.txtNewDateNoteEntered.Text = DateTime.Now.ToShortDateString();
         }
 
         private void NewAccount_Load(object sender, EventArgs e)
         {
-            // Default info
-            
-            this.txtNewDateNoteEntered.Text = DateTime.Now.ToShortDateString();
+            // TODO: Connect to demo database
         }
 
         private void btnAddNewAccount_Click(object sender, EventArgs e)
