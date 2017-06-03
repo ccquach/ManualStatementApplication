@@ -23,7 +23,7 @@ namespace AHMCManualStatementApplication
             this.form = form;
         }
 
-        public void ReadQuery(OleDbConnection conn, string account, string facility)
+        public void ReadQuery(OleDbConnection conn)
         {
             try {
                 query = @"SELECT log.*, fac.FacilityAbbr 
@@ -69,21 +69,21 @@ namespace AHMCManualStatementApplication
 
                 // Get facility db abbreviation
                 string dbFacility = String.Empty;
-                if (facility == "ARMC") {
+                if (form.facility == "ARMC") {
                     dbFacility = "amh";
                 }
                 else {
                     dbFacility = facility;
                 }
-
+                
                 // Connect to demo table in facility database
                 string connStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
                                  $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{dbFacility}_cpsi_odbc_dw.mdb;" +
                                  $"Persist Security Info=False;";
-
+                
                 using (OleDbConnection connDemo = new OleDbConnection(connStr)) {
                     connDemo.Open();
-
+                    
                     OleDbCommand cmd = connDemo.CreateCommand();
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText= $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +

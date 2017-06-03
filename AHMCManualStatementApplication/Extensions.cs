@@ -45,5 +45,22 @@ namespace AHMCManualStatementApplication
             }
         }
         #endregion
+
+        #region Get database connection string
+        public static string GetFacConnStr(this Form form, string facility)
+        {
+            if (facility == "ARMC") {
+                return "amh";
+            }
+            else {
+                return facility.ToLower();
+            }
+        }
+
+        public static string GetFacDemoQuery()
+        {
+            return "";
+        }
+        #endregion
     }
 }

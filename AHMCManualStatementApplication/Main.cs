@@ -16,6 +16,7 @@ namespace AHMCManualStatementApplication
 {
     interface IMain
     {
+        string facility { get; set; }
         string Facility { get; set; }
         string Account { get; set; }
         string PatientName { get; set; }
@@ -38,7 +39,7 @@ namespace AHMCManualStatementApplication
         string State { get; set; }
         string Zipcode { get; set; }
     }
-
+    
     public partial class Main : MetroFramework.Forms.MetroForm, IMain
     {
         #region Variables
@@ -61,12 +62,11 @@ namespace AHMCManualStatementApplication
         string first = String.Empty;
         string last = String.Empty;
         bool isRangeDate = false;
-        
-        public string account = String.Empty;
         #endregion
 
         #region Properties
         public string facility { get; set; }
+        public string account { get; set; }
 
         // Statement History
         public string Facility {
@@ -595,7 +595,7 @@ namespace AHMCManualStatementApplication
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
                         CRUDQueries crud = new CRUDQueries(this);
-                        crud.ReadQuery(conn, account, facility);
+                        crud.ReadQuery(conn);
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }
