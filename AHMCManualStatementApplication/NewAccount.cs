@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Controls;
 using System.Data;
 using System.Data.OleDb;
 
@@ -74,6 +75,22 @@ namespace AHMCManualStatementApplication
                     while (reader.Read()) {
                         this.txtNewPatientName.Text = reader.GetString(1);
                     }
+                }
+            }
+            else {
+                ClearTextBoxes(this);                
+            }
+        }
+
+        private void ClearTextBoxes(Control parent)
+        {
+            foreach (Control child in this.Controls) {
+                MetroTextBox textBox = child as MetroTextBox;
+                if (textBox == null) {
+                    ClearTextBoxes(child);
+                }
+                else {
+                    textBox.Text = String.Empty;
                 }
             }
         }
