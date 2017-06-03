@@ -64,22 +64,39 @@ namespace AHMCManualStatementApplication
 
         private void txtNewAccount_Leave(object sender, EventArgs e)
         {
-            if (this.txtNewAccount.Text != String.Empty) {
-                OleDbCommand cmd = connDemo.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = this.GetFacDbInfo(this.txtNewFacility.Text).Item2;
-                //cmd.CommandText = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                //                  $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                //                  $"FROM {this.txtNewFacility.Text}_demo_audit";
+            try {
+                if (this.txtNewAccount.Text != String.Empty) {
+                    OleDbCommand cmd = connDemo.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = this.GetFacDbInfo(this.txtNewFacility.Text).Item2;
+                    //cmd.CommandText = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                    //                  $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                    //                  $"FROM {this.txtNewFacility.Text}_demo_audit";
 
-                using (OleDbDataReader reader = cmd.ExecuteReader()) {
-                    while (reader.Read()) {
-                        this.txtNewPatientName.Text = reader.GetString(1);
+                    using (OleDbDataReader reader = cmd.ExecuteReader()) {
+                        if (reader["PATIENT_NUMBER"] != DBNull.Value) {
+                            while (reader.Read()) {
+                                this.txtNewPatientName.Text = reader.SafeGetValue("PATIENT_NAME");
+                                this.txtNewDischarge.Text = reader.SafeGetValue("IP1DISC_DATE");
+                                this.txtNewAddress1.Text = reader.SafeGetValue("IP1PAT_ADDR1");
+                                this.txtNewAddress2.Text = reader.SafeGetValue("IP1PAT_ADDR2");
+                                this.txtNewCity.Text = reader.SafeGetValue("IP1PAT_CITY");
+                                this.txtNewState.Text = reader.SafeGetValue("IP1PAT_STATE");
+                                this.txtNewZipcode.Text = reader.SafeGetValue("IP1PAT_ZIP");
+                            }
+                        }
+                        else {
+                            MessageBox.Show("The entered account does not exist.");
+                            return;
+                        }
                     }
                 }
+                else {
+                    ClearTextBoxes(this);
+                }
             }
-            else {
-                ClearTextBoxes(this);                
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
         }
 
