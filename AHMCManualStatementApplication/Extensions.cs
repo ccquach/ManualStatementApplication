@@ -47,19 +47,25 @@ namespace AHMCManualStatementApplication
         #endregion
 
         #region Get database connection string
-        public static string GetFacConnStr(this Form form, string facility)
+        public static Tuple<string, string> GetFacDbInfo(this Form form, string facility)
         {
+            string dbFacility;
             if (facility == "ARMC") {
-                return "amh";
+                dbFacility = "amh";
             }
             else {
-                return facility.ToLower();
+                dbFacility = facility.ToLower();
             }
-        }
 
-        public static string GetFacDemoQuery()
-        {
-            return "";
+            string facConnStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
+                                $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{dbFacility}_cpsi_odbc_dw.mdb;" +
+                                $"Persist Security Info=False;";
+
+            string facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                                  $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                                  $"FROM {dbFacility}_demo_audit";
+
+            return Tuple.Create(facConnStr, facDemoQuery);
         }
         #endregion
     }

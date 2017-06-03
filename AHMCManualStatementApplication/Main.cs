@@ -17,6 +17,7 @@ namespace AHMCManualStatementApplication
     interface IMain
     {
         string facility { get; set; }
+        string account { get; set; }
         string Facility { get; set; }
         string Account { get; set; }
         string PatientName { get; set; }
@@ -595,7 +596,7 @@ namespace AHMCManualStatementApplication
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
                         CRUDQueries crud = new CRUDQueries(this);
-                        crud.ReadQuery(conn);
+                        crud.ReadQuery(conn, this.GetFacDbInfo(facility));
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }

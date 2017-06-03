@@ -23,13 +23,13 @@ namespace AHMCManualStatementApplication
             this.form = form;
         }
 
-        public void ReadQuery(OleDbConnection conn)
+        public void ReadQuery(OleDbConnection conn, Tuple<string, string> facDbInfo)
         {
             try {
                 query = @"SELECT log.*, fac.FacilityAbbr 
-                      FROM tblManualStmntLog AS log 
-                      LEFT JOIN tblFacility AS fac
-                      ON log.FacilityID = fac.FacilityID";
+                          FROM tblManualStmntLog AS log 
+                          LEFT JOIN tblFacility AS fac
+                          ON log.FacilityID = fac.FacilityID";
 
                 using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn)) {
                     DataSet set = new DataSet();
@@ -67,28 +67,33 @@ namespace AHMCManualStatementApplication
                     form.DemoPatientLiability = linqQuery.SingleOrDefault().Field<double>("PatResp").ToString("#,##0.00");
                 }
 
+                #region Old connStr code
                 // Get facility db abbreviation
-                string dbFacility = String.Empty;
-                if (form.facility == "ARMC") {
-                    dbFacility = "amh";
-                }
-                else {
-                    dbFacility = form.facility;
-                }
-                
+                //string dbFacility = String.Empty;
+                //if (form.facility == "ARMC") {
+                //    dbFacility = "amh";
+                //}
+                //else {
+                //    dbFacility = form.facility;
+                //}
+
                 // Connect to demo table in facility database
-                string connStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
-                                 $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{dbFacility}_cpsi_odbc_dw.mdb;" +
-                                 $"Persist Security Info=False;";
-                
-                using (OleDbConnection connDemo = new OleDbConnection(connStr)) {
+                //string connStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
+                //                 $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{dbFacility}_cpsi_odbc_dw.mdb;" +
+                //                 $"Persist Security Info=False;";
+                #endregion
+
+                using (OleDbConnection connDemo = new OleDbConnection(facDbInfo.Item1)) {
                     connDemo.Open();
                     
                     OleDbCommand cmd = connDemo.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText= $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                                     $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                                     $"FROM {dbFacility}_demo_audit";
+                    cmd.CommandText = facDbInfo.Item2;
+                    #region Old command code
+                    //cmd.CommandText= $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                    //                 $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                    //                 $"FROM {dbFacility}_demo_audit";
+                    #endregion
 
                     using (OleDbDataReader reader = cmd.ExecuteReader()) {
                         while (reader.Read()) {
@@ -104,6 +109,7 @@ namespace AHMCManualStatementApplication
                     }
                 }
 
+                #region Old LINQ to DataSet code
                 //using (OleDbConnection connDemo = new OleDbConnection(connStr)) {
                 //    // Open connection
                 //    connDemo.Open();
@@ -134,6 +140,7 @@ namespace AHMCManualStatementApplication
                 //            linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").Value.ToShortDateString() : String.Empty;
                 //    }
                 //}
+                #endregion
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);

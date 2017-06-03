@@ -34,11 +34,11 @@ namespace AHMCManualStatementApplication
         {
             // Connect to demo database
             try {
-                string connStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
-                                 $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{this.txtNewFacility.Text}_cpsi_odbc_dw.mdb;" +
-                                 $"Persist Security Info=False;";
+                //string connStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
+                //                 $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{this.txtNewFacility.Text}_cpsi_odbc_dw.mdb;" +
+                //                 $"Persist Security Info=False;";
 
-                connDemo = new OleDbConnection(connStr);
+                connDemo = new OleDbConnection(this.GetFacDbInfo(this.txtNewFacility.Text).Item1);
                 if (connDemo.State == ConnectionState.Closed) {
                     connDemo.Open();
                 }
@@ -67,9 +67,10 @@ namespace AHMCManualStatementApplication
             if (this.txtNewAccount.Text != String.Empty) {
                 OleDbCommand cmd = connDemo.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                                  $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                                  $"FROM {this.txtNewFacility.Text}_demo_audit";
+                cmd.CommandText = this.GetFacDbInfo(this.txtNewFacility.Text).Item2;
+                //cmd.CommandText = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                //                  $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                //                  $"FROM {this.txtNewFacility.Text}_demo_audit";
 
                 using (OleDbDataReader reader = cmd.ExecuteReader()) {
                     while (reader.Read()) {
