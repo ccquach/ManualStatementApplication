@@ -31,3 +31,4 @@ C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementAppl
 C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\fr\AdvancedDataGridView.resources.dll
 C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\ru\AdvancedDataGridView.resources.dll
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\ManualStatementApplication.csprojResolveAssemblyReference.cache
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.NewAccount.resources

@@ -293,6 +293,9 @@ namespace AHMCManualStatementApplication
                 case "tileDeleteAccount":
                     txtName = "DEL";
                     break;
+                case "tileEdit":
+                    txtName = "EDIT";
+                    break;
                 case "tileExport":
                     txtName = "EXCEL";
                     break;

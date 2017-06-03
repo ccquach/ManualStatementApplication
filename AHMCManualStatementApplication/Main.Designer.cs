@@ -29,21 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNavMain = new MetroFramework.Controls.MetroPanel();
             this.panelBack = new MetroFramework.Controls.MetroPanel();
-            this.tileBack = new MetroFramework.Controls.MetroTile();
             this.panelNext = new MetroFramework.Controls.MetroPanel();
-            this.tileNext = new MetroFramework.Controls.MetroTile();
             this.panelView = new MetroFramework.Controls.MetroPanel();
-            this.tileView = new MetroFramework.Controls.MetroTile();
             this.panelGenerate = new MetroFramework.Controls.MetroPanel();
-            this.tileGenerate = new MetroFramework.Controls.MetroTile();
             this.panelHome = new MetroFramework.Controls.MetroPanel();
-            this.tileHome = new MetroFramework.Controls.MetroTile();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.ctxViewMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.todayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,12 +49,6 @@
             this.tbCtrlPages = new AHMCManualStatementApplication.TablessControl();
             this.tbHome = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.btnWHT = new MetroFramework.Controls.MetroButton();
-            this.btnSGV = new MetroFramework.Controls.MetroButton();
-            this.btnMPH = new MetroFramework.Controls.MetroButton();
-            this.btnGEM = new MetroFramework.Controls.MetroButton();
-            this.btnGAR = new MetroFramework.Controls.MetroButton();
-            this.btnARMC = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.tbAccounts = new MetroFramework.Controls.MetroTabPage();
             this.btnFinalStatement = new MetroFramework.Controls.MetroRadioButton();
@@ -69,9 +58,6 @@
             this.ckBoxCompletedFilter = new MetroFramework.Controls.MetroCheckBox();
             this.lblTotalRows = new MetroFramework.Controls.MetroLabel();
             this.dataGridAccounts = new MetroFramework.Controls.MetroGrid();
-            this.tileExport = new MetroFramework.Controls.MetroTile();
-            this.tileDeleteAccount = new MetroFramework.Controls.MetroTile();
-            this.tileAddAccount = new MetroFramework.Controls.MetroTile();
             this.tbStatementHistory = new MetroFramework.Controls.MetroTabPage();
             this.btnAccountGenerate = new MetroFramework.Controls.MetroButton();
             this.txtFinalStmnt = new MetroFramework.Controls.MetroTextBox();
@@ -121,6 +107,21 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.tbGenerateStmnt = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
+            this.tileHome = new MetroFramework.Controls.MetroTile();
+            this.tileBack = new MetroFramework.Controls.MetroTile();
+            this.tileNext = new MetroFramework.Controls.MetroTile();
+            this.tileView = new MetroFramework.Controls.MetroTile();
+            this.tileGenerate = new MetroFramework.Controls.MetroTile();
+            this.btnWHT = new MetroFramework.Controls.MetroButton();
+            this.btnSGV = new MetroFramework.Controls.MetroButton();
+            this.btnMPH = new MetroFramework.Controls.MetroButton();
+            this.btnGEM = new MetroFramework.Controls.MetroButton();
+            this.btnGAR = new MetroFramework.Controls.MetroButton();
+            this.btnARMC = new MetroFramework.Controls.MetroButton();
+            this.tileEdit = new MetroFramework.Controls.MetroTile();
+            this.tileExport = new MetroFramework.Controls.MetroTile();
+            this.tileDeleteAccount = new MetroFramework.Controls.MetroTile();
+            this.tileAddAccount = new MetroFramework.Controls.MetroTile();
             this.panelNavMain.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelNext.SuspendLayout();
@@ -172,20 +173,6 @@
             this.panelBack.VerticalScrollbarHighlightOnWheel = false;
             this.panelBack.VerticalScrollbarSize = 10;
             // 
-            // tileBack
-            // 
-            this.tileBack.ActiveControl = null;
-            this.tileBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileBack.Location = new System.Drawing.Point(0, 0);
-            this.tileBack.Name = "tileBack";
-            this.tileBack.Size = new System.Drawing.Size(141, 37);
-            this.tileBack.TabIndex = 2;
-            this.tileBack.TileImage = ((System.Drawing.Image)(resources.GetObject("tileBack.TileImage")));
-            this.tileBack.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tileBack.UseSelectable = true;
-            this.tileBack.UseTileImage = true;
-            this.tileBack.Click += new System.EventHandler(this.tileBack_Click);
-            // 
             // panelNext
             // 
             this.panelNext.Controls.Add(this.tileNext);
@@ -199,20 +186,6 @@
             this.panelNext.VerticalScrollbarBarColor = true;
             this.panelNext.VerticalScrollbarHighlightOnWheel = false;
             this.panelNext.VerticalScrollbarSize = 10;
-            // 
-            // tileNext
-            // 
-            this.tileNext.ActiveControl = null;
-            this.tileNext.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileNext.Location = new System.Drawing.Point(0, 0);
-            this.tileNext.Name = "tileNext";
-            this.tileNext.Size = new System.Drawing.Size(141, 37);
-            this.tileNext.TabIndex = 2;
-            this.tileNext.TileImage = ((System.Drawing.Image)(resources.GetObject("tileNext.TileImage")));
-            this.tileNext.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tileNext.UseSelectable = true;
-            this.tileNext.UseTileImage = true;
-            this.tileNext.Click += new System.EventHandler(this.tileNext_Click);
             // 
             // panelView
             // 
@@ -228,22 +201,6 @@
             this.panelView.VerticalScrollbarHighlightOnWheel = false;
             this.panelView.VerticalScrollbarSize = 10;
             // 
-            // tileView
-            // 
-            this.tileView.ActiveControl = null;
-            this.tileView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileView.Location = new System.Drawing.Point(0, 0);
-            this.tileView.Name = "tileView";
-            this.tileView.Size = new System.Drawing.Size(141, 91);
-            this.tileView.TabIndex = 2;
-            this.tileView.TileImage = ((System.Drawing.Image)(resources.GetObject("tileView.TileImage")));
-            this.tileView.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tileView.UseSelectable = true;
-            this.tileView.UseTileImage = true;
-            this.tileView.Click += new System.EventHandler(this.tileView_Click);
-            this.tileView.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
-            this.tileView.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
-            // 
             // panelGenerate
             // 
             this.panelGenerate.Controls.Add(this.tileGenerate);
@@ -258,22 +215,6 @@
             this.panelGenerate.VerticalScrollbarHighlightOnWheel = false;
             this.panelGenerate.VerticalScrollbarSize = 10;
             // 
-            // tileGenerate
-            // 
-            this.tileGenerate.ActiveControl = null;
-            this.tileGenerate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileGenerate.Location = new System.Drawing.Point(0, 0);
-            this.tileGenerate.Name = "tileGenerate";
-            this.tileGenerate.Size = new System.Drawing.Size(141, 91);
-            this.tileGenerate.TabIndex = 2;
-            this.tileGenerate.TileImage = ((System.Drawing.Image)(resources.GetObject("tileGenerate.TileImage")));
-            this.tileGenerate.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tileGenerate.UseSelectable = true;
-            this.tileGenerate.UseTileImage = true;
-            this.tileGenerate.Click += new System.EventHandler(this.tileGenerate_Click);
-            this.tileGenerate.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
-            this.tileGenerate.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
-            // 
             // panelHome
             // 
             this.panelHome.Controls.Add(this.tileHome);
@@ -287,22 +228,6 @@
             this.panelHome.VerticalScrollbarBarColor = true;
             this.panelHome.VerticalScrollbarHighlightOnWheel = false;
             this.panelHome.VerticalScrollbarSize = 10;
-            // 
-            // tileHome
-            // 
-            this.tileHome.ActiveControl = null;
-            this.tileHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileHome.Location = new System.Drawing.Point(0, 0);
-            this.tileHome.Name = "tileHome";
-            this.tileHome.Size = new System.Drawing.Size(141, 91);
-            this.tileHome.TabIndex = 2;
-            this.tileHome.TileImage = ((System.Drawing.Image)(resources.GetObject("tileHome.TileImage")));
-            this.tileHome.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tileHome.UseSelectable = true;
-            this.tileHome.UseTileImage = true;
-            this.tileHome.Click += new System.EventHandler(this.tileHome_Click);
-            this.tileHome.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
-            this.tileHome.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
             // 
             // msmMain
             // 
@@ -370,7 +295,7 @@
             this.tbCtrlPages.Dock = System.Windows.Forms.DockStyle.Right;
             this.tbCtrlPages.Location = new System.Drawing.Point(161, 60);
             this.tbCtrlPages.Name = "tbCtrlPages";
-            this.tbCtrlPages.SelectedIndex = 2;
+            this.tbCtrlPages.SelectedIndex = 1;
             this.tbCtrlPages.Size = new System.Drawing.Size(914, 646);
             this.tbCtrlPages.TabIndex = 0;
             this.tbCtrlPages.UseSelectable = true;
@@ -390,9 +315,9 @@
             this.tbHome.HorizontalScrollbarBarColor = true;
             this.tbHome.HorizontalScrollbarHighlightOnWheel = false;
             this.tbHome.HorizontalScrollbarSize = 10;
-            this.tbHome.Location = new System.Drawing.Point(4, 35);
+            this.tbHome.Location = new System.Drawing.Point(4, 38);
             this.tbHome.Name = "tbHome";
-            this.tbHome.Size = new System.Drawing.Size(906, 607);
+            this.tbHome.Size = new System.Drawing.Size(906, 604);
             this.tbHome.TabIndex = 0;
             this.tbHome.Text = "Home";
             this.tbHome.VerticalScrollbarBarColor = true;
@@ -408,78 +333,6 @@
             this.metroLabel2.Size = new System.Drawing.Size(100, 19);
             this.metroLabel2.TabIndex = 5;
             this.metroLabel2.Text = "Select a facility:";
-            // 
-            // btnWHT
-            // 
-            this.btnWHT.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnWHT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWHT.BackgroundImage")));
-            this.btnWHT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnWHT.Location = new System.Drawing.Point(474, 385);
-            this.btnWHT.Name = "btnWHT";
-            this.btnWHT.Size = new System.Drawing.Size(344, 90);
-            this.btnWHT.TabIndex = 6;
-            this.btnWHT.UseSelectable = true;
-            this.btnWHT.Click += new System.EventHandler(this.btnFac_Click);
-            // 
-            // btnSGV
-            // 
-            this.btnSGV.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSGV.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSGV.BackgroundImage")));
-            this.btnSGV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSGV.Location = new System.Drawing.Point(75, 385);
-            this.btnSGV.Name = "btnSGV";
-            this.btnSGV.Size = new System.Drawing.Size(344, 90);
-            this.btnSGV.TabIndex = 5;
-            this.btnSGV.UseSelectable = true;
-            this.btnSGV.Click += new System.EventHandler(this.btnFac_Click);
-            // 
-            // btnMPH
-            // 
-            this.btnMPH.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMPH.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMPH.BackgroundImage")));
-            this.btnMPH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMPH.Location = new System.Drawing.Point(474, 235);
-            this.btnMPH.Name = "btnMPH";
-            this.btnMPH.Size = new System.Drawing.Size(344, 90);
-            this.btnMPH.TabIndex = 4;
-            this.btnMPH.UseSelectable = true;
-            this.btnMPH.Click += new System.EventHandler(this.btnFac_Click);
-            // 
-            // btnGEM
-            // 
-            this.btnGEM.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGEM.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGEM.BackgroundImage")));
-            this.btnGEM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGEM.Location = new System.Drawing.Point(75, 235);
-            this.btnGEM.Name = "btnGEM";
-            this.btnGEM.Size = new System.Drawing.Size(344, 90);
-            this.btnGEM.TabIndex = 3;
-            this.btnGEM.UseSelectable = true;
-            this.btnGEM.Click += new System.EventHandler(this.btnFac_Click);
-            // 
-            // btnGAR
-            // 
-            this.btnGAR.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGAR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGAR.BackgroundImage")));
-            this.btnGAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGAR.Location = new System.Drawing.Point(474, 85);
-            this.btnGAR.Name = "btnGAR";
-            this.btnGAR.Size = new System.Drawing.Size(344, 90);
-            this.btnGAR.TabIndex = 2;
-            this.btnGAR.UseSelectable = true;
-            this.btnGAR.Click += new System.EventHandler(this.btnFac_Click);
-            // 
-            // btnARMC
-            // 
-            this.btnARMC.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnARMC.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnARMC.BackgroundImage")));
-            this.btnARMC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnARMC.Location = new System.Drawing.Point(75, 85);
-            this.btnARMC.Name = "btnARMC";
-            this.btnARMC.Size = new System.Drawing.Size(344, 90);
-            this.btnARMC.TabIndex = 1;
-            this.btnARMC.UseSelectable = true;
-            this.btnARMC.Click += new System.EventHandler(this.btnFac_Click);
             // 
             // metroLabel1
             // 
@@ -499,6 +352,7 @@
             this.tbAccounts.Controls.Add(this.btnFinalStatement);
             this.tbAccounts.Controls.Add(this.btnSecondStatement);
             this.tbAccounts.Controls.Add(this.btnFirstStatement);
+            this.tbAccounts.Controls.Add(this.tileEdit);
             this.tbAccounts.Controls.Add(this.ckBoxUncompletedFilter);
             this.tbAccounts.Controls.Add(this.ckBoxCompletedFilter);
             this.tbAccounts.Controls.Add(this.lblTotalRows);
@@ -521,7 +375,7 @@
             // btnFinalStatement
             // 
             this.btnFinalStatement.AutoSize = true;
-            this.btnFinalStatement.Location = new System.Drawing.Point(280, 63);
+            this.btnFinalStatement.Location = new System.Drawing.Point(192, 66);
             this.btnFinalStatement.Name = "btnFinalStatement";
             this.btnFinalStatement.Size = new System.Drawing.Size(105, 15);
             this.btnFinalStatement.TabIndex = 8;
@@ -532,7 +386,7 @@
             // btnSecondStatement
             // 
             this.btnSecondStatement.AutoSize = true;
-            this.btnSecondStatement.Location = new System.Drawing.Point(280, 37);
+            this.btnSecondStatement.Location = new System.Drawing.Point(192, 40);
             this.btnSecondStatement.Name = "btnSecondStatement";
             this.btnSecondStatement.Size = new System.Drawing.Size(119, 15);
             this.btnSecondStatement.TabIndex = 8;
@@ -544,7 +398,7 @@
             // 
             this.btnFirstStatement.AutoSize = true;
             this.btnFirstStatement.Checked = true;
-            this.btnFirstStatement.Location = new System.Drawing.Point(280, 11);
+            this.btnFirstStatement.Location = new System.Drawing.Point(192, 14);
             this.btnFirstStatement.Name = "btnFirstStatement";
             this.btnFirstStatement.Size = new System.Drawing.Size(102, 15);
             this.btnFirstStatement.TabIndex = 8;
@@ -558,7 +412,7 @@
             this.ckBoxUncompletedFilter.AutoSize = true;
             this.ckBoxUncompletedFilter.Checked = true;
             this.ckBoxUncompletedFilter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckBoxUncompletedFilter.Location = new System.Drawing.Point(460, 37);
+            this.ckBoxUncompletedFilter.Location = new System.Drawing.Point(372, 40);
             this.ckBoxUncompletedFilter.Name = "ckBoxUncompletedFilter";
             this.ckBoxUncompletedFilter.Size = new System.Drawing.Size(95, 15);
             this.ckBoxUncompletedFilter.TabIndex = 7;
@@ -571,7 +425,7 @@
             this.ckBoxCompletedFilter.AutoSize = true;
             this.ckBoxCompletedFilter.Checked = true;
             this.ckBoxCompletedFilter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckBoxCompletedFilter.Location = new System.Drawing.Point(460, 12);
+            this.ckBoxCompletedFilter.Location = new System.Drawing.Point(372, 15);
             this.ckBoxCompletedFilter.Name = "ckBoxCompletedFilter";
             this.ckBoxCompletedFilter.Size = new System.Drawing.Size(82, 15);
             this.ckBoxCompletedFilter.TabIndex = 7;
@@ -599,23 +453,23 @@
             this.dataGridAccounts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridAccounts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridAccounts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridAccounts.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridAccounts.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridAccounts.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridAccounts.EnableHeadersVisualStyles = false;
             this.dataGridAccounts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -625,61 +479,19 @@
             this.dataGridAccounts.Name = "dataGridAccounts";
             this.dataGridAccounts.ReadOnly = true;
             this.dataGridAccounts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridAccounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridAccounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridAccounts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAccounts.Size = new System.Drawing.Size(904, 501);
             this.dataGridAccounts.TabIndex = 5;
             this.dataGridAccounts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridAccounts_CellDoubleClick);
-            // 
-            // tileExport
-            // 
-            this.tileExport.ActiveControl = null;
-            this.tileExport.Location = new System.Drawing.Point(816, 3);
-            this.tileExport.Name = "tileExport";
-            this.tileExport.Size = new System.Drawing.Size(83, 55);
-            this.tileExport.TabIndex = 4;
-            this.tileExport.TileImage = global::AHMCManualStatementApplication.Properties.Resources.export;
-            this.tileExport.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tileExport.UseSelectable = true;
-            this.tileExport.UseTileImage = true;
-            this.tileExport.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
-            this.tileExport.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
-            // 
-            // tileDeleteAccount
-            // 
-            this.tileDeleteAccount.ActiveControl = null;
-            this.tileDeleteAccount.Location = new System.Drawing.Point(727, 3);
-            this.tileDeleteAccount.Name = "tileDeleteAccount";
-            this.tileDeleteAccount.Size = new System.Drawing.Size(83, 55);
-            this.tileDeleteAccount.TabIndex = 4;
-            this.tileDeleteAccount.TileImage = ((System.Drawing.Image)(resources.GetObject("tileDeleteAccount.TileImage")));
-            this.tileDeleteAccount.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tileDeleteAccount.UseSelectable = true;
-            this.tileDeleteAccount.UseTileImage = true;
-            this.tileDeleteAccount.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
-            this.tileDeleteAccount.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
-            // 
-            // tileAddAccount
-            // 
-            this.tileAddAccount.ActiveControl = null;
-            this.tileAddAccount.Location = new System.Drawing.Point(638, 3);
-            this.tileAddAccount.Name = "tileAddAccount";
-            this.tileAddAccount.Size = new System.Drawing.Size(83, 55);
-            this.tileAddAccount.TabIndex = 4;
-            this.tileAddAccount.TileImage = ((System.Drawing.Image)(resources.GetObject("tileAddAccount.TileImage")));
-            this.tileAddAccount.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tileAddAccount.UseSelectable = true;
-            this.tileAddAccount.UseTileImage = true;
-            this.tileAddAccount.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
-            this.tileAddAccount.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
             // 
             // tbStatementHistory
             // 
@@ -1633,9 +1445,9 @@
             this.tbAddComment.HorizontalScrollbarBarColor = true;
             this.tbAddComment.HorizontalScrollbarHighlightOnWheel = false;
             this.tbAddComment.HorizontalScrollbarSize = 10;
-            this.tbAddComment.Location = new System.Drawing.Point(4, 35);
+            this.tbAddComment.Location = new System.Drawing.Point(4, 38);
             this.tbAddComment.Name = "tbAddComment";
-            this.tbAddComment.Size = new System.Drawing.Size(906, 607);
+            this.tbAddComment.Size = new System.Drawing.Size(906, 604);
             this.tbAddComment.TabIndex = 3;
             this.tbAddComment.Text = "Add Comment";
             this.tbAddComment.VerticalScrollbarBarColor = true;
@@ -1659,9 +1471,9 @@
             this.tbGenerateStmnt.HorizontalScrollbarBarColor = true;
             this.tbGenerateStmnt.HorizontalScrollbarHighlightOnWheel = false;
             this.tbGenerateStmnt.HorizontalScrollbarSize = 10;
-            this.tbGenerateStmnt.Location = new System.Drawing.Point(4, 35);
+            this.tbGenerateStmnt.Location = new System.Drawing.Point(4, 38);
             this.tbGenerateStmnt.Name = "tbGenerateStmnt";
-            this.tbGenerateStmnt.Size = new System.Drawing.Size(906, 607);
+            this.tbGenerateStmnt.Size = new System.Drawing.Size(906, 604);
             this.tbGenerateStmnt.TabIndex = 4;
             this.tbGenerateStmnt.Text = "Generate Statement";
             this.tbGenerateStmnt.VerticalScrollbarBarColor = true;
@@ -1678,6 +1490,210 @@
             this.metroLabel25.TabIndex = 2;
             this.metroLabel25.Text = "GENERATE STATEMENT";
             this.metroLabel25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // tileHome
+            // 
+            this.tileHome.ActiveControl = null;
+            this.tileHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileHome.Location = new System.Drawing.Point(0, 0);
+            this.tileHome.Name = "tileHome";
+            this.tileHome.Size = new System.Drawing.Size(141, 91);
+            this.tileHome.TabIndex = 2;
+            this.tileHome.TileImage = ((System.Drawing.Image)(resources.GetObject("tileHome.TileImage")));
+            this.tileHome.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileHome.UseSelectable = true;
+            this.tileHome.UseTileImage = true;
+            this.tileHome.Click += new System.EventHandler(this.tileHome_Click);
+            this.tileHome.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
+            this.tileHome.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
+            // 
+            // tileBack
+            // 
+            this.tileBack.ActiveControl = null;
+            this.tileBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileBack.Location = new System.Drawing.Point(0, 0);
+            this.tileBack.Name = "tileBack";
+            this.tileBack.Size = new System.Drawing.Size(141, 37);
+            this.tileBack.TabIndex = 2;
+            this.tileBack.TileImage = ((System.Drawing.Image)(resources.GetObject("tileBack.TileImage")));
+            this.tileBack.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileBack.UseSelectable = true;
+            this.tileBack.UseTileImage = true;
+            this.tileBack.Click += new System.EventHandler(this.tileBack_Click);
+            // 
+            // tileNext
+            // 
+            this.tileNext.ActiveControl = null;
+            this.tileNext.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileNext.Location = new System.Drawing.Point(0, 0);
+            this.tileNext.Name = "tileNext";
+            this.tileNext.Size = new System.Drawing.Size(141, 37);
+            this.tileNext.TabIndex = 2;
+            this.tileNext.TileImage = ((System.Drawing.Image)(resources.GetObject("tileNext.TileImage")));
+            this.tileNext.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileNext.UseSelectable = true;
+            this.tileNext.UseTileImage = true;
+            this.tileNext.Click += new System.EventHandler(this.tileNext_Click);
+            // 
+            // tileView
+            // 
+            this.tileView.ActiveControl = null;
+            this.tileView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileView.Location = new System.Drawing.Point(0, 0);
+            this.tileView.Name = "tileView";
+            this.tileView.Size = new System.Drawing.Size(141, 91);
+            this.tileView.TabIndex = 2;
+            this.tileView.TileImage = ((System.Drawing.Image)(resources.GetObject("tileView.TileImage")));
+            this.tileView.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileView.UseSelectable = true;
+            this.tileView.UseTileImage = true;
+            this.tileView.Click += new System.EventHandler(this.tileView_Click);
+            this.tileView.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
+            this.tileView.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
+            // 
+            // tileGenerate
+            // 
+            this.tileGenerate.ActiveControl = null;
+            this.tileGenerate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileGenerate.Location = new System.Drawing.Point(0, 0);
+            this.tileGenerate.Name = "tileGenerate";
+            this.tileGenerate.Size = new System.Drawing.Size(141, 91);
+            this.tileGenerate.TabIndex = 2;
+            this.tileGenerate.TileImage = ((System.Drawing.Image)(resources.GetObject("tileGenerate.TileImage")));
+            this.tileGenerate.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileGenerate.UseSelectable = true;
+            this.tileGenerate.UseTileImage = true;
+            this.tileGenerate.Click += new System.EventHandler(this.tileGenerate_Click);
+            this.tileGenerate.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
+            this.tileGenerate.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
+            // 
+            // btnWHT
+            // 
+            this.btnWHT.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnWHT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWHT.BackgroundImage")));
+            this.btnWHT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnWHT.Location = new System.Drawing.Point(474, 385);
+            this.btnWHT.Name = "btnWHT";
+            this.btnWHT.Size = new System.Drawing.Size(344, 90);
+            this.btnWHT.TabIndex = 6;
+            this.btnWHT.UseSelectable = true;
+            this.btnWHT.Click += new System.EventHandler(this.btnFac_Click);
+            // 
+            // btnSGV
+            // 
+            this.btnSGV.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSGV.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSGV.BackgroundImage")));
+            this.btnSGV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSGV.Location = new System.Drawing.Point(75, 385);
+            this.btnSGV.Name = "btnSGV";
+            this.btnSGV.Size = new System.Drawing.Size(344, 90);
+            this.btnSGV.TabIndex = 5;
+            this.btnSGV.UseSelectable = true;
+            this.btnSGV.Click += new System.EventHandler(this.btnFac_Click);
+            // 
+            // btnMPH
+            // 
+            this.btnMPH.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMPH.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMPH.BackgroundImage")));
+            this.btnMPH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMPH.Location = new System.Drawing.Point(474, 235);
+            this.btnMPH.Name = "btnMPH";
+            this.btnMPH.Size = new System.Drawing.Size(344, 90);
+            this.btnMPH.TabIndex = 4;
+            this.btnMPH.UseSelectable = true;
+            this.btnMPH.Click += new System.EventHandler(this.btnFac_Click);
+            // 
+            // btnGEM
+            // 
+            this.btnGEM.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGEM.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGEM.BackgroundImage")));
+            this.btnGEM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGEM.Location = new System.Drawing.Point(75, 235);
+            this.btnGEM.Name = "btnGEM";
+            this.btnGEM.Size = new System.Drawing.Size(344, 90);
+            this.btnGEM.TabIndex = 3;
+            this.btnGEM.UseSelectable = true;
+            this.btnGEM.Click += new System.EventHandler(this.btnFac_Click);
+            // 
+            // btnGAR
+            // 
+            this.btnGAR.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGAR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGAR.BackgroundImage")));
+            this.btnGAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGAR.Location = new System.Drawing.Point(474, 85);
+            this.btnGAR.Name = "btnGAR";
+            this.btnGAR.Size = new System.Drawing.Size(344, 90);
+            this.btnGAR.TabIndex = 2;
+            this.btnGAR.UseSelectable = true;
+            this.btnGAR.Click += new System.EventHandler(this.btnFac_Click);
+            // 
+            // btnARMC
+            // 
+            this.btnARMC.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnARMC.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnARMC.BackgroundImage")));
+            this.btnARMC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnARMC.Location = new System.Drawing.Point(75, 85);
+            this.btnARMC.Name = "btnARMC";
+            this.btnARMC.Size = new System.Drawing.Size(344, 90);
+            this.btnARMC.TabIndex = 1;
+            this.btnARMC.UseSelectable = true;
+            this.btnARMC.Click += new System.EventHandler(this.btnFac_Click);
+            // 
+            // tileEdit
+            // 
+            this.tileEdit.ActiveControl = null;
+            this.tileEdit.Location = new System.Drawing.Point(727, 3);
+            this.tileEdit.Name = "tileEdit";
+            this.tileEdit.Size = new System.Drawing.Size(83, 55);
+            this.tileEdit.TabIndex = 4;
+            this.tileEdit.TileImage = global::AHMCManualStatementApplication.Properties.Resources.edit;
+            this.tileEdit.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileEdit.UseSelectable = true;
+            this.tileEdit.UseTileImage = true;
+            this.tileEdit.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
+            this.tileEdit.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
+            // 
+            // tileExport
+            // 
+            this.tileExport.ActiveControl = null;
+            this.tileExport.Location = new System.Drawing.Point(816, 3);
+            this.tileExport.Name = "tileExport";
+            this.tileExport.Size = new System.Drawing.Size(83, 55);
+            this.tileExport.TabIndex = 4;
+            this.tileExport.TileImage = global::AHMCManualStatementApplication.Properties.Resources.export;
+            this.tileExport.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileExport.UseSelectable = true;
+            this.tileExport.UseTileImage = true;
+            this.tileExport.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
+            this.tileExport.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
+            // 
+            // tileDeleteAccount
+            // 
+            this.tileDeleteAccount.ActiveControl = null;
+            this.tileDeleteAccount.Location = new System.Drawing.Point(639, 3);
+            this.tileDeleteAccount.Name = "tileDeleteAccount";
+            this.tileDeleteAccount.Size = new System.Drawing.Size(83, 55);
+            this.tileDeleteAccount.TabIndex = 4;
+            this.tileDeleteAccount.TileImage = ((System.Drawing.Image)(resources.GetObject("tileDeleteAccount.TileImage")));
+            this.tileDeleteAccount.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileDeleteAccount.UseSelectable = true;
+            this.tileDeleteAccount.UseTileImage = true;
+            this.tileDeleteAccount.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
+            this.tileDeleteAccount.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
+            // 
+            // tileAddAccount
+            // 
+            this.tileAddAccount.ActiveControl = null;
+            this.tileAddAccount.Location = new System.Drawing.Point(550, 3);
+            this.tileAddAccount.Name = "tileAddAccount";
+            this.tileAddAccount.Size = new System.Drawing.Size(83, 55);
+            this.tileAddAccount.TabIndex = 4;
+            this.tileAddAccount.TileImage = ((System.Drawing.Image)(resources.GetObject("tileAddAccount.TileImage")));
+            this.tileAddAccount.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileAddAccount.UseSelectable = true;
+            this.tileAddAccount.UseTileImage = true;
+            this.tileAddAccount.MouseEnter += new System.EventHandler(this.tileNav_MouseEnter);
+            this.tileAddAccount.MouseLeave += new System.EventHandler(this.tileNav_MouseLeave);
             // 
             // Main
             // 
@@ -1811,6 +1827,7 @@
         private MetroFramework.Controls.MetroRadioButton btnFinalStatement;
         private MetroFramework.Controls.MetroRadioButton btnSecondStatement;
         private MetroFramework.Controls.MetroRadioButton btnFirstStatement;
+        private MetroFramework.Controls.MetroTile tileEdit;
     }
 }
 
