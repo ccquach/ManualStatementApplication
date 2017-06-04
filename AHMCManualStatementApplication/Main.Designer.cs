@@ -118,8 +118,6 @@
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.tbAddComment = new MetroFramework.Controls.MetroTabPage();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.tbGenerateStmnt = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
             this.panelNavMain.SuspendLayout();
@@ -136,7 +134,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).BeginInit();
             this.tbStatementHistory.SuspendLayout();
             this.tbDemographics.SuspendLayout();
-            this.tbAddComment.SuspendLayout();
             this.tbGenerateStmnt.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -370,12 +367,11 @@
             this.tbCtrlPages.Controls.Add(this.tbAccounts);
             this.tbCtrlPages.Controls.Add(this.tbStatementHistory);
             this.tbCtrlPages.Controls.Add(this.tbDemographics);
-            this.tbCtrlPages.Controls.Add(this.tbAddComment);
             this.tbCtrlPages.Controls.Add(this.tbGenerateStmnt);
             this.tbCtrlPages.Dock = System.Windows.Forms.DockStyle.Right;
             this.tbCtrlPages.Location = new System.Drawing.Point(161, 60);
             this.tbCtrlPages.Name = "tbCtrlPages";
-            this.tbCtrlPages.SelectedIndex = 1;
+            this.tbCtrlPages.SelectedIndex = 0;
             this.tbCtrlPages.Size = new System.Drawing.Size(914, 646);
             this.tbCtrlPages.TabIndex = 0;
             this.tbCtrlPages.UseSelectable = true;
@@ -1649,32 +1645,6 @@
             this.metroLabel18.TabIndex = 2;
             this.metroLabel18.Text = "DEMOGRAPHICS";
             // 
-            // tbAddComment
-            // 
-            this.tbAddComment.Controls.Add(this.metroLabel4);
-            this.tbAddComment.HorizontalScrollbarBarColor = true;
-            this.tbAddComment.HorizontalScrollbarHighlightOnWheel = false;
-            this.tbAddComment.HorizontalScrollbarSize = 10;
-            this.tbAddComment.Location = new System.Drawing.Point(4, 38);
-            this.tbAddComment.Name = "tbAddComment";
-            this.tbAddComment.Size = new System.Drawing.Size(906, 604);
-            this.tbAddComment.TabIndex = 3;
-            this.tbAddComment.Text = "Add Comment";
-            this.tbAddComment.VerticalScrollbarBarColor = true;
-            this.tbAddComment.VerticalScrollbarHighlightOnWheel = false;
-            this.tbAddComment.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel4.Location = new System.Drawing.Point(27, 5);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(98, 25);
-            this.metroLabel4.TabIndex = 2;
-            this.metroLabel4.Text = "COMMENT";
-            this.metroLabel4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // tbGenerateStmnt
             // 
             this.tbGenerateStmnt.Controls.Add(this.metroLabel25);
@@ -1734,8 +1704,6 @@
             this.tbStatementHistory.PerformLayout();
             this.tbDemographics.ResumeLayout(false);
             this.tbDemographics.PerformLayout();
-            this.tbAddComment.ResumeLayout(false);
-            this.tbAddComment.PerformLayout();
             this.tbGenerateStmnt.ResumeLayout(false);
             this.tbGenerateStmnt.PerformLayout();
             this.ResumeLayout(false);
@@ -1750,8 +1718,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTabPage tbStatementHistory;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroTabPage tbAddComment;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroTextBox txtFinalStmnt;
         private MetroFramework.Controls.MetroTextBox txtNote;
         private MetroFramework.Controls.MetroTextBox txtNoteDate;
