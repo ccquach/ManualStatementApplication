@@ -26,7 +26,6 @@ namespace AHMCManualStatementApplication
         string StatementFirst { get; set; }
         string StatementSecond { get; set; }
         string StatementFinal { get; set; }
-        string DateNoteEntered { get; set; }
         string NoteEntered { get; set; }
         bool Completed { get; set; }
         string DemoFacility { get; set; }
@@ -108,11 +107,6 @@ namespace AHMCManualStatementApplication
         public string StatementFinal {
             get { return this.txtFinalStmnt.Text; }
             set { this.txtFinalStmnt.Text = value; }
-        }
-
-        public string DateNoteEntered {
-            get { return this.txtNoteDate.Text; }
-            set { this.txtNoteDate.Text = value; }
         }
 
         public string NoteEntered {
@@ -616,6 +610,18 @@ namespace AHMCManualStatementApplication
                     if (result == DialogResult.Yes) {
                         MessageBox.Show("Test Successful");
                     }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tileEdit_Click(object sender, EventArgs e)
+        {
+            try {
+                using (EditAccount editAcct = new EditAccount()) {
+                    var result = editAcct.ShowDialog();
                 }
             }
             catch (Exception ex) {

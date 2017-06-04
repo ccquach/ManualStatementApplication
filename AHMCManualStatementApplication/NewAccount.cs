@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Controls;
-using System.Data;
 using System.Data.OleDb;
 
 namespace AHMCManualStatementApplication
