@@ -57,8 +57,6 @@ namespace AHMCManualStatementApplication
                     form.StatementFinal = linqQuery.SingleOrDefault().Field<DateTime?>("DateFinalStmnt").HasValue ?
                         linqQuery.SingleOrDefault().Field<DateTime?>("DateFinalStmnt").Value.ToShortDateString() : String.Empty;
 
-                    form.DateNoteEntered = linqQuery.SingleOrDefault().Field<DateTime?>("DateNoteEntered").HasValue ?
-                        linqQuery.SingleOrDefault().Field<DateTime?>("DateNoteEntered").Value.ToShortDateString() : String.Empty;
                     form.NoteEntered = linqQuery.SingleOrDefault().Field<string>("Notes");
 
                     // DEMOGRAPHICS:
