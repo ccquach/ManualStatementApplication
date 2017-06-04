@@ -17,5 +17,17 @@ namespace AHMCManualStatementApplication
             InitializeComponent();
             this.StyleManager = msmEditAccount;
         }
+
+        private void btnEditNewNote_Click(object sender, EventArgs e)
+        {
+            try {
+                using (AddNote addNote = new AddNote()) {
+                    var result = addNote.ShowDialog();
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

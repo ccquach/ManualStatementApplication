@@ -51,6 +51,7 @@
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.btnEditNewNote = new MetroFramework.Controls.MetroButton();
+            this.ckBoxEditCompleted = new MetroFramework.Controls.MetroCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.msmEditAccount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             // 
             // btnEditApplyChanges
             // 
-            this.btnEditApplyChanges.Location = new System.Drawing.Point(589, 259);
+            this.btnEditApplyChanges.Location = new System.Drawing.Point(588, 282);
             this.btnEditApplyChanges.Name = "btnEditApplyChanges";
             this.btnEditApplyChanges.Size = new System.Drawing.Size(75, 23);
             this.btnEditApplyChanges.TabIndex = 30;
@@ -85,7 +86,7 @@
             this.txtEditZipcode.CustomButton.Visible = false;
             this.txtEditZipcode.Enabled = false;
             this.txtEditZipcode.Lines = new string[0];
-            this.txtEditZipcode.Location = new System.Drawing.Point(466, 208);
+            this.txtEditZipcode.Location = new System.Drawing.Point(465, 231);
             this.txtEditZipcode.MaxLength = 32767;
             this.txtEditZipcode.Name = "txtEditZipcode";
             this.txtEditZipcode.PasswordChar = '\0';
@@ -96,6 +97,7 @@
             this.txtEditZipcode.ShortcutsEnabled = true;
             this.txtEditZipcode.Size = new System.Drawing.Size(198, 23);
             this.txtEditZipcode.TabIndex = 26;
+            this.txtEditZipcode.TabStop = false;
             this.txtEditZipcode.UseCustomBackColor = true;
             this.txtEditZipcode.UseSelectable = true;
             this.txtEditZipcode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -118,7 +120,7 @@
             this.txtEditDischarge.CustomButton.Visible = false;
             this.txtEditDischarge.Enabled = false;
             this.txtEditDischarge.Lines = new string[0];
-            this.txtEditDischarge.Location = new System.Drawing.Point(129, 208);
+            this.txtEditDischarge.Location = new System.Drawing.Point(128, 231);
             this.txtEditDischarge.MaxLength = 32767;
             this.txtEditDischarge.Name = "txtEditDischarge";
             this.txtEditDischarge.PasswordChar = '\0';
@@ -129,6 +131,7 @@
             this.txtEditDischarge.ShortcutsEnabled = true;
             this.txtEditDischarge.Size = new System.Drawing.Size(198, 23);
             this.txtEditDischarge.TabIndex = 24;
+            this.txtEditDischarge.TabStop = false;
             this.txtEditDischarge.UseCustomBackColor = true;
             this.txtEditDischarge.UseSelectable = true;
             this.txtEditDischarge.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -151,7 +154,7 @@
             this.txtEditState.CustomButton.Visible = false;
             this.txtEditState.Enabled = false;
             this.txtEditState.Lines = new string[0];
-            this.txtEditState.Location = new System.Drawing.Point(466, 174);
+            this.txtEditState.Location = new System.Drawing.Point(465, 197);
             this.txtEditState.MaxLength = 32767;
             this.txtEditState.Name = "txtEditState";
             this.txtEditState.PasswordChar = '\0';
@@ -162,6 +165,7 @@
             this.txtEditState.ShortcutsEnabled = true;
             this.txtEditState.Size = new System.Drawing.Size(198, 23);
             this.txtEditState.TabIndex = 23;
+            this.txtEditState.TabStop = false;
             this.txtEditState.UseCustomBackColor = true;
             this.txtEditState.UseSelectable = true;
             this.txtEditState.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -182,7 +186,7 @@
             this.txtEditPtLiab.CustomButton.UseSelectable = true;
             this.txtEditPtLiab.CustomButton.Visible = false;
             this.txtEditPtLiab.Lines = new string[0];
-            this.txtEditPtLiab.Location = new System.Drawing.Point(129, 174);
+            this.txtEditPtLiab.Location = new System.Drawing.Point(128, 197);
             this.txtEditPtLiab.MaxLength = 32767;
             this.txtEditPtLiab.Name = "txtEditPtLiab";
             this.txtEditPtLiab.PasswordChar = '\0';
@@ -214,7 +218,7 @@
             this.txtEditCity.CustomButton.Visible = false;
             this.txtEditCity.Enabled = false;
             this.txtEditCity.Lines = new string[0];
-            this.txtEditCity.Location = new System.Drawing.Point(466, 140);
+            this.txtEditCity.Location = new System.Drawing.Point(465, 163);
             this.txtEditCity.MaxLength = 32767;
             this.txtEditCity.Name = "txtEditCity";
             this.txtEditCity.PasswordChar = '\0';
@@ -225,6 +229,7 @@
             this.txtEditCity.ShortcutsEnabled = true;
             this.txtEditCity.Size = new System.Drawing.Size(198, 23);
             this.txtEditCity.TabIndex = 22;
+            this.txtEditCity.TabStop = false;
             this.txtEditCity.UseCustomBackColor = true;
             this.txtEditCity.UseSelectable = true;
             this.txtEditCity.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -247,7 +252,7 @@
             this.txtEditPatientName.CustomButton.Visible = false;
             this.txtEditPatientName.Enabled = false;
             this.txtEditPatientName.Lines = new string[0];
-            this.txtEditPatientName.Location = new System.Drawing.Point(129, 140);
+            this.txtEditPatientName.Location = new System.Drawing.Point(128, 163);
             this.txtEditPatientName.MaxLength = 32767;
             this.txtEditPatientName.Name = "txtEditPatientName";
             this.txtEditPatientName.PasswordChar = '\0';
@@ -258,6 +263,7 @@
             this.txtEditPatientName.ShortcutsEnabled = true;
             this.txtEditPatientName.Size = new System.Drawing.Size(198, 23);
             this.txtEditPatientName.TabIndex = 21;
+            this.txtEditPatientName.TabStop = false;
             this.txtEditPatientName.UseCustomBackColor = true;
             this.txtEditPatientName.UseSelectable = true;
             this.txtEditPatientName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -280,7 +286,7 @@
             this.txtEditAddress2.CustomButton.Visible = false;
             this.txtEditAddress2.Enabled = false;
             this.txtEditAddress2.Lines = new string[0];
-            this.txtEditAddress2.Location = new System.Drawing.Point(466, 106);
+            this.txtEditAddress2.Location = new System.Drawing.Point(465, 129);
             this.txtEditAddress2.MaxLength = 32767;
             this.txtEditAddress2.Name = "txtEditAddress2";
             this.txtEditAddress2.PasswordChar = '\0';
@@ -291,6 +297,7 @@
             this.txtEditAddress2.ShortcutsEnabled = true;
             this.txtEditAddress2.Size = new System.Drawing.Size(198, 23);
             this.txtEditAddress2.TabIndex = 20;
+            this.txtEditAddress2.TabStop = false;
             this.txtEditAddress2.UseCustomBackColor = true;
             this.txtEditAddress2.UseSelectable = true;
             this.txtEditAddress2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -312,7 +319,7 @@
             this.txtEditAccount.CustomButton.UseSelectable = true;
             this.txtEditAccount.CustomButton.Visible = false;
             this.txtEditAccount.Lines = new string[0];
-            this.txtEditAccount.Location = new System.Drawing.Point(129, 106);
+            this.txtEditAccount.Location = new System.Drawing.Point(128, 129);
             this.txtEditAccount.MaxLength = 32767;
             this.txtEditAccount.Name = "txtEditAccount";
             this.txtEditAccount.PasswordChar = '\0';
@@ -324,6 +331,7 @@
             this.txtEditAccount.ShortcutsEnabled = true;
             this.txtEditAccount.Size = new System.Drawing.Size(198, 23);
             this.txtEditAccount.TabIndex = 19;
+            this.txtEditAccount.TabStop = false;
             this.txtEditAccount.UseCustomBackColor = true;
             this.txtEditAccount.UseSelectable = true;
             this.txtEditAccount.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -346,7 +354,7 @@
             this.txtEditAddress1.CustomButton.Visible = false;
             this.txtEditAddress1.Enabled = false;
             this.txtEditAddress1.Lines = new string[0];
-            this.txtEditAddress1.Location = new System.Drawing.Point(466, 72);
+            this.txtEditAddress1.Location = new System.Drawing.Point(465, 95);
             this.txtEditAddress1.MaxLength = 32767;
             this.txtEditAddress1.Name = "txtEditAddress1";
             this.txtEditAddress1.PasswordChar = '\0';
@@ -357,6 +365,7 @@
             this.txtEditAddress1.ShortcutsEnabled = true;
             this.txtEditAddress1.Size = new System.Drawing.Size(198, 23);
             this.txtEditAddress1.TabIndex = 27;
+            this.txtEditAddress1.TabStop = false;
             this.txtEditAddress1.UseCustomBackColor = true;
             this.txtEditAddress1.UseSelectable = true;
             this.txtEditAddress1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -379,7 +388,7 @@
             this.txtEditFacility.CustomButton.Visible = false;
             this.txtEditFacility.Enabled = false;
             this.txtEditFacility.Lines = new string[0];
-            this.txtEditFacility.Location = new System.Drawing.Point(129, 72);
+            this.txtEditFacility.Location = new System.Drawing.Point(128, 95);
             this.txtEditFacility.MaxLength = 32767;
             this.txtEditFacility.Name = "txtEditFacility";
             this.txtEditFacility.PasswordChar = '\0';
@@ -390,6 +399,7 @@
             this.txtEditFacility.ShortcutsEnabled = true;
             this.txtEditFacility.Size = new System.Drawing.Size(198, 23);
             this.txtEditFacility.TabIndex = 18;
+            this.txtEditFacility.TabStop = false;
             this.txtEditFacility.UseCustomBackColor = true;
             this.txtEditFacility.UseSelectable = true;
             this.txtEditFacility.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -399,7 +409,7 @@
             // 
             this.metroLabel13.AutoSize = true;
             this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel13.Location = new System.Drawing.Point(381, 212);
+            this.metroLabel13.Location = new System.Drawing.Point(380, 235);
             this.metroLabel13.Name = "metroLabel13";
             this.metroLabel13.Size = new System.Drawing.Size(57, 19);
             this.metroLabel13.TabIndex = 15;
@@ -409,7 +419,7 @@
             // 
             this.metroLabel12.AutoSize = true;
             this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel12.Location = new System.Drawing.Point(381, 178);
+            this.metroLabel12.Location = new System.Drawing.Point(380, 201);
             this.metroLabel12.Name = "metroLabel12";
             this.metroLabel12.Size = new System.Drawing.Size(40, 19);
             this.metroLabel12.TabIndex = 13;
@@ -419,7 +429,7 @@
             // 
             this.metroLabel11.AutoSize = true;
             this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel11.Location = new System.Drawing.Point(380, 144);
+            this.metroLabel11.Location = new System.Drawing.Point(379, 167);
             this.metroLabel11.Name = "metroLabel11";
             this.metroLabel11.Size = new System.Drawing.Size(33, 19);
             this.metroLabel11.TabIndex = 11;
@@ -429,7 +439,7 @@
             // 
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel4.Location = new System.Drawing.Point(23, 178);
+            this.metroLabel4.Location = new System.Drawing.Point(22, 201);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(102, 19);
             this.metroLabel4.TabIndex = 10;
@@ -439,7 +449,7 @@
             // 
             this.metroLabel10.AutoSize = true;
             this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel10.Location = new System.Drawing.Point(380, 110);
+            this.metroLabel10.Location = new System.Drawing.Point(379, 133);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(70, 19);
             this.metroLabel10.TabIndex = 9;
@@ -449,7 +459,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel3.Location = new System.Drawing.Point(23, 144);
+            this.metroLabel3.Location = new System.Drawing.Point(22, 167);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(92, 19);
             this.metroLabel3.TabIndex = 8;
@@ -459,7 +469,7 @@
             // 
             this.metroLabel9.AutoSize = true;
             this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel9.Location = new System.Drawing.Point(381, 76);
+            this.metroLabel9.Location = new System.Drawing.Point(380, 99);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(70, 19);
             this.metroLabel9.TabIndex = 7;
@@ -469,7 +479,7 @@
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(24, 110);
+            this.metroLabel2.Location = new System.Drawing.Point(23, 133);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(59, 19);
             this.metroLabel2.TabIndex = 6;
@@ -479,7 +489,7 @@
             // 
             this.metroLabel8.AutoSize = true;
             this.metroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel8.Location = new System.Drawing.Point(24, 212);
+            this.metroLabel8.Location = new System.Drawing.Point(23, 235);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(69, 19);
             this.metroLabel8.TabIndex = 17;
@@ -489,7 +499,7 @@
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(24, 76);
+            this.metroLabel1.Location = new System.Drawing.Point(23, 99);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(50, 19);
             this.metroLabel1.TabIndex = 5;
@@ -497,18 +507,33 @@
             // 
             // btnEditNewNote
             // 
-            this.btnEditNewNote.Location = new System.Drawing.Point(497, 259);
+            this.btnEditNewNote.Location = new System.Drawing.Point(496, 282);
             this.btnEditNewNote.Name = "btnEditNewNote";
             this.btnEditNewNote.Size = new System.Drawing.Size(75, 23);
             this.btnEditNewNote.TabIndex = 30;
             this.btnEditNewNote.Text = "Add &Note";
             this.btnEditNewNote.UseSelectable = true;
+            this.btnEditNewNote.Click += new System.EventHandler(this.btnEditNewNote_Click);
+            // 
+            // ckBoxEditCompleted
+            // 
+            this.ckBoxEditCompleted.AutoSize = true;
+            this.ckBoxEditCompleted.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.ckBoxEditCompleted.ForeColor = System.Drawing.SystemColors.Control;
+            this.ckBoxEditCompleted.Location = new System.Drawing.Point(571, 54);
+            this.ckBoxEditCompleted.Name = "ckBoxEditCompleted";
+            this.ckBoxEditCompleted.Size = new System.Drawing.Size(92, 19);
+            this.ckBoxEditCompleted.TabIndex = 31;
+            this.ckBoxEditCompleted.TabStop = false;
+            this.ckBoxEditCompleted.Text = "Completed";
+            this.ckBoxEditCompleted.UseSelectable = true;
             // 
             // EditAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 307);
+            this.ClientSize = new System.Drawing.Size(696, 333);
+            this.Controls.Add(this.ckBoxEditCompleted);
             this.Controls.Add(this.btnEditNewNote);
             this.Controls.Add(this.btnEditApplyChanges);
             this.Controls.Add(this.txtEditZipcode);
@@ -566,5 +591,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroButton btnEditNewNote;
+        private MetroFramework.Controls.MetroCheckBox ckBoxEditCompleted;
     }
 }

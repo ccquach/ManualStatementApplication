@@ -33,3 +33,4 @@ C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementAppl
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\ManualStatementApplication.csprojResolveAssemblyReference.cache
 C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.NewAccount.resources
 C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.EditAccount.resources
+C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.AddNote.resources
