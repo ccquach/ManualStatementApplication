@@ -47,8 +47,9 @@ namespace AHMCManualStatementApplication
         #endregion
 
         #region Get database connection string
-        public static Tuple<string, string> GetFacDbInfo(this Form form, string facility)
+        public static Tuple<string, string> GetFacDbInfo(this Form form, string facility, string account = "")
         {
+            // Get facility db abbreviation
             string dbFacility;
             if (facility == "ARMC") {
                 dbFacility = "amh";
@@ -57,14 +58,24 @@ namespace AHMCManualStatementApplication
                 dbFacility = facility.ToLower();
             }
 
+            // Connection string
             string facConnStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
                                 $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{dbFacility}_cpsi_odbc_dw.mdb;" +
                                 $"Persist Security Info=False;";
 
-            string facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                                  $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                                  $"FROM {dbFacility}_demo_audit";
-
+            // Demo query
+            string facDemoQuery;
+            if (account != "") {
+                facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                               $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                               $"FROM {dbFacility}_demo_audit " +
+                               $"WHERE PATIENT_NUMBER = {account}";
+            }
+            else {
+                facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                               $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                               $"FROM {dbFacility}_demo_audit";
+            }
             return Tuple.Create(facConnStr, facDemoQuery);
         }
         #endregion

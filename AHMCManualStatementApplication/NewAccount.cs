@@ -68,7 +68,7 @@ namespace AHMCManualStatementApplication
                 if (this.txtNewAccount.Text != String.Empty) {
                     OleDbCommand cmd = connDemo.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = this.GetFacDbInfo(this.txtNewFacility.Text).Item2;
+                    cmd.CommandText = this.GetFacDbInfo(this.txtNewFacility.Text, this.txtNewAccount.Text).Item2;
                     //cmd.CommandText = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
                     //                  $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
                     //                  $"FROM {this.txtNewFacility.Text}_demo_audit";

@@ -596,7 +596,7 @@ namespace AHMCManualStatementApplication
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
                         CRUDQueries crud = new CRUDQueries(this);
-                        crud.ReadQuery(conn, this.GetFacDbInfo(facility));
+                        crud.ReadQuery(conn, this.GetFacDbInfo(facility, account));
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }
