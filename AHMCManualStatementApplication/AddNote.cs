@@ -20,5 +20,11 @@ namespace AHMCManualStatementApplication
             // Date note entered set to today's date
             this.txtEditNoteDate.Text = DateTime.Now.ToShortDateString();
         }
+
+        // TODO: implement INSERT command to Comments table
+        private void btnEditAddNote_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

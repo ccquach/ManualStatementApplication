@@ -709,6 +709,35 @@ namespace AHMCManualStatementApplication
             this.tileBack.Enabled = true;
             this.tileNext.Enabled = true;
         }
+
+        // TODO: implement DELETE command
+        private void tileDeleteAccount_Click(object sender, EventArgs e)
+        {
+            try {
+                if (account != null) {
+                    DialogResult result = MessageBox.Show($"Are you sure you want to permanently delete Account # {account}?", "Confirmation", MessageBoxButtons.YesNo);
+                    if (DialogResult == DialogResult.Yes) {
+
+                    }
+                    else {
+                        return;
+                    }
+                }
+                else {
+                    MessageBox.Show("Please select an account to delete.");
+                    return;
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // TODO: Download manual statement log table as Excel file; prompt for save directory
+        private void tileExport_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
-    }
+}
 }

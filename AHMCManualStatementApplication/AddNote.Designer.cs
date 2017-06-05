@@ -111,6 +111,7 @@
             this.btnEditAddNote.TabIndex = 1;
             this.btnEditAddNote.Text = "&Add";
             this.btnEditAddNote.UseSelectable = true;
+            this.btnEditAddNote.Click += new System.EventHandler(this.btnEditAddNote_Click);
             // 
             // AddNote
             // 
