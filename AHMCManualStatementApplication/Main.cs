@@ -619,14 +619,95 @@ namespace AHMCManualStatementApplication
 
         private void tileEdit_Click(object sender, EventArgs e)
         {
-            try {
-                using (EditAccount editAcct = new EditAccount()) {
-                    var result = editAcct.ShowDialog();
+            if (account != null) {
+                try {
+                    foreach (Control ctl in this.tbStatementHistory.Controls) {
+                        switch (ctl.Name) {
+                            case "txtPtLiab":
+                            case "txtRequestedDate":
+                            case "txtFirstStmnt":
+                            case "txtSecondStmnt":
+                            case "txtFinalStmnt":
+                            case "ckBoxCompleted":
+                                if (ctl.GetType() == typeof(MetroTextBox)) {
+                                    ((MetroTextBox)ctl).ReadOnly = false;
+                                }
+                                else if (ctl.GetType() == typeof(MetroCheckBox)) {
+                                    ((MetroCheckBox)ctl).Enabled = true;
+                                }
+                                break;
+                            default:
+                                ctl.BackColor = Color.FromArgb(224, 224, 224);
+                                break;
+                        }
+                    }
+                    this.btnAccountGenerate.Visible = false;
+                    this.btnEditAddNote.Visible = true;
+                    this.btnEditApplyChanges.Visible = true;
+                    this.btnEditCancel.Visible = true;
+                    this.tileHome.Enabled = false;
+                    this.tileView.Enabled = false;
+                    this.tileGenerate.Enabled = false;
+                    this.tileBack.Enabled = false;
+                    this.tileNext.Enabled = false;
+                    this.tbCtrlPages.SelectedTab = tbStatementHistory;
+
+                    //using (EditAccount editAcct = new EditAccount()) {
+                    //    var result = editAcct.ShowDialog();
+                    //}
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                else {
+                    MessageBox.Show("Please select an account to edit.");
+                    return;
+                }
+        }
+
+        // TODO: Implement SQL INSERT command to Comments table
+        private void btnEditAddNote_Click(object sender, EventArgs e)
+        {
+            using (AddNote addNote = new AddNote()) {
+                var result = addNote.ShowDialog();
             }
+        }
+
+        // TODO: Implement SQL UPDATE command
+        private void btnEditChanges_Click(object sender, EventArgs e)
+        {
+            // TODO: If Apply Changes, UPDATE command; if Cancel, clear textboxes and requery info
+            // TODO: Validate data before applying changes
+            foreach (Control ctl in this.tbStatementHistory.Controls) {
+                switch (ctl.Name) {
+                    case "txtPtLiab":
+                    case "txtRequestedDate":
+                    case "txtFirstStmnt":
+                    case "txtSecondStmnt":
+                    case "txtFinalStmnt":
+                    case "ckBoxCompleted":
+                        if (ctl.GetType() == typeof(MetroTextBox)) {
+                            ((MetroTextBox)ctl).ReadOnly = true;
+                        }
+                        else if (ctl.GetType() == typeof(MetroCheckBox)) {
+                            ((MetroCheckBox)ctl).Enabled = false;
+                        }
+                        break;
+                    default:
+                        ctl.BackColor = SystemColors.ButtonHighlight;
+                        break;
+                }
+            }
+            this.btnAccountGenerate.Visible = true;
+            this.btnEditAddNote.Visible = false;
+            this.btnEditApplyChanges.Visible = false;
+            this.btnEditCancel.Visible = false;
+            this.tileHome.Enabled = true;
+            this.tileView.Enabled = true;
+            this.tileGenerate.Enabled = true;
+            this.tileBack.Enabled = true;
+            this.tileNext.Enabled = true;
         }
         #endregion
     }

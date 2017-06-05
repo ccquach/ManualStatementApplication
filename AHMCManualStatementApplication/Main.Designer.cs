@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNavMain = new MetroFramework.Controls.MetroPanel();
             this.panelBack = new MetroFramework.Controls.MetroPanel();
             this.tileBack = new MetroFramework.Controls.MetroTile();
@@ -74,6 +74,9 @@
             this.tileDeleteAccount = new MetroFramework.Controls.MetroTile();
             this.tileAddAccount = new MetroFramework.Controls.MetroTile();
             this.tbStatementHistory = new MetroFramework.Controls.MetroTabPage();
+            this.btnEditCancel = new MetroFramework.Controls.MetroButton();
+            this.btnEditApplyChanges = new MetroFramework.Controls.MetroButton();
+            this.btnEditAddNote = new MetroFramework.Controls.MetroButton();
             this.btnAccountGenerate = new MetroFramework.Controls.MetroButton();
             this.txtFinalStmnt = new MetroFramework.Controls.MetroTextBox();
             this.txtNote = new MetroFramework.Controls.MetroTextBox();
@@ -370,7 +373,7 @@
             this.tbCtrlPages.Dock = System.Windows.Forms.DockStyle.Right;
             this.tbCtrlPages.Location = new System.Drawing.Point(161, 60);
             this.tbCtrlPages.Name = "tbCtrlPages";
-            this.tbCtrlPages.SelectedIndex = 1;
+            this.tbCtrlPages.SelectedIndex = 2;
             this.tbCtrlPages.Size = new System.Drawing.Size(914, 646);
             this.tbCtrlPages.TabIndex = 0;
             this.tbCtrlPages.UseSelectable = true;
@@ -616,23 +619,23 @@
             this.dataGridAccounts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridAccounts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridAccounts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridAccounts.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridAccounts.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridAccounts.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridAccounts.EnableHeadersVisualStyles = false;
             this.dataGridAccounts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -642,14 +645,14 @@
             this.dataGridAccounts.Name = "dataGridAccounts";
             this.dataGridAccounts.ReadOnly = true;
             this.dataGridAccounts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridAccounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridAccounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridAccounts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAccounts.Size = new System.Drawing.Size(904, 501);
@@ -701,7 +704,9 @@
             // 
             // tbStatementHistory
             // 
-            this.tbStatementHistory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbStatementHistory.Controls.Add(this.btnEditCancel);
+            this.tbStatementHistory.Controls.Add(this.btnEditApplyChanges);
+            this.tbStatementHistory.Controls.Add(this.btnEditAddNote);
             this.tbStatementHistory.Controls.Add(this.btnAccountGenerate);
             this.tbStatementHistory.Controls.Add(this.txtFinalStmnt);
             this.tbStatementHistory.Controls.Add(this.txtNote);
@@ -735,17 +740,55 @@
             this.tbStatementHistory.VerticalScrollbarHighlightOnWheel = false;
             this.tbStatementHistory.VerticalScrollbarSize = 10;
             // 
+            // btnEditCancel
+            // 
+            this.btnEditCancel.Location = new System.Drawing.Point(729, 513);
+            this.btnEditCancel.Name = "btnEditCancel";
+            this.btnEditCancel.Size = new System.Drawing.Size(112, 25);
+            this.btnEditCancel.TabIndex = 12;
+            this.btnEditCancel.TabStop = false;
+            this.btnEditCancel.Text = "&Cancel";
+            this.btnEditCancel.UseSelectable = true;
+            this.btnEditCancel.Visible = false;
+            this.btnEditCancel.Click += new System.EventHandler(this.btnEditChanges_Click);
+            // 
+            // btnEditApplyChanges
+            // 
+            this.btnEditApplyChanges.Location = new System.Drawing.Point(601, 513);
+            this.btnEditApplyChanges.Name = "btnEditApplyChanges";
+            this.btnEditApplyChanges.Size = new System.Drawing.Size(112, 25);
+            this.btnEditApplyChanges.TabIndex = 12;
+            this.btnEditApplyChanges.TabStop = false;
+            this.btnEditApplyChanges.Text = "&Apply Changes";
+            this.btnEditApplyChanges.UseSelectable = true;
+            this.btnEditApplyChanges.Visible = false;
+            this.btnEditApplyChanges.Click += new System.EventHandler(this.btnEditChanges_Click);
+            // 
+            // btnEditAddNote
+            // 
+            this.btnEditAddNote.Location = new System.Drawing.Point(50, 513);
+            this.btnEditAddNote.Name = "btnEditAddNote";
+            this.btnEditAddNote.Size = new System.Drawing.Size(112, 25);
+            this.btnEditAddNote.TabIndex = 12;
+            this.btnEditAddNote.TabStop = false;
+            this.btnEditAddNote.Text = "Add &Note";
+            this.btnEditAddNote.UseSelectable = true;
+            this.btnEditAddNote.Visible = false;
+            this.btnEditAddNote.Click += new System.EventHandler(this.btnEditAddNote_Click);
+            // 
             // btnAccountGenerate
             // 
             this.btnAccountGenerate.Location = new System.Drawing.Point(729, 513);
             this.btnAccountGenerate.Name = "btnAccountGenerate";
             this.btnAccountGenerate.Size = new System.Drawing.Size(112, 25);
             this.btnAccountGenerate.TabIndex = 12;
+            this.btnAccountGenerate.TabStop = false;
             this.btnAccountGenerate.Text = "Generate";
             this.btnAccountGenerate.UseSelectable = true;
             // 
             // txtFinalStmnt
             // 
+            this.txtFinalStmnt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -772,19 +815,21 @@
             this.txtFinalStmnt.Size = new System.Drawing.Size(231, 23);
             this.txtFinalStmnt.TabIndex = 9;
             this.txtFinalStmnt.TabStop = false;
+            this.txtFinalStmnt.UseCustomBackColor = true;
             this.txtFinalStmnt.UseSelectable = true;
             this.txtFinalStmnt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtFinalStmnt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtNote
             // 
+            this.txtNote.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
             this.txtNote.CustomButton.Image = null;
-            this.txtNote.CustomButton.Location = new System.Drawing.Point(769, 1);
+            this.txtNote.CustomButton.Location = new System.Drawing.Point(707, 1);
             this.txtNote.CustomButton.Name = "";
-            this.txtNote.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtNote.CustomButton.Size = new System.Drawing.Size(83, 83);
             this.txtNote.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtNote.CustomButton.TabIndex = 1;
             this.txtNote.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -805,12 +850,14 @@
             this.txtNote.Size = new System.Drawing.Size(791, 85);
             this.txtNote.TabIndex = 11;
             this.txtNote.TabStop = false;
+            this.txtNote.UseCustomBackColor = true;
             this.txtNote.UseSelectable = true;
             this.txtNote.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNote.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtPtLiab
             // 
+            this.txtPtLiab.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -837,12 +884,14 @@
             this.txtPtLiab.Size = new System.Drawing.Size(231, 23);
             this.txtPtLiab.TabIndex = 5;
             this.txtPtLiab.TabStop = false;
+            this.txtPtLiab.UseCustomBackColor = true;
             this.txtPtLiab.UseSelectable = true;
             this.txtPtLiab.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPtLiab.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtSecondStmnt
             // 
+            this.txtSecondStmnt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -869,12 +918,14 @@
             this.txtSecondStmnt.Size = new System.Drawing.Size(231, 23);
             this.txtSecondStmnt.TabIndex = 8;
             this.txtSecondStmnt.TabStop = false;
+            this.txtSecondStmnt.UseCustomBackColor = true;
             this.txtSecondStmnt.UseSelectable = true;
             this.txtSecondStmnt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSecondStmnt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtPatientName
             // 
+            this.txtPatientName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -901,12 +952,14 @@
             this.txtPatientName.Size = new System.Drawing.Size(231, 23);
             this.txtPatientName.TabIndex = 4;
             this.txtPatientName.TabStop = false;
+            this.txtPatientName.UseCustomBackColor = true;
             this.txtPatientName.UseSelectable = true;
             this.txtPatientName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPatientName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtFirstStmnt
             // 
+            this.txtFirstStmnt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -933,12 +986,14 @@
             this.txtFirstStmnt.Size = new System.Drawing.Size(231, 23);
             this.txtFirstStmnt.TabIndex = 7;
             this.txtFirstStmnt.TabStop = false;
+            this.txtFirstStmnt.UseCustomBackColor = true;
             this.txtFirstStmnt.UseSelectable = true;
             this.txtFirstStmnt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtFirstStmnt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtAccount
             // 
+            this.txtAccount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -965,12 +1020,14 @@
             this.txtAccount.Size = new System.Drawing.Size(231, 23);
             this.txtAccount.TabIndex = 3;
             this.txtAccount.TabStop = false;
+            this.txtAccount.UseCustomBackColor = true;
             this.txtAccount.UseSelectable = true;
             this.txtAccount.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtAccount.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtRequestedDate
             // 
+            this.txtRequestedDate.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -997,12 +1054,14 @@
             this.txtRequestedDate.Size = new System.Drawing.Size(231, 23);
             this.txtRequestedDate.TabIndex = 6;
             this.txtRequestedDate.TabStop = false;
+            this.txtRequestedDate.UseCustomBackColor = true;
             this.txtRequestedDate.UseSelectable = true;
             this.txtRequestedDate.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtRequestedDate.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtFacility
             // 
+            this.txtFacility.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -1029,6 +1088,7 @@
             this.txtFacility.Size = new System.Drawing.Size(231, 23);
             this.txtFacility.TabIndex = 2;
             this.txtFacility.TabStop = false;
+            this.txtFacility.UseCustomBackColor = true;
             this.txtFacility.UseSelectable = true;
             this.txtFacility.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtFacility.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1767,6 +1827,9 @@
         private MetroFramework.Controls.MetroRadioButton btnSecondStatement;
         private MetroFramework.Controls.MetroRadioButton btnFirstStatement;
         private MetroFramework.Controls.MetroTile tileEdit;
+        private MetroFramework.Controls.MetroButton btnEditAddNote;
+        private MetroFramework.Controls.MetroButton btnEditApplyChanges;
+        private MetroFramework.Controls.MetroButton btnEditCancel;
     }
 }
 
