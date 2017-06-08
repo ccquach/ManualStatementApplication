@@ -66,10 +66,16 @@ namespace AHMCManualStatementApplication
             // Demo query
             string facDemoQuery;
             if (account != "") {
+                #region DataReader Query
+                //facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                //               $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                //               $"FROM {dbFacility}_demo_audit " +
+                //               $"WHERE REPLACE(PATIENT_NUMBER, ' ', '') = '{account}'";
+                #endregion
+
                 facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
                                $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                               $"FROM {dbFacility}_demo_audit " +
-                               $"WHERE PATIENT_NUMBER = {account}";
+                               $"FROM {dbFacility}_demo_audit";
             }
             else {
                 facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +

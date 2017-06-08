@@ -27,8 +27,8 @@ namespace AHMCManualStatementApplication
         {
             try {
                 query = @"SELECT log.*, fac.FacilityAbbr 
-                          FROM tblManualStmntLog AS log 
-                          LEFT JOIN tblFacility AS fac
+                          FROM tblAccounts AS log 
+                          LEFT JOIN tblFacilities AS fac
                           ON log.FacilityID = fac.FacilityID";
 
                 using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn)) {
@@ -45,7 +45,7 @@ namespace AHMCManualStatementApplication
                     // STATEMENT HISTORY:
                     form.Facility = form.facility;
                     form.Account = form.account;
-                    form.Completed = linqQuery.SingleOrDefault().Field<bool>("Completed");
+                    form.Completed = linqQuery.SingleOrDefault().Field<bool>("IsCompleted");
                     form.PatientLiability = linqQuery.SingleOrDefault().Field<double>("PatResp").ToString("#,##0.00");
 
                     form.DateRequested = linqQuery.SingleOrDefault().Field<DateTime?>("DateRequested").HasValue ?
@@ -57,7 +57,7 @@ namespace AHMCManualStatementApplication
                     form.StatementFinal = linqQuery.SingleOrDefault().Field<DateTime?>("DateFinalStmnt").HasValue ?
                         linqQuery.SingleOrDefault().Field<DateTime?>("DateFinalStmnt").Value.ToShortDateString() : String.Empty;
 
-                    form.NoteEntered = linqQuery.SingleOrDefault().Field<string>("Notes");
+                    //form.CommentNote = linqQuery.SingleOrDefault().Field<string>("Comment");
 
                     // DEMOGRAPHICS:
                     form.DemoFacility = form.facility;
@@ -65,79 +65,68 @@ namespace AHMCManualStatementApplication
                     form.DemoPatientLiability = linqQuery.SingleOrDefault().Field<double>("PatResp").ToString("#,##0.00");
                 }
 
-                #region Old connStr code
-                // Get facility db abbreviation
-                //string dbFacility = String.Empty;
-                //if (form.facility == "ARMC") {
-                //    dbFacility = "amh";
-                //}
-                //else {
-                //    dbFacility = form.facility;
-                //}
-
-                // Connect to demo table in facility database
-                //string connStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
-                //                 $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{dbFacility}_cpsi_odbc_dw.mdb;" +
-                //                 $"Persist Security Info=False;";
-                #endregion
-
-                using (OleDbConnection connDemo = new OleDbConnection(facDbInfo.Item1)) {
-                    connDemo.Open();
-                    
-                    OleDbCommand cmd = connDemo.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = facDbInfo.Item2;
-                    #region Old command code
-                    //cmd.CommandText= $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                    //                 $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                    //                 $"FROM {dbFacility}_demo_audit";
-                    #endregion
-
-                    using (OleDbDataReader reader = cmd.ExecuteReader()) {
-                        while (reader.Read()) {
-                            form.PatientName = reader.SafeGetValue("PATIENT_NAME");
-                            form.DemoPatientName = reader.SafeGetValue("PATIENT_NAME");
-                            form.DischargeDate = reader.SafeGetValue("IP1DISC_DATE");
-                            form.AddressLine1 = reader.SafeGetValue("IP1PAT_ADDR1");
-                            form.AddressLine2 = reader.SafeGetValue("IP1PAT_ADDR2");
-                            form.City = reader.SafeGetValue("IP1PAT_CITY");
-                            form.State = reader.SafeGetValue("IP1PAT_STATE");
-                            form.Zipcode = reader.SafeGetValue("IP1PAT_ZIP");
-                        }
-                    }
-                }
-
-                #region Old LINQ to DataSet code
-                //using (OleDbConnection connDemo = new OleDbConnection(connStr)) {
-                //    // Open connection
+                #region DataReader
+                //using (OleDbConnection connDemo = new OleDbConnection(facDbInfo.Item1)) {
                 //    connDemo.Open();
 
-                //    query = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                //            $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                //            $"FROM {dbFacility}_demo_audit";
+                //    OleDbCommand cmd = connDemo.CreateCommand();
+                //    cmd.CommandType = CommandType.Text;
+                //    cmd.CommandText = facDbInfo.Item2;
 
-                //    using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, connDemo)) {
-                //        DataSet set = new DataSet();
-                //        adapter.Fill(set, "Demo");
-
-                //        // Execute demo query
-                //        var linqQuery = from acct in set.Tables["Demo"].AsEnumerable()
-                //                        where acct.Field<string>("PATIENT_NUMBER").Replace(" ","") == account
-                //                        select acct;
-
-                //        // Fill account demo info
-                //        form.PatientName = linqQuery.SingleOrDefault().Field<string>("PATIENT_NAME");
-                //        form.DemoPatientName = linqQuery.SingleOrDefault().Field<string>("PATIENT_NAME");
-                //        form.AddressLine1 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR1");
-                //        form.AddressLine2 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR2");
-                //        form.City = linqQuery.SingleOrDefault().Field<string>("IP1PAT_CITY");
-                //        form.State = linqQuery.SingleOrDefault().Field<string>("IP1PAT_STATE");
-                //        form.Zipcode = linqQuery.SingleOrDefault().Field<int>("IP1PAT_ZIP").ToString();
-
-                //        form.DischargeDate = linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").HasValue ?
-                //            linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").Value.ToShortDateString() : String.Empty;
+                //    using (OleDbDataReader reader = cmd.ExecuteReader()) {
+                //        while (reader.Read()) {
+                //            form.PatientName = reader.SafeGetValue("PATIENT_NAME");
+                //            form.DemoPatientName = reader.SafeGetValue("PATIENT_NAME");
+                //            form.DischargeDate = reader.SafeGetValue("IP1DISC_DATE");
+                //            form.AddressLine1 = reader.SafeGetValue("IP1PAT_ADDR1");
+                //            form.AddressLine2 = reader.SafeGetValue("IP1PAT_ADDR2");
+                //            form.City = reader.SafeGetValue("IP1PAT_CITY");
+                //            form.State = reader.SafeGetValue("IP1PAT_STATE");
+                //            form.Zipcode = reader.SafeGetValue("IP1PAT_ZIP");
+                //        }
                 //    }
                 //}
+                #endregion
+
+                #region Old LINQ to DataSet code
+                using (OleDbConnection connDemo = new OleDbConnection(facDbInfo.Item1)) {
+                    // Open connection
+                    connDemo.Open();
+
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(facDbInfo.Item2, connDemo)) {
+                        DataSet set = new DataSet();
+                        adapter.Fill(set, "Demo");
+
+                        // Execute demo query
+                        //var linqQuery = from acct in set.Tables["Demo"].AsEnumerable()
+                        //                where acct.Field<string>("PATIENT_NUMBER").Replace(" ", "") == form.account
+                        //                select acct;
+
+                        var linqQuery = set.Tables["Demo"].AsEnumerable()
+                            .Where(acct => acct.Field<string>("PATIENT_NUMBER").Replace(" ", "") == form.account)
+                            .FirstOrDefault();
+
+                        // Fill account demo info
+                        form.PatientName = linqQuery.Field<string>("PATIENT_NAME");
+                        form.DemoPatientName = linqQuery.Field<string>("PATIENT_NAME");
+                        form.AddressLine1 = linqQuery.Field<string>("IP1PAT_ADDR1");
+                        form.AddressLine2 = linqQuery.Field<string>("IP1PAT_ADDR2");
+                        form.City = linqQuery.Field<string>("IP1PAT_CITY");
+                        form.State = linqQuery.Field<string>("IP1PAT_STATE");
+                        form.Zipcode = linqQuery.Field<int>("IP1PAT_ZIP").ToString();
+
+                        //form.PatientName = linqQuery.SingleOrDefault().Field<string>("PATIENT_NAME");
+                        //form.DemoPatientName = linqQuery.SingleOrDefault().Field<string>("PATIENT_NAME");
+                        //form.AddressLine1 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR1");
+                        //form.AddressLine2 = linqQuery.SingleOrDefault().Field<string>("IP1PAT_ADDR2");
+                        //form.City = linqQuery.SingleOrDefault().Field<string>("IP1PAT_CITY");
+                        //form.State = linqQuery.SingleOrDefault().Field<string>("IP1PAT_STATE");
+                        //form.Zipcode = linqQuery.SingleOrDefault().Field<int>("IP1PAT_ZIP").ToString();
+
+                        //form.DischargeDate = linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").HasValue ?
+                        //    linqQuery.SingleOrDefault().Field<DateTime?>("IP1DISC_DATE").Value.ToShortDateString() : String.Empty;
+                    }
+                }
                 #endregion
             }
             catch (Exception ex) {

@@ -26,7 +26,7 @@ namespace AHMCManualStatementApplication
         string StatementFirst { get; set; }
         string StatementSecond { get; set; }
         string StatementFinal { get; set; }
-        string NoteEntered { get; set; }
+        string CommentNote { get; set; }
         bool Completed { get; set; }
         string DemoFacility { get; set; }
         string DemoAccount { get; set; }
@@ -109,7 +109,7 @@ namespace AHMCManualStatementApplication
             set { this.txtFinalStmnt.Text = value; }
         }
 
-        public string NoteEntered {
+        public string CommentNote {
             get { return this.txtNote.Text; }
             set { this.txtNote.Text = value; }
         }
@@ -478,9 +478,9 @@ namespace AHMCManualStatementApplication
                     "log.DateFirstStmnt AS [First Statement], " +
                     "log.DateSecondStmnt AS [Second Statement], " +
                     "log.DateFinalStmnt AS [Final Statement], " +
-                    "log.Completed AS [Completed] " +
-                    "FROM tblManualStmntLog AS [log] " +
-                    "LEFT JOIN tblFacility AS [fac] " +
+                    "log.IsCompleted AS [Completed] " +
+                    "FROM tblAccounts AS [log] " +
+                    "LEFT JOIN tblFacilities AS [fac] " +
                     "ON log.FacilityID = fac.FacilityID " +
                     "WHERE fac.FacilityAbbr = @Facility";
 
@@ -502,7 +502,7 @@ namespace AHMCManualStatementApplication
                     sb.Clear();
                     FilterByCompleted();
                     FilterByStatementDate();
-                    MessageBox.Show(sb.ToString());                                                                         //debug
+                    //MessageBox.Show(sb.ToString());                                                                         //debug
                     view.RowFilter = sb.ToString();
                     dt = view.ToTable();
 
