@@ -23,6 +23,16 @@ namespace AHMCManualStatementApplication
             this.form = form;
         }
 
+        public void TestReadQuery(string account, string facility)
+        {
+            using (ManualStatementContext context = new ManualStatementContext()) {
+                IEnumerable<Account> selectedAccount = context.Accounts
+                    .Where(a => a.AcctNumber == account && a.Facility.FacilityAbbr == facility);
+
+                MessageBox.Show(selectedAccount.SingleOrDefault().PatientName);
+            }
+        }
+
         public void ReadQuery(OleDbConnection conn, Tuple<string, string> facDbInfo)
         {
             try {

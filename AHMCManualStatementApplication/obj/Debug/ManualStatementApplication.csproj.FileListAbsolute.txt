@@ -33,3 +33,27 @@ C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementAppl
 U:\Visual Studio\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\ManualStatementApplication.csprojResolveAssemblyReference.cache
 C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.NewAccount.resources
 C:\Users\Cynthia Quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.AddNote.resources
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.exe.config
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.exe
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AHMCManualStatementApplication.pdb
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AdvancedDataGridView.dll
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\EntityFramework.dll
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\JetEntityFrameworkProvider.dll
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.Design.dll
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.dll
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\AdvancedDataGridView.xml
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\EntityFramework.xml
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\fr\AdvancedDataGridView.resources.dll
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\bin\Debug\ru\AdvancedDataGridView.resources.dll
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\ManualStatementApplication.csprojResolveAssemblyReference.cache
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.AddNote.resources
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Main.resources
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.NewAccount.resources
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.SpecificDatePicker.resources
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.Properties.Resources.resources
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\ManualStatementApplication.csproj.GenerateResource.Cache
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.exe
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.pdb

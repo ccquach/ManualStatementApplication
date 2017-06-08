@@ -18,6 +18,7 @@ namespace AHMCManualStatementApplication
         public DateTime DateFirstStmnt { get; set; }
         public DateTime? DateSecondStmnt { get; set; }
         public DateTime? DateFinalStmnt { get; set; }
-        public bool Completed { get; set; }
+        public bool IsCompleted { get; set; }
+        public Facility Facility { get; set; }
     }
 }

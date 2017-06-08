@@ -478,9 +478,9 @@ namespace AHMCManualStatementApplication
                     "log.DateFirstStmnt AS [First Statement], " +
                     "log.DateSecondStmnt AS [Second Statement], " +
                     "log.DateFinalStmnt AS [Final Statement], " +
-                    "log.Completed AS [Completed] " +
-                    "FROM tblManualStmntLog AS [log] " +
-                    "LEFT JOIN tblFacility AS [fac] " +
+                    "log.IsCompleted AS [Completed] " +
+                    "FROM Accounts AS [log] " +
+                    "LEFT JOIN Facilities AS [fac] " +
                     "ON log.FacilityID = fac.FacilityID " +
                     "WHERE fac.FacilityAbbr = @Facility";
 
@@ -590,7 +590,8 @@ namespace AHMCManualStatementApplication
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
                         CRUDQueries crud = new CRUDQueries(this);
-                        crud.ReadQuery(conn, this.GetFacDbInfo(facility, account));
+                        crud.TestReadQuery(account, facility);
+                        //crud.ReadQuery(conn, this.GetFacDbInfo(facility, account));
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }
