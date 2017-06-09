@@ -11,18 +11,18 @@ namespace AHMCManualStatementApplication
         public string Facility { get; set; }
         public string AccountNumber { get; set; }
         public string PatientName { get; set; }
-        public decimal PatientLiability { get; set; }
-        public DateTime RequestedDate { get; set; }
-        public DateTime DateFirstStatement { get; set; }
-        public DateTime? DateSecondStatement { get; set; }
-        public DateTime? DateFinalStatement { get; set; }
+        public string PatientLiability { get; set; }
+        public string DateRequested { get; set; }
+        public string DateFirstStatement { get; set; }
+        public string DateSecondStatement { get; set; }
+        public string DateFinalStatement { get; set; }
+        public bool IsCompleted { get; set; }
 
-        public DateTime DischargeDate { get; set; }
+        public string DischargeDate { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public int Zipcode { get; set; }
-
+        public string Zipcode { get; set; }
     }
 }

@@ -34,6 +34,8 @@ namespace AHMCManualStatementApplication
                         return reader.GetString(colIndex);
                     case TypeCode.Int32:
                         return reader.GetInt32(colIndex).ToString();
+                    case TypeCode.Double:
+                        return reader.GetDouble(colIndex).ToString();
                     case TypeCode.DateTime:
                         return reader.GetDateTime(colIndex).ToShortDateString();
                     default:
@@ -47,24 +49,25 @@ namespace AHMCManualStatementApplication
         #endregion
 
         #region Get database connection string
-        public static Tuple<string, string> GetFacDbInfo(this AccountDataService accountDataService, string facility, string account = "")
+        public static Tuple<string, string> GetFacDbInfo(this AccountStatementDataService accountDataService, string facility, string account = "")
         {
             // Get facility db abbreviation
-            string dbFacility;
+            string databaseFacilityName;
             if (facility == "ARMC") {
-                dbFacility = "amh";
+                databaseFacilityName = "amh";
             }
             else {
-                dbFacility = facility.ToLower();
+                databaseFacilityName = facility.ToLower();
             }
 
             // Connection string
-            string facConnStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
-                                $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{dbFacility}_cpsi_odbc_dw.mdb;" +
-                                $"Persist Security Info=False;";
+            string manualStatementConnectionString = 
+                $"Provider=Microsoft.ACE.OLEDB.12.0;" +
+                $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{databaseFacilityName}_cpsi_odbc_dw.mdb;" +
+                $"Persist Security Info=False;";
 
             // Demo query
-            string facDemoQuery;
+            string facilityDemoQuery;
             if (account != "") {
                 #region DataReader Query
                 //facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
@@ -73,16 +76,16 @@ namespace AHMCManualStatementApplication
                 //               $"WHERE REPLACE(PATIENT_NUMBER, ' ', '') = '{account}'";
                 #endregion
 
-                facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                               $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                               $"FROM {dbFacility}_demo_audit";
+                facilityDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                                    $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                                    $"FROM {databaseFacilityName}_demo_audit";
             }
             else {
-                facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                               $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                               $"FROM {dbFacility}_demo_audit";
+                facilityDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                                    $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                                    $"FROM {databaseFacilityName}_demo_audit";
             }
-            return Tuple.Create(facConnStr, facDemoQuery);
+            return Tuple.Create(manualStatementConnectionString, facilityDemoQuery);
         }
         #endregion
     }
