@@ -47,7 +47,7 @@ namespace AHMCManualStatementApplication
         #endregion
 
         #region Get database connection string
-        public static Tuple<string, string> GetFacDbInfo(this Form form, string facility, string account = "")
+        public static Tuple<string, string> GetFacDbInfo(this AccountDataService accountDataService, string facility, string account = "")
         {
             // Get facility db abbreviation
             string dbFacility;
