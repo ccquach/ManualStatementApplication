@@ -71,22 +71,34 @@ namespace AHMCManualStatementApplication
         // Statement History
         public string Facility {
             get { return this.txtFacility.Text; }
-            set { this.txtFacility.Text = value; }
+            set {
+                this.txtFacility.Text = value;
+                this.txtDemoFacility.Text = value;
+            }
         }
 
         public string Account {
             get { return this.txtAccount.Text; }
-            set { this.txtAccount.Text = value; }
+            set {
+                this.txtAccount.Text = value;
+                this.txtDemoAccount.Text = value;
+            }
         }
 
         public string PatientName {
             get { return this.txtPatientName.Text; }
-            set { this.txtPatientName.Text = value; }
+            set {
+                this.txtPatientName.Text = value;
+                this.txtDemoPtName.Text = value;
+            }
         }
 
         public string PatientLiability {
             get { return this.txtPtLiab.Text; }
-            set { this.txtPtLiab.Text = value; }
+            set {
+                this.txtPtLiab.Text = value;
+                this.txtDemoPtLiab.Text = value;
+            }
         }
 
         public string DateRequested {

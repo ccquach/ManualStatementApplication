@@ -23,21 +23,22 @@ namespace AHMCManualStatementApplication
                 using (OleDbConnection connection = new OleDbConnection(_connectionString)) {
                     connection.Open();
 
-                    string readQuery = @"SELECT log.*, fac.FacilityAbbr 
-                                         FROM tblAccounts AS log 
-                                         LEFT JOIN tblFacilities AS fac
-                                         ON log.FacilityID = fac.FacilityID
-                                         WHERE log.AcctNumber = @AccountNumber 
-                                         AND fac.FacilityAbbr = @Facility";
-
                     using (OleDbCommand command = connection.CreateCommand()) {
                         command.CommandType = CommandType.Text;
-                        command.CommandText = readQuery;
+                        command.CommandText = @"
+                                                SELECT      log.*, fac.FacilityAbbr 
+                                                FROM        tblAccounts AS log 
+                                                LEFT JOIN   tblFacilities AS fac
+                                                ON          log.FacilityID = fac.FacilityID
+                                                WHERE       log.AcctNumber = @AccountNumber 
+                                                AND         fac.FacilityAbbr = @Facility
+                                               ";
+
                         command.Parameters.Add("@AccountNumber", OleDbType.VarChar).Value = accountNumber;
                         command.Parameters.Add("@Facility", OleDbType.VarChar).Value = facility;
 
                         using (OleDbDataReader reader = command.ExecuteReader()) {
-                            while (reader.Read()) {
+                            if (reader.Read()) {
                                 return new AccountInfo {
                                     Facility = facility,
                                     AccountNumber = reader.SafeGetValue("AcctNumber"),

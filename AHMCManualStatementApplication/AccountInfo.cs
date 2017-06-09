@@ -10,7 +10,6 @@ namespace AHMCManualStatementApplication
     {
         public string Facility { get; set; }
         public string AccountNumber { get; set; }
-        public string PatientName { get; set; }
         public string PatientLiability { get; set; }
         public string DateRequested { get; set; }
         public string DateFirstStatement { get; set; }
@@ -18,6 +17,7 @@ namespace AHMCManualStatementApplication
         public string DateFinalStatement { get; set; }
         public bool IsCompleted { get; set; }
 
+        public string PatientName { get; set; }
         public string DischargeDate { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
