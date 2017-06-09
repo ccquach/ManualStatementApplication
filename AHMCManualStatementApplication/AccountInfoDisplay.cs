@@ -10,16 +10,14 @@ namespace AHMCManualStatementApplication
     public class AccountInfoDisplay
     {
         private Main _form;
-        private AccountStatementDataService _serviceStatement;
-        private AccountDemoDataService _serviceDemo;
+        private AccountDataService _service;
 
-        public AccountInfoDisplay(Main form, AccountStatementDataService serviceStatement, AccountDemoDataService serviceDemo)
+        public AccountInfoDisplay(Main form, AccountDataService service)
         {
             _form = form;
             _form.OnShowAccountInfo += View_OnShowAccountInfo;
 
-            _serviceStatement = serviceStatement;
-            _serviceDemo = serviceDemo;
+            _service = service;
         }
 
         public void Show()
@@ -29,7 +27,7 @@ namespace AHMCManualStatementApplication
 
         private void View_OnShowAccountInfo(object sender, EventArgs e)
         {
-            var info =  _serviceStatement.GetByAccountNumber(_form.facility, _form.account);
+            var info =  _service.GetStatementByAccountNumber(_form.facility, _form.account);
             if (info == null) {
                 MessageBox.Show("The specified account does not exist.");
                 return;
@@ -44,7 +42,7 @@ namespace AHMCManualStatementApplication
             _form.StatementFinal = info.DateFinalStatement;
             _form.Completed = info.IsCompleted;
 
-            info = _serviceDemo.GetByAccountNumber(_form.facility, _form.account);
+            info = _service.GetDemoByAccountNumber(_form.facility, _form.account);
             if (info == null) {
                 MessageBox.Show("The specified account does not exist.");
                 return;

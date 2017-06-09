@@ -584,9 +584,7 @@ namespace AHMCManualStatementApplication
 
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
-                        if (OnShowAccountInfo != null) {
-                            OnShowAccountInfo(this, EventArgs.Empty);
-                        }
+                        OnShowAccountInfo(this, EventArgs.Empty);
                         //CRUDQueries crud = new CRUDQueries(this);
                         //crud.ReadQuery(conn, this.GetFacDbInfo(facility, account));
                         Cursor.Current = Cursors.Default;

@@ -49,7 +49,7 @@ namespace AHMCManualStatementApplication
         #endregion
 
         #region Get database connection string
-        public static string GetDemoFacilityName(this AccountDemoDataService accountDemoDataService, string facility)
+        public static string GetDemoFacilityName(this AccountDataService accountDataService, string facility)
         {
             string databaseFacilityName;
             if (facility == "ARMC") {
@@ -60,5 +60,7 @@ namespace AHMCManualStatementApplication
             }
         }
         #endregion
+
+
     }
 }

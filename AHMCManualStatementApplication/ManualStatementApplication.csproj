@@ -60,7 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountStatementDataService.cs" />
+    <Compile Include="AccountDataService.cs" />
     <Compile Include="AccountDemoDataService.cs" />
     <Compile Include="AccountInfo.cs" />
     <Compile Include="AccountInfoDisplay.cs" />
