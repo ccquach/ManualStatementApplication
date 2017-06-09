@@ -31,7 +31,7 @@ namespace AHMCManualStatementApplication
                                                 WHERE   REPLACE(PATIENT_NUMBER, ' ', '') = @Account
                                                ";
 
-                        command.Parameters.Add("@facilityDemoTable", OleDbType.VarChar).Value = "";
+                        command.Parameters.Add("@facilityDemoTable", OleDbType.VarChar).Value = this.GetDemoFacilityName(facility);
                         command.Parameters.Add("@Account", OleDbType.VarChar).Value = accountNumber;
 
                         using (OleDbDataReader reader = command.ExecuteReader()) {

@@ -49,43 +49,15 @@ namespace AHMCManualStatementApplication
         #endregion
 
         #region Get database connection string
-        public static Tuple<string, string> GetFacDbInfo(this AccountDemoDataService accountDemoDataService, string facility, string account = "")
+        public static string GetDemoFacilityName(this AccountDemoDataService accountDemoDataService, string facility)
         {
-            // Get facility db abbreviation
             string databaseFacilityName;
             if (facility == "ARMC") {
-                databaseFacilityName = "amh";
+                return databaseFacilityName = "amh";
             }
             else {
-                databaseFacilityName = facility.ToLower();
+                return databaseFacilityName = facility.ToLower();
             }
-
-            // Connection string
-            string manualStatementConnectionString = 
-                $"Provider=Microsoft.ACE.OLEDB.12.0;" +
-                $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{databaseFacilityName}_cpsi_odbc_dw.mdb;" +
-                $"Persist Security Info=False;";
-
-            // Demo query
-            string facilityDemoQuery;
-            if (account != "") {
-                #region DataReader Query
-                //facDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                //               $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                //               $"FROM {dbFacility}_demo_audit " +
-                //               $"WHERE REPLACE(PATIENT_NUMBER, ' ', '') = '{account}'";
-                #endregion
-
-                facilityDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                                    $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                                    $"FROM {databaseFacilityName}_demo_audit";
-            }
-            else {
-                facilityDemoQuery = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-                                    $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-                                    $"FROM {databaseFacilityName}_demo_audit";
-            }
-            return Tuple.Create(manualStatementConnectionString, facilityDemoQuery);
         }
         #endregion
     }
