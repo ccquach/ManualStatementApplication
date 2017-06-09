@@ -16,7 +16,7 @@ namespace AHMCManualStatementApplication
             _connectionString = connectionString;
         }
 
-        public AccountInfo GetDemoByAccountNumber(string facility, string accountNumber)
+        public AccountInfo GetByAccountNumber(string facility, string accountNumber)
         {
             try {
                 using (OleDbConnection connection = new OleDbConnection(_connectionString)) {
@@ -30,6 +30,9 @@ namespace AHMCManualStatementApplication
                                                 FROM    @facilityDemoTable
                                                 WHERE   REPLACE(PATIENT_NUMBER, ' ', '') = @Account
                                                ";
+
+                        command.Parameters.Add("@facilityDemoTable", OleDbType.VarChar).Value = "";
+                        command.Parameters.Add("@Account", OleDbType.VarChar).Value = accountNumber;
 
                         using (OleDbDataReader reader = command.ExecuteReader()) {
                             if (reader.Read()) {

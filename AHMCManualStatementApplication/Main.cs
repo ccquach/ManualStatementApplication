@@ -40,7 +40,7 @@ namespace AHMCManualStatementApplication
         string Zipcode { get; set; }
     }
     
-    public partial class Main : MetroFramework.Forms.MetroForm, IMain
+    public partial class Main : MetroFramework.Forms.MetroForm
     {
         #region Variables
         int tabIndex;
@@ -67,6 +67,8 @@ namespace AHMCManualStatementApplication
         #region Properties
         public string facility { get; set; }
         public string account { get; set; }
+
+        public event EventHandler OnShowAccountInfo;
 
         // Statement History
         public string Facility {
@@ -132,25 +134,6 @@ namespace AHMCManualStatementApplication
         }
 
         // Demographics
-        public string DemoFacility {
-            get { return this.txtDemoFacility.Text; }
-            set { this.txtDemoFacility.Text = value; }
-        }
-
-        public string DemoAccount {
-            get { return this.txtDemoAccount.Text; }
-            set { this.txtDemoAccount.Text = value; }
-        }
-
-        public string DemoPatientName {
-            get { return this.txtDemoPtName.Text; }
-            set { this.txtDemoPtName.Text = value; }
-        }
-
-        public string DemoPatientLiability {
-            get { return this.txtDemoPtLiab.Text; }
-            set { this.txtDemoPtLiab.Text = value; }
-        }
         public string DischargeDate {
             get { return this.txtDischarge.Text; }
             set { this.txtDischarge.Text = value; }
@@ -601,8 +584,11 @@ namespace AHMCManualStatementApplication
 
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
-                        CRUDQueries crud = new CRUDQueries(this);
-                        crud.ReadQuery(conn, this.GetFacDbInfo(facility, account));
+                        if (OnShowAccountInfo != null) {
+                            OnShowAccountInfo(this, EventArgs.Empty);
+                        }
+                        //CRUDQueries crud = new CRUDQueries(this);
+                        //crud.ReadQuery(conn, this.GetFacDbInfo(facility, account));
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }
