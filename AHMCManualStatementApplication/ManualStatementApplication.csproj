@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountDataService.cs" />
-    <Compile Include="AccountDemoDataService.cs" />
     <Compile Include="AccountInfo.cs" />
     <Compile Include="AccountInfoDisplay.cs" />
     <Compile Include="AddNote.cs">
