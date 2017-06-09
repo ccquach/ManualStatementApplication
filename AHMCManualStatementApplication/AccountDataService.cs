@@ -12,9 +12,11 @@ namespace AHMCManualStatementApplication
     public class AccountDataService
     {
         private readonly string _connectionString;
-        public AccountDataService(string connectionString)
+        private readonly string _connectionStringDemo;
+        public AccountDataService(string connectionString, string connectionStringDemo)
         {
             _connectionString = connectionString;
+            _connectionStringDemo = connectionStringDemo;
         }
 
         public AccountInfo GetStatementByAccountNumber(string facility, string accountNumber)
@@ -57,19 +59,17 @@ namespace AHMCManualStatementApplication
 
         public AccountInfo GetDemoByAccountNumber(string facility, string accountNumber)
         {
-            using (OleDbConnection connection = new OleDbConnection(_connectionString)) {
+            using (OleDbConnection connection = new OleDbConnection(_connectionStringDemo)) {
                 connection.Open();
 
                 using (OleDbCommand command = connection.CreateCommand()) {
                     command.CommandType = CommandType.Text;
-                    command.CommandText = @"
-                                            SELECT  PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, 
-                                                    IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP 
-                                            FROM    @facilityDemoTable
-                                            WHERE   REPLACE(PATIENT_NUMBER, ' ', '') = @Account
-                                            ";
 
-                    command.Parameters.Add("@facilityDemoTable", OleDbType.VarChar).Value = this.GetDemoFacilityName(facility);
+                    command.CommandText = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
+                                          $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
+                                          $"FROM {this.GetDemoFacilityName(facility)}_demo_audit " +
+                                          $"WHERE REPLACE(PATIENT_NUMBER, ' ', '') = @Account";
+
                     command.Parameters.Add("@Account", OleDbType.VarChar).Value = accountNumber;
 
                     using (OleDbDataReader reader = command.ExecuteReader()) {

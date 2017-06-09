@@ -49,7 +49,7 @@ namespace AHMCManualStatementApplication
         String tileName = String.Empty;
 
         string connStr = "Provider=Microsoft.ACE.OLEDB.12.0;" +
-                         "Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\ManualStatementDatabase.accdb;" +
+                         "Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\ManualStatementDB.accdb;" +
                          "Persist Security Info=False;";
         string query = "";
         OleDbConnection conn = null;
@@ -584,9 +584,8 @@ namespace AHMCManualStatementApplication
 
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
+                        new AccountInfoDisplay(this, new AccountDataService(new DatabaseManager().GetStatementConnectionString(), new DatabaseManager().GetDemoConnectionString(this.facility)));
                         OnShowAccountInfo(this, EventArgs.Empty);
-                        //CRUDQueries crud = new CRUDQueries(this);
-                        //crud.ReadQuery(conn, this.GetFacDbInfo(facility, account));
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;
                     }

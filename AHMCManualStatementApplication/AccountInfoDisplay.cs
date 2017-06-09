@@ -33,7 +33,7 @@ namespace AHMCManualStatementApplication
                 return;
             }
 
-            _form.facility = info.Facility;
+            _form.Facility = info.Facility;
             _form.Account = info.AccountNumber;
             _form.PatientLiability = info.PatientLiability;
             _form.DateRequested = info.DateRequested;
