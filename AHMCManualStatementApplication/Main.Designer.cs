@@ -1714,8 +1714,7 @@
             this.Name = "Main";
             this.ShowIcon = false;
             this.Text = "AHMC Manual Statement";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.panelNavMain.ResumeLayout(false);
             this.panelBack.ResumeLayout(false);
             this.panelNext.ResumeLayout(false);

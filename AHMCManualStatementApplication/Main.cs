@@ -46,6 +46,10 @@ namespace AHMCManualStatementApplication
         {
             InitializeComponent();
             this.StyleManager = msmMain;
+
+            // Default values
+            facility = String.Empty;
+            account = String.Empty;
         }
 
         #region Variables
@@ -159,31 +163,12 @@ namespace AHMCManualStatementApplication
 
         #region Manual Statement Database Connection
         // Start page: Home screen
-        private void Form1_Load(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
             tbCtrlPages.SelectTab(tbHome);
             try
             {
-                conn = new OleDbConnection(connStr);
-                if (conn.State == ConnectionState.Closed) {
-                    conn.Open();
-                }
                 ActivateFunctions();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        // Form Closing: close database connection
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            try
-            {
-                if (conn.State == ConnectionState.Open) {
-                    conn.Close();
-                }
             }
             catch (Exception ex)
             {
@@ -423,7 +408,7 @@ namespace AHMCManualStatementApplication
 
                 // Query accounts
                 Cursor.Current = Cursors.WaitCursor;
-                if (RunQuery()) {
+                if (ViewAccountsQuery()) {
                     tbCtrlPages.SelectedTab = tbAccounts;
                     dataGridAccounts.Focus();
                 }
@@ -449,7 +434,7 @@ namespace AHMCManualStatementApplication
         }
 
         // Query accounts
-        private bool RunQuery()
+        private bool ViewAccountsQuery()
         {
             query = "SELECT log.DateRequested AS [Date Requested], " +
                     "fac.FacilityAbbr AS [Facility], " +
@@ -524,7 +509,7 @@ namespace AHMCManualStatementApplication
             if (btnStmnt.Checked) {
                 stmntCycle = btnStmnt.Text;
                 Cursor.Current = Cursors.WaitCursor;
-                RunQuery();
+                ViewAccountsQuery();
                 Cursor.Current = Cursors.Default;
             }
         }
@@ -547,7 +532,7 @@ namespace AHMCManualStatementApplication
         private void ckBoxCompletedFilter_CheckedChanged(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            RunQuery();
+            ViewAccountsQuery();
             Cursor.Current = Cursors.Default;
         }
         #endregion

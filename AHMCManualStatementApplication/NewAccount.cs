@@ -73,6 +73,9 @@ namespace AHMCManualStatementApplication
                 OnShowAccountInfo(this, EventArgs.Empty);
                 Cursor.Current = Cursors.Default;
             }
+            else {
+                ClearTextBoxes(this);
+            }
         }
 
         private void ClearTextBoxes(Control parent)
