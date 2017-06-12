@@ -42,6 +42,12 @@ namespace AHMCManualStatementApplication
     
     public partial class Main : MetroFramework.Forms.MetroForm
     {
+        public Main()
+        {
+            InitializeComponent();
+            this.StyleManager = msmMain;
+        }
+
         #region Variables
         int tabIndex;
 
@@ -78,7 +84,6 @@ namespace AHMCManualStatementApplication
                 this.txtDemoFacility.Text = value;
             }
         }
-
         public string Account {
             get { return this.txtAccount.Text; }
             set {
@@ -86,7 +91,6 @@ namespace AHMCManualStatementApplication
                 this.txtDemoAccount.Text = value;
             }
         }
-
         public string PatientName {
             get { return this.txtPatientName.Text; }
             set {
@@ -94,7 +98,6 @@ namespace AHMCManualStatementApplication
                 this.txtDemoPtName.Text = value;
             }
         }
-
         public string PatientLiability {
             get { return this.txtPtLiab.Text; }
             set {
@@ -102,32 +105,26 @@ namespace AHMCManualStatementApplication
                 this.txtDemoPtLiab.Text = value;
             }
         }
-
         public string DateRequested {
             get { return this.txtRequestedDate.Text; }
             set { this.txtRequestedDate.Text = value; }
         }
-
         public string StatementFirst {
             get { return this.txtFirstStmnt.Text; }
             set { this.txtFirstStmnt.Text = value; }
         }
-
         public string StatementSecond {
             get { return this.txtSecondStmnt.Text; }
             set { this.txtSecondStmnt.Text = value; }
         }
-
         public string StatementFinal {
             get { return this.txtFinalStmnt.Text; }
             set { this.txtFinalStmnt.Text = value; }
         }
-
         public string CommentNote {
             get { return this.txtNote.Text; }
             set { this.txtNote.Text = value; }
         }
-
         public bool Completed {
             get { return this.ckBoxCompleted.Checked; }
             set { this.ckBoxCompleted.Checked = value; }
@@ -138,38 +135,27 @@ namespace AHMCManualStatementApplication
             get { return this.txtDischarge.Text; }
             set { this.txtDischarge.Text = value; }
         }
-
         public string AddressLine1 {
             get { return this.txtAddress1.Text; }
             set { this.txtAddress1.Text = value; }
         }
-
         public string AddressLine2 {
             get { return this.txtAddress2.Text; }
             set { this.txtAddress2.Text = value; }
         }
-
         public string City {
             get { return this.txtCity.Text; }
             set { this.txtCity.Text = value; }
         }
-
         public string State {
             get { return this.txtState.Text; }
             set { this.txtState.Text = value; }
         }
-
         public string Zipcode {
             get { return this.txtZipcode.Text; }
             set { this.txtZipcode.Text = value; }
         }
         #endregion
-
-        public Main()
-        {
-            InitializeComponent();
-            this.StyleManager = msmMain;
-        }
 
         #region Manual Statement Database Connection
         // Start page: Home screen
@@ -584,7 +570,7 @@ namespace AHMCManualStatementApplication
 
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
-                        new AccountInfoDisplay(this, new AccountDataService(new DatabaseManager().GetStatementConnectionString(), new DatabaseManager().GetDemoConnectionString(this.facility)));
+                        new StatementAccountInfoDisplay(this, new AccountDataService(new DatabaseManager().GetStatementConnectionString(), new DatabaseManager().GetDemoConnectionString(this.facility)));
                         OnShowAccountInfo(this, EventArgs.Empty);
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;

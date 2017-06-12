@@ -14,10 +14,6 @@ namespace AHMCManualStatementApplication
 {
     public partial class NewAccount : MetroFramework.Forms.MetroForm
     {
-        #region Variables
-        OleDbConnection connDemo = null;
-        #endregion
-
         public NewAccount(string facility)
         {
             InitializeComponent();
@@ -26,6 +22,38 @@ namespace AHMCManualStatementApplication
             // Default info
             this.txtNewFacility.Text = facility;
             this.txtNewDateNoteEntered.Text = DateTime.Now.ToShortDateString();
+        }
+
+        OleDbConnection connDemo = null;
+        public event EventHandler OnShowAccountInfo;
+
+        public string PatientName {
+            get { return this.txtNewPatientName.Text; }
+            set { this.txtNewPatientName.Text = value; }
+        }
+        public string DischargeDate {
+            get { return this.txtNewDischarge.Text; }
+            set { this.txtNewDischarge.Text = value; }
+        }
+        public string AddressLine1 {
+            get { return this.txtNewAddress1.Text; }
+            set { this.txtNewAddress1.Text = value; }
+        }
+        public string AddressLine2 {
+            get { return this.txtNewAddress2.Text; }
+            set { this.txtNewAddress2.Text = value; }
+        }
+        public string City {
+            get { return this.txtNewCity.Text; }
+            set { this.txtNewCity.Text = value; }
+        }
+        public string State {
+            get { return this.txtNewState.Text; }
+            set { this.txtNewState.Text = value; }
+        }
+        public string Zipcode {
+            get { return this.txtNewZipcode.Text; }
+            set { this.txtNewZipcode.Text = value; }
         }
 
         #region Demo Database Connection
