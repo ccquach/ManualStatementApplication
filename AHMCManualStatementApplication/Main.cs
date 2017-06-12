@@ -570,7 +570,7 @@ namespace AHMCManualStatementApplication
 
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
-                        new StatementAccountInfoDisplay(this, new AccountDataService(new DatabaseManager().GetStatementConnectionString(), new DatabaseManager().GetDemoConnectionString(this.facility)));
+                        new StatementAccountInfoDisplay(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
                         OnShowAccountInfo(this, EventArgs.Empty);
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;

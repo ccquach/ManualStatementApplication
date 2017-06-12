@@ -7,28 +7,14 @@ using System.Configuration;
 
 namespace AHMCManualStatementApplication
 {
-    public class DatabaseManager
+    public static class DatabaseManager
     {
-        private static DatabaseManager _instance;
-        public DatabaseManager()
-        {
-        }
-
-        static DatabaseManager()
-        {
-            _instance = new DatabaseManager();
-        }
-
-        public DatabaseManager Instance {
-            get { return _instance; }
-        }
-
-        public string GetStatementConnectionString()
+        public static string GetStatementConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["ManualStatementConnection"].ConnectionString;
         }
 
-        public string GetDemoConnectionString(string facility)
+        public static string GetDemoConnectionString(string facility)
         {
             return ConfigurationManager.ConnectionStrings[$"{facility}DemoConnection"].ConnectionString;
         }
