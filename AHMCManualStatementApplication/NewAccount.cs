@@ -67,10 +67,12 @@ namespace AHMCManualStatementApplication
 
         private void txtNewAccount_Leave(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            new NewAccountInfoDisplay(this, new AccountDataService(new DatabaseManager().GetStatementConnectionString(), new DatabaseManager().GetDemoConnectionString(this.Facility)));
-            OnShowAccountInfo(this, EventArgs.Empty);
-            Cursor.Current = Cursors.Default;
+            if (this.Account != String.Empty) {
+                Cursor.Current = Cursors.WaitCursor;
+                new NewAccountInfoDisplay(this, new AccountDataService(new DatabaseManager().GetStatementConnectionString(), new DatabaseManager().GetDemoConnectionString(this.Facility)));
+                OnShowAccountInfo(this, EventArgs.Empty);
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         private void ClearTextBoxes(Control parent)
@@ -98,6 +100,9 @@ namespace AHMCManualStatementApplication
             }
         }
 
-        
+        private void btnCancelNewAccount_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -55,6 +55,7 @@
             this.txtNewComment = new MetroFramework.Controls.MetroTextBox();
             this.btnAddNewAccount = new MetroFramework.Controls.MetroButton();
             this.msmNewAccount = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.btnCancelNewAccount = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.msmNewAccount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -578,7 +579,7 @@
             // 
             // btnAddNewAccount
             // 
-            this.btnAddNewAccount.Location = new System.Drawing.Point(589, 386);
+            this.btnAddNewAccount.Location = new System.Drawing.Point(485, 386);
             this.btnAddNewAccount.Name = "btnAddNewAccount";
             this.btnAddNewAccount.Size = new System.Drawing.Size(75, 23);
             this.btnAddNewAccount.TabIndex = 4;
@@ -591,11 +592,22 @@
             this.msmNewAccount.Owner = this;
             this.msmNewAccount.Style = MetroFramework.MetroColorStyle.Red;
             // 
+            // btnCancelNewAccount
+            // 
+            this.btnCancelNewAccount.Location = new System.Drawing.Point(589, 386);
+            this.btnCancelNewAccount.Name = "btnCancelNewAccount";
+            this.btnCancelNewAccount.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelNewAccount.TabIndex = 4;
+            this.btnCancelNewAccount.Text = "&Cancel";
+            this.btnCancelNewAccount.UseSelectable = true;
+            this.btnCancelNewAccount.Click += new System.EventHandler(this.btnCancelNewAccount_Click);
+            // 
             // NewAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 432);
+            this.Controls.Add(this.btnCancelNewAccount);
             this.Controls.Add(this.btnAddNewAccount);
             this.Controls.Add(this.txtNewZipcode);
             this.Controls.Add(this.txtNewComment);
@@ -665,5 +677,6 @@
         private MetroFramework.Controls.MetroTextBox txtNewComment;
         private MetroFramework.Controls.MetroButton btnAddNewAccount;
         private MetroFramework.Components.MetroStyleManager msmNewAccount;
+        private MetroFramework.Controls.MetroButton btnCancelNewAccount;
     }
 }

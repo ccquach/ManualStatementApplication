@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="AccountDataService.cs" />
     <Compile Include="AccountInfo.cs" />
-    <Compile Include="AccountInfoDisplay.cs" />
+    <Compile Include="StatementAccountInfoDisplay.cs" />
     <Compile Include="AddNote.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +85,7 @@
     <Compile Include="NewAccount.Designer.cs">
       <DependentUpon>NewAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewAccountInfoDisplay.cs" />
     <Compile Include="SpecificDatePicker.cs">
       <SubType>Form</SubType>
     </Compile>
