@@ -24,9 +24,17 @@ namespace AHMCManualStatementApplication
             this.txtNewDateNoteEntered.Text = DateTime.Now.ToShortDateString();
         }
 
-        OleDbConnection connDemo = null;
         public event EventHandler OnShowAccountInfo;
 
+        #region Properties
+        public string Facility {
+            get { return this.txtNewFacility.Text; }
+            set { this.txtNewFacility.Text = value; }
+        }
+        public string Account {
+            get { return this.txtNewAccount.Text; }
+            set { this.txtNewAccount.Text = value; }
+        }
         public string PatientName {
             get { return this.txtNewPatientName.Text; }
             set { this.txtNewPatientName.Text = value; }
@@ -55,76 +63,14 @@ namespace AHMCManualStatementApplication
             get { return this.txtNewZipcode.Text; }
             set { this.txtNewZipcode.Text = value; }
         }
-
-        #region Demo Database Connection
-        private void NewAccount_Load(object sender, EventArgs e)
-        {
-            //// Connect to demo database
-            //try {
-            //    //string connStr = $"Provider=Microsoft.ACE.OLEDB.12.0;" +
-            //    //                 $"Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\demo.db\\{this.txtNewFacility.Text}_cpsi_odbc_dw.mdb;" +
-            //    //                 $"Persist Security Info=False;";
-
-            //    connDemo = new OleDbConnection(this.GetFacDbInfo(this.txtNewFacility.Text).Item1);
-            //    if (connDemo.State == ConnectionState.Closed) {
-            //        connDemo.Open();
-            //    }
-            //}
-            //catch (Exception ex) {
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
-
-        private void NewAccount_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Close connection to demo database
-            try {
-                if (connDemo.State == ConnectionState.Open) {
-                    connDemo.Close();
-                }
-            }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
-        }
         #endregion
 
         private void txtNewAccount_Leave(object sender, EventArgs e)
         {
-            //try {
-            //    if (this.txtNewAccount.Text != String.Empty) {
-            //        OleDbCommand cmd = connDemo.CreateCommand();
-            //        cmd.CommandType = CommandType.Text;
-            //        cmd.CommandText = this.GetFacDbInfo(this.txtNewFacility.Text, this.txtNewAccount.Text).Item2;
-            //        //cmd.CommandText = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
-            //        //                  $"IP1PAT_ADDR2, IP1PAT_CITY, IP1PAT_STATE, IP1PAT_ZIP " +
-            //        //                  $"FROM {this.txtNewFacility.Text}_demo_audit";
-
-            //        using (OleDbDataReader reader = cmd.ExecuteReader()) {
-            //            if (reader["PATIENT_NUMBER"] != DBNull.Value) {
-            //                while (reader.Read()) {
-            //                    this.txtNewPatientName.Text = reader.SafeGetValue("PATIENT_NAME");
-            //                    this.txtNewDischarge.Text = reader.SafeGetValue("IP1DISC_DATE");
-            //                    this.txtNewAddress1.Text = reader.SafeGetValue("IP1PAT_ADDR1");
-            //                    this.txtNewAddress2.Text = reader.SafeGetValue("IP1PAT_ADDR2");
-            //                    this.txtNewCity.Text = reader.SafeGetValue("IP1PAT_CITY");
-            //                    this.txtNewState.Text = reader.SafeGetValue("IP1PAT_STATE");
-            //                    this.txtNewZipcode.Text = reader.SafeGetValue("IP1PAT_ZIP");
-            //                }
-            //            }
-            //            else {
-            //                MessageBox.Show("The entered account does not exist.");
-            //                return;
-            //            }
-            //        }
-            //    }
-            //    else {
-            //        ClearTextBoxes(this);
-            //    }
-            //}
-            //catch (Exception ex) {
-            //    MessageBox.Show(ex.Message);
-            //}
+            Cursor.Current = Cursors.WaitCursor;
+            new NewAccountInfoDisplay(this, new AccountDataService(new DatabaseManager().GetStatementConnectionString(), new DatabaseManager().GetDemoConnectionString(this.Facility)));
+            OnShowAccountInfo(this, EventArgs.Empty);
+            Cursor.Current = Cursors.Default;
         }
 
         private void ClearTextBoxes(Control parent)

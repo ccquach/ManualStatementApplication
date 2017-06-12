@@ -87,6 +87,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SpecificDatePicker";
+            this.Style = MetroFramework.MetroColorStyle.Red;
             this.Load += new System.EventHandler(this.SpecificDatePicker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

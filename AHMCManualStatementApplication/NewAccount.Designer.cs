@@ -630,8 +630,6 @@
             this.Padding = new System.Windows.Forms.Padding(20, 111, 20, 20);
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Add New Account";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewAccount_FormClosing);
-            this.Load += new System.EventHandler(this.NewAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.msmNewAccount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

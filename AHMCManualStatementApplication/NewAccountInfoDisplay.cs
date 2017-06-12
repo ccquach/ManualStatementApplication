@@ -9,7 +9,6 @@ namespace AHMCManualStatementApplication
 {
     public class NewAccountInfoDisplay
     {
-        private Main _mainForm;
         private NewAccount _form;
         private AccountDataService _service;
 
@@ -28,7 +27,7 @@ namespace AHMCManualStatementApplication
 
         private void View_OnShowDemoAccountInfo(object sender, EventArgs e)
         {
-            var info = _service.GetDemoByAccountNumber(_mainForm.facility, _mainForm.account);
+            var info = _service.GetDemoByAccountNumber(_form.Facility, _form.Account);
             if (info == null) {
                 MessageBox.Show("The specified account does not exist.");
                 return;
