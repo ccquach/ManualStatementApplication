@@ -65,7 +65,9 @@ namespace AHMCManualStatementApplication
         public string facility { get; set; }
         public string account { get; set; }
         public string viewOption { get; set; }
-        public string stmntCycle { get; set; }
+        public string statementCycle { get; set; }
+        public bool IsCheckedCompleted { get; set; }
+        public bool IsCheckedUncompleted { get; set; }
 
         // Accounts DataGridView
         public DataGridView AccountsDataGridView {
@@ -373,22 +375,53 @@ namespace AHMCManualStatementApplication
         // Get statement cycle
         private void btnStmntCycle_CheckedChanged(object sender, EventArgs e)
         {
-            MetroRadioButton btnStmnt = sender as MetroRadioButton;
-            if (btnStmnt.Checked) {
-                stmntCycle = btnStmnt.Text;
+            try
+            {
+                MetroRadioButton btnStmnt = sender as MetroRadioButton;
+                if (btnStmnt.Checked)
+                {
+                    statementCycle = btnStmnt.Text;
+
+                    Cursor.Current = Cursors.WaitCursor;
+                    new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
+                    OnShowAccountDataGridView(this, EventArgs.Empty);
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        // Get Completed checkbox selections
+        private void ckBoxCompletedFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // Completed checkbox
+                if (ckBoxCompletedFilter.CheckState == CheckState.Checked)
+                    IsCheckedCompleted = true;
+                else
+                    IsCheckedCompleted = false;
+
+                // Uncompleted checkbox
+                if (ckBoxUncompletedFilter.CheckState == CheckState.Checked)
+                    IsCheckedUncompleted = true;
+                else
+                    IsCheckedUncompleted = false;
+
                 Cursor.Current = Cursors.WaitCursor;
                 new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
                 OnShowAccountDataGridView(this, EventArgs.Empty);
                 Cursor.Current = Cursors.Default;
             }
-        }
-
-        private void ckBoxCompletedFilter_CheckedChanged(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
-            OnShowAccountDataGridView(this, EventArgs.Empty);
-            Cursor.Current = Cursors.Default;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         #endregion
 
@@ -560,5 +593,5 @@ namespace AHMCManualStatementApplication
 
         }
         #endregion
-}
+    }
 }

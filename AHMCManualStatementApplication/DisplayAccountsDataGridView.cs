@@ -29,7 +29,7 @@ namespace AHMCManualStatementApplication
 
         private void View_OnShowAccountsDataGridView(object sender, EventArgs e)
         {
-            var gridData = _service.GetAccountsDataGridView(_form.facility, _form.viewOption, _form.stmntCycle);
+            var gridData = _service.GetAccountsDataGridView(_form.facility, _form.viewOption, _form.statementCycle, _form.IsCheckedCompleted, _form.IsCheckedUncompleted);
             if (gridData.AccountsDataGridView.Rows.Count == 0)
             {
                 MessageBox.Show("There are no accounts to display for the selected date(s).");

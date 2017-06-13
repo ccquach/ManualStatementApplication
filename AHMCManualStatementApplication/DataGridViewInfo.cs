@@ -18,7 +18,10 @@ namespace AHMCManualStatementApplication
         private bool isRangeDate;
 
         private string _viewOption;
-        public DataGridViewInfo(string viewOption, string stmntCycle)
+        private string _statementCycle;
+        private bool _isCheckedCompleted;
+        private bool _isCheckedUncompleted;
+        public DataGridViewInfo(string viewOption, string statementCycle, bool isCheckedCompleted, bool isCheckedUncompleted)
         {
             _viewOption = viewOption;
             this.BuildQueryByViewOption();
@@ -26,7 +29,7 @@ namespace AHMCManualStatementApplication
             // Default values
             sb = new StringBuilder();
             viewDate = String.Empty;
-            stmntCycle = "First Statement";
+            statementCycle = "First Statement";
             viewDateStr = String.Empty;
             first = String.Empty;
             last = String.Empty;
@@ -109,11 +112,11 @@ namespace AHMCManualStatementApplication
 
         public void FilterByCompleted()
         {
-            if (ckBoxCompletedFilter.Checked && !ckBoxUncompletedFilter.Checked)
+            if (_isCheckedCompleted && !_isCheckedUncompleted)
             {
                 sb.Append("[Completed] = True");
             }
-            else if (!ckBoxCompletedFilter.Checked && ckBoxUncompletedFilter.Checked)
+            else if (!_isCheckedCompleted && _isCheckedUncompleted)
             {
                 sb.Append("[Completed] = False");
             }

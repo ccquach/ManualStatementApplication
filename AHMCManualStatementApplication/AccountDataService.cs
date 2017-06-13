@@ -95,9 +95,9 @@ namespace AHMCManualStatementApplication
             return null;
         }
 
-        public DataGridViewInfo GetAccountsDataGridView(string facility, string viewOption, string stmntCycle)
+        public DataGridViewInfo GetAccountsDataGridView(string facility, string viewOption, string stmntCycle, bool isCheckedCompleted, bool isCheckedUncompleted)
         {
-            DataGridViewInfo dgvInfo = new DataGridViewInfo(viewOption, stmntCycle);
+            DataGridViewInfo dgvInfo = new DataGridViewInfo(viewOption, stmntCycle, isCheckedCompleted, isCheckedUncompleted);
 
             using (OleDbConnection connection = new OleDbConnection(_connectionStringStatement))
             {
