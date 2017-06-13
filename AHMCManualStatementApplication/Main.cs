@@ -70,10 +70,7 @@ namespace AHMCManualStatementApplication
         public bool IsCheckedUncompleted { get; set; }
 
         // Accounts DataGridView
-        public DataGridView AccountsDataGridView {
-            get { return this.AccountsDataGridView; }
-            set { this.AccountsDataGridView = value; }
-        }
+        public DataGridView AccountsDataGridView { get; set; }
         public string TotalRowsLabel {
             get { return lblTotalRows.Text; }
             set { lblTotalRows.Text = value; }

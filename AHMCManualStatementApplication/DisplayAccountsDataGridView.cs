@@ -30,14 +30,15 @@ namespace AHMCManualStatementApplication
         private void View_OnShowAccountsDataGridView(object sender, EventArgs e)
         {
             var gridData = _service.GetAccountsDataGridView(_form.facility, _form.viewOption, _form.statementCycle, _form.IsCheckedCompleted, _form.IsCheckedUncompleted);
-            if (gridData.AccountsDataGridView.Rows.Count == 0)
+            _form.AccountsDataGridView.DataSource = gridData.AccountsDataTable;
+            if (_form.AccountsDataGridView.Rows.Count == 0)
             {
                 MessageBox.Show("There are no accounts to display for the selected date(s).");
                 return;
             }
-
-            _form.AccountsDataGridView = gridData.AccountsDataGridView;
-            _form.TotalRowsLabel = gridData.TotalRowsLabel;
+            _form.AccountsDataGridView.AutoResizeColumns();
+            _form.AccountsDataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
+            _form.TotalRowsLabel = $"Total rows: {_form.AccountsDataGridView.RowCount}";
         }
     }
 }

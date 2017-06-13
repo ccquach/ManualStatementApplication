@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace AHMCManualStatementApplication
 {
@@ -15,7 +16,7 @@ namespace AHMCManualStatementApplication
         private string last;
         private bool isRangeDate;
 
-        private StringBuilder _sb;
+        private StringBuilder _filterStringBuilding;
         private string _viewOption;
         private string _statementCycle;
         private bool _isCheckedCompleted;
@@ -24,15 +25,15 @@ namespace AHMCManualStatementApplication
         public DataGridViewInfo(string viewOption, string statementCycle, bool isCheckedCompleted, bool isCheckedUncompleted)
         {
             _viewOption = viewOption;
-            
-            if (statementCycle == String.Empty)
+
+            if (statementCycle == null)
                 _statementCycle = "First statement";
             else
                 _statementCycle = statementCycle;
             
             _isCheckedCompleted = isCheckedCompleted;
             _isCheckedUncompleted = isCheckedUncompleted;
-            _sb = new StringBuilder();
+            _filterStringBuilding = new StringBuilder();
 
             viewDate = String.Empty;
             viewDateStr = String.Empty;
@@ -41,13 +42,14 @@ namespace AHMCManualStatementApplication
             isRangeDate = false;
         }
 
-        public DataGridView AccountsDataGridView { get; set; }
-        public string TotalRowsLabel { get; set; }
-        public StringBuilder Sb { get { return _sb; } }
+        public DataTable AccountsDataTable { get; set; } 
+        //public DataGridView AccountsDataGridView { get; set; }
+        //public string TotalRowsLabel { get; set; }
+        public StringBuilder FilterStringBuilder { get { return _filterStringBuilding; } }
 
         public void BuildAccountQuery()
         {
-            _sb.Clear();
+            _filterStringBuilding.Clear();
             FilterByViewOption();
             FilterByStatementDate();
             FilterByCompleted();
@@ -134,19 +136,19 @@ namespace AHMCManualStatementApplication
         {
             if (_isCheckedCompleted && !_isCheckedUncompleted)
             {
-                _sb.Append("[Completed] = True");
+                _filterStringBuilding.Append("[Completed] = True");
             }
             else if (!_isCheckedCompleted && _isCheckedUncompleted)
             {
-                _sb.Append("[Completed] = False");
+                _filterStringBuilding.Append("[Completed] = False");
             }
         }
 
         private void FilterByStatementDate()
         {
-            if (_sb.Length > 0)
+            if (_filterStringBuilding.Length > 0)
             {
-                _sb.Append(" AND ");
+                _filterStringBuilding.Append(" AND ");
             }
 
             if (viewDateStr != String.Empty)
@@ -155,7 +157,7 @@ namespace AHMCManualStatementApplication
                 {
                     viewDateStr = $"[{_statementCycle}] >= '{first}' AND [{_statementCycle}] <= '{last}'";
                 }
-                _sb.Append($"{viewDateStr}");
+                _filterStringBuilding.Append($"{viewDateStr}");
             }
         }
     }

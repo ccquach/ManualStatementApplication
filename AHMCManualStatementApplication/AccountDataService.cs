@@ -134,16 +134,17 @@ namespace AHMCManualStatementApplication
 
                         // Filter by Statement Date / Completed
                         dgvInfo.BuildAccountQuery();
-                        MessageBox.Show(dgvInfo.Sb.ToString());                                                                         //debug
-                        view.RowFilter = dgvInfo.Sb.ToString();
+                        MessageBox.Show(dgvInfo.FilterStringBuilder.ToString());                                                                         //debug
+                        view.RowFilter = dgvInfo.FilterStringBuilder.ToString();
                         dt = view.ToTable();
 
                         if (dt.Rows.Count != 0)
                         {
-                            dgvInfo.AccountsDataGridView.DataSource = dt;
-                            dgvInfo.AccountsDataGridView.AutoResizeColumns();
-                            dgvInfo.AccountsDataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
-                            dgvInfo.TotalRowsLabel = String.Format("Total rows: {0}", dgvInfo.AccountsDataGridView.RowCount);
+                            dgvInfo.AccountsDataTable = dt;
+                            //dgvInfo.AccountsDataGridView.DataSource = dt;
+                            //dgvInfo.AccountsDataGridView.AutoResizeColumns();
+                            //dgvInfo.AccountsDataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
+                            //dgvInfo.TotalRowsLabel = $"Total rows: {dgvInfo.AccountsDataGridView.RowCount}";
                         }
                         else
                         {
