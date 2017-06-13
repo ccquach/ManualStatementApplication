@@ -53,6 +53,7 @@ namespace AHMCManualStatementApplication
         }
 
         #region Variables
+        public event EventHandler OnShowAccountInfo;
         int tabIndex;
 
         MetroTile tile = null;
@@ -70,7 +71,15 @@ namespace AHMCManualStatementApplication
         public string facility { get; set; }
         public string account { get; set; }
 
-        public event EventHandler OnShowAccountInfo;
+        // Accounts DataGridView
+        public DataGridView AccountsDataGridView {
+            get { return this.AccountsDataGridView; }
+            set { this.AccountsDataGridView = value; }
+        }
+        public string TotalRowsLabel {
+            get { return lblTotalRows.Text; }
+            set { lblTotalRows.Text = value; }
+        }
 
         // Statement History
         public string Facility {
@@ -403,7 +412,7 @@ namespace AHMCManualStatementApplication
 
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
-                        new StatementAccountInfoDisplay(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
+                        new InfoDisplayStatementAccount(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
                         OnShowAccountInfo(this, EventArgs.Empty);
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;
