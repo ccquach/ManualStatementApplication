@@ -354,14 +354,18 @@ namespace AHMCManualStatementApplication
         #endregion
 
         #region Date view selection
+        // Get view date
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             viewOption = (sender as ToolStripMenuItem).Text;
 
             try {
-                // Query accounts
                 Cursor.Current = Cursors.WaitCursor;
-                if (ViewAccountsQuery()) {
+                new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
+                OnShowAccountDataGridView(this, EventArgs.Empty);
+
+                if (dataGridAccounts.Rows.Count != 0)
+                {
                     tbCtrlPages.SelectedTab = tbAccounts;
                     dataGridAccounts.Focus();
                 }
