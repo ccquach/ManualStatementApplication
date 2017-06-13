@@ -11,17 +11,17 @@ namespace AHMCManualStatementApplication
 {
     public class AccountDataService
     {
-        private readonly string _connectionString;
+        private readonly string _connectionStringStatement;
         private readonly string _connectionStringDemo;
-        public AccountDataService(string connectionString, string connectionStringDemo)
+        public AccountDataService(string connectionStringStatement, string connectionStringDemo)
         {
-            _connectionString = connectionString;
+            _connectionStringStatement = connectionStringStatement;
             _connectionStringDemo = connectionStringDemo;
         }
 
         public AccountInfo GetStatementByAccountNumber(string facility, string accountNumber)
         {
-            using (OleDbConnection connection = new OleDbConnection(_connectionString)) {
+            using (OleDbConnection connection = new OleDbConnection(_connectionStringStatement)) {
                 connection.Open();
 
                 using (OleDbCommand command = connection.CreateCommand()) {

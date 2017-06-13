@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNavMain = new MetroFramework.Controls.MetroPanel();
             this.panelBack = new MetroFramework.Controls.MetroPanel();
             this.tileBack = new MetroFramework.Controls.MetroTile();
@@ -46,10 +46,10 @@
             this.tileHome = new MetroFramework.Controls.MetroTile();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.ctxViewMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.todayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lastMonthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.specificDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmToday = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmLastMonth = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSpecificDate = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAll = new System.Windows.Forms.ToolStripMenuItem();
             this.lblActiveFacility = new MetroFramework.Controls.MetroLabel();
             this.tbCtrlPages = new AHMCManualStatementApplication.TablessControl();
             this.tbHome = new MetroFramework.Controls.MetroTabPage();
@@ -122,6 +122,8 @@
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.tbGenerateStmnt = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
+            this.tsmRangeDates = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmByAccountNumber = new System.Windows.Forms.ToolStripMenuItem();
             this.panelNavMain.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelNext.SuspendLayout();
@@ -317,40 +319,42 @@
             this.ctxViewMenu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ctxViewMenu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctxViewMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.todayToolStripMenuItem,
-            this.lastMonthToolStripMenuItem,
-            this.specificDateToolStripMenuItem,
-            this.allToolStripMenuItem});
+            this.tsmToday,
+            this.tsmLastMonth,
+            this.tsmSpecificDate,
+            this.tsmRangeDates,
+            this.tsmAll,
+            this.tsmByAccountNumber});
             this.ctxViewMenu.Name = "ctxViewMenu";
-            this.ctxViewMenu.Size = new System.Drawing.Size(167, 100);
+            this.ctxViewMenu.Size = new System.Drawing.Size(211, 148);
             // 
-            // todayToolStripMenuItem
+            // tsmToday
             // 
-            this.todayToolStripMenuItem.Name = "todayToolStripMenuItem";
-            this.todayToolStripMenuItem.Size = new System.Drawing.Size(166, 24);
-            this.todayToolStripMenuItem.Text = "&Today";
-            this.todayToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            this.tsmToday.Name = "tsmToday";
+            this.tsmToday.Size = new System.Drawing.Size(210, 24);
+            this.tsmToday.Text = "&Today";
+            this.tsmToday.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
-            // lastMonthToolStripMenuItem
+            // tsmLastMonth
             // 
-            this.lastMonthToolStripMenuItem.Name = "lastMonthToolStripMenuItem";
-            this.lastMonthToolStripMenuItem.Size = new System.Drawing.Size(166, 24);
-            this.lastMonthToolStripMenuItem.Text = "&Last Month";
-            this.lastMonthToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            this.tsmLastMonth.Name = "tsmLastMonth";
+            this.tsmLastMonth.Size = new System.Drawing.Size(210, 24);
+            this.tsmLastMonth.Text = "&Last Month";
+            this.tsmLastMonth.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
-            // specificDateToolStripMenuItem
+            // tsmSpecificDate
             // 
-            this.specificDateToolStripMenuItem.Name = "specificDateToolStripMenuItem";
-            this.specificDateToolStripMenuItem.Size = new System.Drawing.Size(166, 24);
-            this.specificDateToolStripMenuItem.Text = "&Specific Date";
-            this.specificDateToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            this.tsmSpecificDate.Name = "tsmSpecificDate";
+            this.tsmSpecificDate.Size = new System.Drawing.Size(210, 24);
+            this.tsmSpecificDate.Text = "&Specific Date";
+            this.tsmSpecificDate.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
-            // allToolStripMenuItem
+            // tsmAll
             // 
-            this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-            this.allToolStripMenuItem.Size = new System.Drawing.Size(166, 24);
-            this.allToolStripMenuItem.Text = "&All";
-            this.allToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            this.tsmAll.Name = "tsmAll";
+            this.tsmAll.Size = new System.Drawing.Size(210, 24);
+            this.tsmAll.Text = "&All";
+            this.tsmAll.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // lblActiveFacility
             // 
@@ -619,23 +623,23 @@
             this.dataGridAccounts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridAccounts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridAccounts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridAccounts.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridAccounts.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridAccounts.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridAccounts.EnableHeadersVisualStyles = false;
             this.dataGridAccounts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -645,14 +649,14 @@
             this.dataGridAccounts.Name = "dataGridAccounts";
             this.dataGridAccounts.ReadOnly = true;
             this.dataGridAccounts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridAccounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridAccounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridAccounts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAccounts.Size = new System.Drawing.Size(904, 501);
@@ -1701,6 +1705,18 @@
             this.metroLabel25.Text = "GENERATE STATEMENT";
             this.metroLabel25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // tsmRangeDates
+            // 
+            this.tsmRangeDates.Name = "tsmRangeDates";
+            this.tsmRangeDates.Size = new System.Drawing.Size(210, 24);
+            this.tsmRangeDates.Text = "&Range of Dates";
+            // 
+            // tsmByAccountNumber
+            // 
+            this.tsmByAccountNumber.Name = "tsmByAccountNumber";
+            this.tsmByAccountNumber.Size = new System.Drawing.Size(210, 24);
+            this.tsmByAccountNumber.Text = "&By Account Number";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1808,10 +1824,10 @@
         private MetroFramework.Controls.MetroTile tileAddAccount;
         private MetroFramework.Controls.MetroTile tileExport;
         private MetroFramework.Controls.MetroContextMenu ctxViewMenu;
-        private System.Windows.Forms.ToolStripMenuItem todayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lastMonthToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem specificDateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmToday;
+        private System.Windows.Forms.ToolStripMenuItem tsmLastMonth;
+        private System.Windows.Forms.ToolStripMenuItem tsmSpecificDate;
+        private System.Windows.Forms.ToolStripMenuItem tsmAll;
         private MetroFramework.Controls.MetroButton btnARMC;
         private MetroFramework.Controls.MetroButton btnWHT;
         private MetroFramework.Controls.MetroButton btnSGV;
@@ -1831,6 +1847,8 @@
         private MetroFramework.Controls.MetroButton btnEditAddNote;
         private MetroFramework.Controls.MetroButton btnEditApplyChanges;
         private MetroFramework.Controls.MetroButton btnEditCancel;
+        private System.Windows.Forms.ToolStripMenuItem tsmRangeDates;
+        private System.Windows.Forms.ToolStripMenuItem tsmByAccountNumber;
     }
 }
 

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace AHMCManualStatementApplication
 {
     public class StatementAccountInfoDisplay
-    { 
+    {
         private Main _form;
         private AccountDataService _service;
 
@@ -28,7 +28,7 @@ namespace AHMCManualStatementApplication
 
         private void View_OnShowStatementAccountInfo(object sender, EventArgs e)
         {
-            var info =  _service.GetStatementByAccountNumber(_form.facility, _form.account);
+            var info = _service.GetStatementByAccountNumber(_form.facility, _form.account);
             if (info == null) {
                 MessageBox.Show("The specified account does not exist.");
                 return;
