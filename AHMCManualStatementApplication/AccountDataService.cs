@@ -89,5 +89,10 @@ namespace AHMCManualStatementApplication
             }
             return null;
         }
+
+        public DataGridViewInfo GetAccountsDataGridView()
+        {
+
+        }
     }
 }
