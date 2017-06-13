@@ -69,7 +69,7 @@ namespace AHMCManualStatementApplication
         {
             if (this.Account != String.Empty) {
                 Cursor.Current = Cursors.WaitCursor;
-                new NewAccountInfoDisplay(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.Facility)));
+                new InfoDisplayNewAccount(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.Facility)));
                 OnShowAccountInfo(this, EventArgs.Empty);
                 Cursor.Current = Cursors.Default;
             }

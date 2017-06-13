@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace AHMCManualStatementApplication
 {
-    public class NewAccountInfoDisplay
+    public class InfoDisplayNewAccount
     {
         private NewAccount _form;
         private AccountDataService _service;
 
-        public NewAccountInfoDisplay(NewAccount form, AccountDataService service)
+        public InfoDisplayNewAccount(NewAccount form, AccountDataService service)
         {
             _form = form;
             _form.OnShowAccountInfo += View_OnShowDemoAccountInfo;
