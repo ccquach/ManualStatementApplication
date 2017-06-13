@@ -95,9 +95,9 @@ namespace AHMCManualStatementApplication
             return null;
         }
 
-        public DataGridViewInfo GetAccountsDataGridView(string facility, string viewOption)
+        public DataGridViewInfo GetAccountsDataGridView(string facility, string viewOption, string stmntCycle)
         {
-            DataGridViewInfo dgvInfo = new DataGridViewInfo(viewOption);
+            DataGridViewInfo dgvInfo = new DataGridViewInfo(viewOption, stmntCycle);
 
             using (OleDbConnection connection = new OleDbConnection(_connectionStringStatement))
             {
@@ -124,7 +124,6 @@ namespace AHMCManualStatementApplication
 
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
                     {
-                        
                         DataTable dt = new DataTable();
                         adapter.SelectCommand = command;
                         adapter.Fill(dt);
@@ -143,10 +142,10 @@ namespace AHMCManualStatementApplication
 
                         if (dt.Rows.Count != 0)
                         {
-                            dgvInfo.DataGridView.DataSource = dt;
-                            dgvInfo.DataGridView.AutoResizeColumns();
-                            dgvInfo.DataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
-                            dgvInfo.TotalRowsLabel = String.Format("Total rows: {0}", dgvInfo.DataGridView.RowCount);
+                            dgvInfo.AccountsDataGridView.DataSource = dt;
+                            dgvInfo.AccountsDataGridView.AutoResizeColumns();
+                            dgvInfo.AccountsDataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
+                            dgvInfo.TotalRowsLabel = String.Format("Total rows: {0}", dgvInfo.AccountsDataGridView.RowCount);
                         }
                         else
                         {

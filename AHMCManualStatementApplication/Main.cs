@@ -65,6 +65,7 @@ namespace AHMCManualStatementApplication
         public string facility { get; set; }
         public string account { get; set; }
         public string viewOption { get; set; }
+        public string stmntCycle { get; set; }
 
         // Accounts DataGridView
         public DataGridView AccountsDataGridView {
@@ -157,7 +158,7 @@ namespace AHMCManualStatementApplication
         }
         #endregion
 
-        #region Manual Statement Database Connection
+        #region Button Accessibility
         // Start page: Home screen
         private void Main_Load(object sender, EventArgs e)
         {
@@ -171,9 +172,7 @@ namespace AHMCManualStatementApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        #endregion
-
-        #region Button Accessibility
+        
         // Make functions active when facility selected
         private void ActivateFunctions()
         {
@@ -378,7 +377,8 @@ namespace AHMCManualStatementApplication
             if (btnStmnt.Checked) {
                 stmntCycle = btnStmnt.Text;
                 Cursor.Current = Cursors.WaitCursor;
-                ViewAccountsQuery();
+                new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
+                OnShowAccountDataGridView(this, EventArgs.Empty);
                 Cursor.Current = Cursors.Default;
             }
         }
@@ -386,7 +386,8 @@ namespace AHMCManualStatementApplication
         private void ckBoxCompletedFilter_CheckedChanged(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            ViewAccountsQuery();
+            new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
+            OnShowAccountDataGridView(this, EventArgs.Empty);
             Cursor.Current = Cursors.Default;
         }
         #endregion

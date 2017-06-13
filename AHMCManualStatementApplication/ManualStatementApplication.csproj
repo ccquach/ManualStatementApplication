@@ -61,9 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayAccountsDataGridView.cs" />
     <Compile Include="AccountDataService.cs" />
     <Compile Include="AccountInfo.cs" />
-    <Compile Include="StatementAccountInfoDisplay.cs" />
+    <Compile Include="DataGridViewInfo.cs" />
+    <Compile Include="DisplayStatementAccountInfo.cs" />
     <Compile Include="AddNote.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,7 +87,7 @@
     <Compile Include="NewAccount.Designer.cs">
       <DependentUpon>NewAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewAccountInfoDisplay.cs" />
+    <Compile Include="DisplayNewAccountInfo.cs" />
     <Compile Include="SpecificDatePicker.cs">
       <SubType>Form</SubType>
     </Compile>
