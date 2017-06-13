@@ -10,14 +10,14 @@ namespace AHMCManualStatementApplication
     public class DataGridViewInfo
     {
         private string _viewOption;
-        public DataGridViewInfo(ToolStripMenuItem viewOption)
+        public DataGridViewInfo(string viewOption)
         {
-            _viewOption = viewOption.Text;
+            _viewOption = viewOption;
         }
 
-        private StringBuilder sb = new StringBuilder();
+        public StringBuilder sb = new StringBuilder();
         private string stmntCycle = "First Statement";
-        private string viewDate = String.Empty;
+        public string viewDate = String.Empty;
         private string viewDateStr = String.Empty;
         private string first = String.Empty;
         private string last = String.Empty;

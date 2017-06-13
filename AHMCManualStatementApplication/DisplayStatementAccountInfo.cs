@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace AHMCManualStatementApplication
 {
-    public class InfoDisplayStatementAccount
+    public class DisplayStatementAccountInfo
     {
         private Main _form;
         private AccountDataService _service;
 
-        public InfoDisplayStatementAccount(Main form, AccountDataService service)
+        public DisplayStatementAccountInfo(Main form, AccountDataService service)
         {
             _form = form;
             _form.OnShowAccountInfo += View_OnShowStatementAccountInfo;
@@ -29,7 +29,8 @@ namespace AHMCManualStatementApplication
         private void View_OnShowStatementAccountInfo(object sender, EventArgs e)
         {
             var info = _service.GetStatementByAccountNumber(_form.facility, _form.account);
-            if (info == null) {
+            if (info == null)
+            {
                 MessageBox.Show("The specified account does not exist.");
                 return;
             }
@@ -47,7 +48,8 @@ namespace AHMCManualStatementApplication
         private void View_OnShowDemoAccountInfo(object sender, EventArgs e)
         {
             var info = _service.GetDemoByAccountNumber(_form.facility, _form.account);
-            if (info == null) {
+            if (info == null)
+            {
                 MessageBox.Show("The specified account does not exist.");
                 return;
             }

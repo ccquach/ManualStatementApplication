@@ -54,22 +54,17 @@ namespace AHMCManualStatementApplication
 
         #region Variables
         public event EventHandler OnShowAccountInfo;
-        int tabIndex;
+        public event EventHandler OnShowAccountDataGridView;
 
+        int tabIndex;
         MetroTile tile = null;
         String tileName = String.Empty;
-
-        string connStr = "Provider=Microsoft.ACE.OLEDB.12.0;" +
-                         "Data Source=W:\\ETH\\CQ Macro\\analyst\\AHMC Manual Statement\\database\\ManualStatementDB.accdb;" +
-                         "Persist Security Info=False;";
-        string query = "";
-        OleDbConnection conn = null;
-        DataView view;
         #endregion
 
         #region Properties
         public string facility { get; set; }
         public string account { get; set; }
+        public string viewOption { get; set; }
 
         // Accounts DataGridView
         public DataGridView AccountsDataGridView {
@@ -360,6 +355,8 @@ namespace AHMCManualStatementApplication
         #region Date view selection
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            viewOption = (sender as ToolStripMenuItem).Text;
+
             try {
                 // Query accounts
                 Cursor.Current = Cursors.WaitCursor;
@@ -412,7 +409,7 @@ namespace AHMCManualStatementApplication
 
                         // Query account info
                         Cursor.Current = Cursors.WaitCursor;
-                        new InfoDisplayStatementAccount(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
+                        new DisplayStatementAccountInfo(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
                         OnShowAccountInfo(this, EventArgs.Empty);
                         Cursor.Current = Cursors.Default;
                         tbCtrlPages.SelectedTab = tbStatementHistory;

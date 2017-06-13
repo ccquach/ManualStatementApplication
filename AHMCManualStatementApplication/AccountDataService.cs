@@ -95,7 +95,7 @@ namespace AHMCManualStatementApplication
             return null;
         }
 
-        public DataGridViewInfo GetAccountsDataGridView(string facility, ToolStripMenuItem viewOption)
+        public DataGridViewInfo GetAccountsDataGridView(string facility, string viewOption)
         {
             DataGridViewInfo dgvInfo = new DataGridViewInfo(viewOption);
 
