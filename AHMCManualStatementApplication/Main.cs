@@ -358,7 +358,6 @@ namespace AHMCManualStatementApplication
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             viewOption = (sender as ToolStripMenuItem).Text;
-
             try {
                 Cursor.Current = Cursors.WaitCursor;
                 new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
@@ -405,13 +404,13 @@ namespace AHMCManualStatementApplication
             try
             {
                 // Completed checkbox
-                if (ckBoxCompletedFilter.CheckState == CheckState.Checked)
+                if (ckBoxCompletedFilter.Checked)
                     IsCheckedCompleted = true;
                 else
                     IsCheckedCompleted = false;
 
                 // Uncompleted checkbox
-                if (ckBoxUncompletedFilter.CheckState == CheckState.Checked)
+                if (ckBoxUncompletedFilter.Checked)
                     IsCheckedUncompleted = true;
                 else
                     IsCheckedUncompleted = false;

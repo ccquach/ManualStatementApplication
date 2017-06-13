@@ -133,11 +133,9 @@ namespace AHMCManualStatementApplication
                         view.Sort = "[Date Requested] desc";
 
                         // Filter by Statement Date / Completed
-                        dgvInfo.sb.Clear();
-                        dgvInfo.FilterByCompleted();
-                        dgvInfo.FilterByStatementDate();
-                        //MessageBox.Show(sb.ToString());                                                                         //debug
-                        view.RowFilter = dgvInfo.sb.ToString();
+                        dgvInfo.BuildAccountQuery();
+                        MessageBox.Show(dgvInfo.Sb.ToString());                                                                         //debug
+                        view.RowFilter = dgvInfo.Sb.ToString();
                         dt = view.ToTable();
 
                         if (dt.Rows.Count != 0)

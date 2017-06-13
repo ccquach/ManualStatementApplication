@@ -49,7 +49,9 @@
             this.tsmToday = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmLastMonth = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSpecificDate = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmRangeDates = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmByAccountNumber = new System.Windows.Forms.ToolStripMenuItem();
             this.lblActiveFacility = new MetroFramework.Controls.MetroLabel();
             this.tbCtrlPages = new AHMCManualStatementApplication.TablessControl();
             this.tbHome = new MetroFramework.Controls.MetroTabPage();
@@ -122,8 +124,6 @@
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.tbGenerateStmnt = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
-            this.tsmRangeDates = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmByAccountNumber = new System.Windows.Forms.ToolStripMenuItem();
             this.panelNavMain.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelNext.SuspendLayout();
@@ -326,7 +326,7 @@
             this.tsmAll,
             this.tsmByAccountNumber});
             this.ctxViewMenu.Name = "ctxViewMenu";
-            this.ctxViewMenu.Size = new System.Drawing.Size(211, 148);
+            this.ctxViewMenu.Size = new System.Drawing.Size(211, 170);
             // 
             // tsmToday
             // 
@@ -349,12 +349,24 @@
             this.tsmSpecificDate.Text = "&Specific Date";
             this.tsmSpecificDate.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
+            // tsmRangeDates
+            // 
+            this.tsmRangeDates.Name = "tsmRangeDates";
+            this.tsmRangeDates.Size = new System.Drawing.Size(210, 24);
+            this.tsmRangeDates.Text = "&Range of Dates";
+            // 
             // tsmAll
             // 
             this.tsmAll.Name = "tsmAll";
             this.tsmAll.Size = new System.Drawing.Size(210, 24);
             this.tsmAll.Text = "&All";
             this.tsmAll.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            // 
+            // tsmByAccountNumber
+            // 
+            this.tsmByAccountNumber.Name = "tsmByAccountNumber";
+            this.tsmByAccountNumber.Size = new System.Drawing.Size(210, 24);
+            this.tsmByAccountNumber.Text = "&By Account Number";
             // 
             // lblActiveFacility
             // 
@@ -1704,18 +1716,6 @@
             this.metroLabel25.TabIndex = 2;
             this.metroLabel25.Text = "GENERATE STATEMENT";
             this.metroLabel25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // tsmRangeDates
-            // 
-            this.tsmRangeDates.Name = "tsmRangeDates";
-            this.tsmRangeDates.Size = new System.Drawing.Size(210, 24);
-            this.tsmRangeDates.Text = "&Range of Dates";
-            // 
-            // tsmByAccountNumber
-            // 
-            this.tsmByAccountNumber.Name = "tsmByAccountNumber";
-            this.tsmByAccountNumber.Size = new System.Drawing.Size(210, 24);
-            this.tsmByAccountNumber.Text = "&By Account Number";
             // 
             // Main
             // 

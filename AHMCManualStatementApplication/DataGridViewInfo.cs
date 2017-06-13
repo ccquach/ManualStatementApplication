@@ -9,27 +9,32 @@ namespace AHMCManualStatementApplication
 {
     public class DataGridViewInfo
     {
-        public StringBuilder sb;
         public string viewDate;
-        private string stmntCycle;
         private string viewDateStr;
         private string first;
         private string last;
         private bool isRangeDate;
 
+        private StringBuilder _sb;
         private string _viewOption;
         private string _statementCycle;
         private bool _isCheckedCompleted;
         private bool _isCheckedUncompleted;
+
         public DataGridViewInfo(string viewOption, string statementCycle, bool isCheckedCompleted, bool isCheckedUncompleted)
         {
             _viewOption = viewOption;
-            this.BuildQueryByViewOption();
+            
+            if (statementCycle == String.Empty)
+                _statementCycle = "First statement";
+            else
+                _statementCycle = statementCycle;
+            
+            _isCheckedCompleted = isCheckedCompleted;
+            _isCheckedUncompleted = isCheckedUncompleted;
+            _sb = new StringBuilder();
 
-            // Default values
-            sb = new StringBuilder();
             viewDate = String.Empty;
-            statementCycle = "First Statement";
             viewDateStr = String.Empty;
             first = String.Empty;
             last = String.Empty;
@@ -38,8 +43,17 @@ namespace AHMCManualStatementApplication
 
         public DataGridView AccountsDataGridView { get; set; }
         public string TotalRowsLabel { get; set; }
+        public StringBuilder Sb { get { return _sb; } }
 
-        private string BuildQueryByViewOption()
+        public void BuildAccountQuery()
+        {
+            _sb.Clear();
+            FilterByViewOption();
+            FilterByStatementDate();
+            FilterByCompleted();
+        }
+
+        private string FilterByViewOption()
         {
             DateTime today = DateTime.Today;
 
@@ -50,20 +64,20 @@ namespace AHMCManualStatementApplication
                     {
                         first = new DateTime(today.Year, today.AddMonths(-1).Month, today.AddDays(-2).Day).ToShortDateString();
                         last = today.AddMonths(-1).ToShortDateString();
-                        viewDateStr = $">= '{first}' AND [{stmntCycle}] <= '{last}'";
+                        viewDateStr = $">= '{first}' AND [{_statementCycle}] <= '{last}'";
                         isRangeDate = true;
                     }
                     else
                     {
                         viewDate = today.AddMonths(-1).ToShortDateString();
-                        viewDateStr = $"= '{viewDate}'";
+                        viewDateStr = $"[{_statementCycle}] = '{viewDate}'";
                     }
                     break;
                 case "&Last Month":
                     var month = new DateTime(today.Year, today.Month, 1);
                     first = month.AddMonths(-1).ToShortDateString();
                     last = month.AddDays(-1).ToShortDateString();
-                    viewDateStr = $">= '{first}' AND [{stmntCycle}] <= '{last}'";
+                    viewDateStr = $">= '{first}' AND [{_statementCycle}] <= '{last}'";
                     isRangeDate = true;
                     break;
                 case "&Specific Date":
@@ -79,7 +93,7 @@ namespace AHMCManualStatementApplication
                             else
                             {
                                 viewDate = dtPicker.ReturnSpecificDate.Value.ToShortDateString();
-                                viewDateStr = $"= '{viewDate}'";
+                                viewDateStr = $"[{_statementCycle}] = '{viewDate}'";
                             }
                         }
                         else
@@ -87,6 +101,12 @@ namespace AHMCManualStatementApplication
                             return String.Empty;
                         }
                     }
+                    break;
+                case "&Range of Dates":
+
+                    break;
+                case "&By Account Number":
+
                     break;
                 case "&All":
                 default:
@@ -96,7 +116,7 @@ namespace AHMCManualStatementApplication
             return viewDateStr;
         }
 
-        public bool IsWeekend(DateTime? date)
+        private bool IsWeekend(DateTime? date)
         {
             DateTime dateValue = date.Value;
             if ((dateValue.DayOfWeek == DayOfWeek.Saturday) || (dateValue.DayOfWeek == DayOfWeek.Sunday))
@@ -110,32 +130,32 @@ namespace AHMCManualStatementApplication
             }
         }
 
-        public void FilterByCompleted()
+        private void FilterByCompleted()
         {
             if (_isCheckedCompleted && !_isCheckedUncompleted)
             {
-                sb.Append("[Completed] = True");
+                _sb.Append("[Completed] = True");
             }
             else if (!_isCheckedCompleted && _isCheckedUncompleted)
             {
-                sb.Append("[Completed] = False");
+                _sb.Append("[Completed] = False");
             }
         }
 
-        public void FilterByStatementDate()
+        private void FilterByStatementDate()
         {
-            if (sb.Length > 0)
+            if (_sb.Length > 0)
             {
-                sb.Append(" AND ");
+                _sb.Append(" AND ");
             }
 
             if (viewDateStr != String.Empty)
             {
                 if (isRangeDate)
                 {
-                    viewDateStr = $">= '{first}' AND [{stmntCycle}] <= '{last}'";
+                    viewDateStr = $"[{_statementCycle}] >= '{first}' AND [{_statementCycle}] <= '{last}'";
                 }
-                sb.Append($"[{stmntCycle}] {viewDateStr}");
+                _sb.Append($"{viewDateStr}");
             }
         }
     }

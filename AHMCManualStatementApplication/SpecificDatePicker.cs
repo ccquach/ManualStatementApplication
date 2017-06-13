@@ -32,7 +32,6 @@ namespace AHMCManualStatementApplication
 
         private void btnDatePickerOK_Click(object sender, EventArgs e)
         {
-            //this.ReturnSpecificDate = dtPickerSpecificDate.Value.ToShortDateString();
             this.ReturnSpecificDate = dtPickerSpecificDate.Value;
             this.DialogResult = DialogResult.OK;
             this.Close();

@@ -72,7 +72,6 @@
     <Compile Include="AddNote.Designer.cs">
       <DependentUpon>AddNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="CRUDQueries.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Main.cs">
