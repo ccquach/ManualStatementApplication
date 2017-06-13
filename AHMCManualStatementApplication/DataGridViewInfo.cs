@@ -72,6 +72,7 @@ namespace AHMCManualStatementApplication
                     viewDateStr = String.Empty;
                     break;
             }
+            return viewDateStr;
         }
 
         public bool IsWeekend(DateTime? date)

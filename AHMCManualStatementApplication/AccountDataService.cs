@@ -59,10 +59,12 @@ namespace AHMCManualStatementApplication
 
         public AccountInfo GetDemoByAccountNumber(string facility, string accountNumber)
         {
-            using (OleDbConnection connection = new OleDbConnection(_connectionStringDemo)) {
+            using (OleDbConnection connection = new OleDbConnection(_connectionStringDemo))
+            {
                 connection.Open();
 
-                using (OleDbCommand command = connection.CreateCommand()) {
+                using (OleDbCommand command = connection.CreateCommand())
+                {
                     command.CommandType = CommandType.Text;
 
                     command.CommandText = $"SELECT PATIENT_NUMBER, PATIENT_NAME, IP1DISC_DATE, IP1PAT_ADDR1, " +
@@ -72,9 +74,12 @@ namespace AHMCManualStatementApplication
 
                     command.Parameters.Add("@Account", OleDbType.VarChar).Value = accountNumber;
 
-                    using (OleDbDataReader reader = command.ExecuteReader()) {
-                        if (reader.Read()) {
-                            return new AccountInfo {
+                    using (OleDbDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new AccountInfo
+                            {
                                 PatientName = reader.SafeGetValue("PATIENT_NAME"),
                                 DischargeDate = reader.SafeGetValue("IP1DISC_DATE"),
                                 AddressLine1 = reader.SafeGetValue("IP1PAT_ADDR1"),
@@ -90,9 +95,67 @@ namespace AHMCManualStatementApplication
             return null;
         }
 
-        public DataGridViewInfo GetAccountsDataGridView()
+        public DataGridViewInfo GetAccountsDataGridView(string facility, ToolStripMenuItem viewOption)
         {
+            DataGridViewInfo dgvInfo = new DataGridViewInfo(viewOption);
 
+            using (OleDbConnection connection = new OleDbConnection(_connectionStringStatement))
+            {
+                connection.Open();
+
+                using (OleDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "SELECT log.DateRequested AS [Date Requested], " +
+                                            "fac.FacilityAbbr AS [Facility], " +
+                                            "log.AcctNumber AS [Account #], " +
+                                            "log.PatientName AS [Patient Name], " +
+                                            "log.PatResp AS [Patient Responsibility], " +
+                                            "log.DateFirstStmnt AS [First Statement], " +
+                                            "log.DateSecondStmnt AS [Second Statement], " +
+                                            "log.DateFinalStmnt AS [Final Statement], " +
+                                            "log.IsCompleted AS [Completed] " +
+                                            "FROM tblAccounts AS [log] " +
+                                            "LEFT JOIN tblFacilities AS [fac] " +
+                                            "ON log.FacilityID = fac.FacilityID " +
+                                            "WHERE fac.FacilityAbbr = @Facility";
+
+                    command.Parameters.Add("@Facility", OleDbType.VarChar).Value = facility;
+
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                    {
+                        
+                        DataTable dt = new DataTable();
+                        adapter.SelectCommand = command;
+                        adapter.Fill(dt);
+
+                        // Sort by descending Date Requested
+                        DataView view = dt.DefaultView;
+                        view.Sort = "[Date Requested] desc";
+
+                        // Filter by Statement Date / Completed
+                        dgvInfo.sb.Clear();
+                        dgvInfo.FilterByCompleted();
+                        dgvInfo.FilterByStatementDate();
+                        //MessageBox.Show(sb.ToString());                                                                         //debug
+                        view.RowFilter = dgvInfo.sb.ToString();
+                        dt = view.ToTable();
+
+                        if (dt.Rows.Count != 0)
+                        {
+                            dgvInfo.DataGridView.DataSource = dt;
+                            dgvInfo.DataGridView.AutoResizeColumns();
+                            dgvInfo.DataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
+                            dgvInfo.TotalRowsLabel = String.Format("Total rows: {0}", dgvInfo.DataGridView.RowCount);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"There are no accounts to display for: {dgvInfo.viewDate}");
+                        }
+                    }
+                }
+            }
+            return dgvInfo;
         }
     }
 }
