@@ -66,14 +66,20 @@ namespace AHMCManualStatementApplication
         public string account { get; set; }
         public string viewOption { get; set; }
         public string statementCycle { get; set; }
-        public bool IsCheckedCompleted { get; set; }
-        public bool IsCheckedUncompleted { get; set; }
 
         // Accounts DataGridView
         public DataGridView AccountsDataGridView { get; set; }
         public string TotalRowsLabel {
             get { return lblTotalRows.Text; }
             set { lblTotalRows.Text = value; }
+        }
+        public bool IsCheckedCompleted {
+            get { return this.ckBoxCompletedFilter.Checked; }
+            set { this.ckBoxCompletedFilter.Checked = value; }
+        }
+        public bool IsCheckedUncompleted {
+            get { return this.ckBoxUncompletedFilter.Checked; }
+            set { this.ckBoxUncompletedFilter.Checked = value; }
         }
 
         // Statement History
