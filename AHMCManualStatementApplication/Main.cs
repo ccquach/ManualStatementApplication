@@ -68,7 +68,10 @@ namespace AHMCManualStatementApplication
         public string statementCycle { get; set; }
 
         // Accounts DataGridView
-        public DataGridView AccountsDataGridView { get; set; }
+        public MetroGrid AccountsDataGridView {
+            get { return this.dataGridAccounts; }
+            set { this.dataGridAccounts = value; }
+        }
         public string TotalRowsLabel {
             get { return lblTotalRows.Text; }
             set { lblTotalRows.Text = value; }

@@ -124,31 +124,10 @@ namespace AHMCManualStatementApplication
 
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
                     {
-                        DataTable dt = new DataTable();
-                        adapter.SelectCommand = command;
-                        adapter.Fill(dt);
-
-                        // Sort by descending Date Requested
-                        DataView view = dt.DefaultView;
-                        view.Sort = "[Date Requested] desc";
-
-                        // Filter by Statement Date / Completed
-                        dgvInfo.BuildAccountQuery();
-                        MessageBox.Show(dgvInfo.FilterStringBuilder.ToString());                                                                         //debug
-                        view.RowFilter = dgvInfo.FilterStringBuilder.ToString();
-                        dt = view.ToTable();
-
-                        if (dt.Rows.Count != 0)
+                        using (dgvInfo.AccountsDataTable = new DataTable())
                         {
-                            dgvInfo.AccountsDataTable = dt;
-                            //dgvInfo.AccountsDataGridView.DataSource = dt;
-                            //dgvInfo.AccountsDataGridView.AutoResizeColumns();
-                            //dgvInfo.AccountsDataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
-                            //dgvInfo.TotalRowsLabel = $"Total rows: {dgvInfo.AccountsDataGridView.RowCount}";
-                        }
-                        else
-                        {
-                            MessageBox.Show($"There are no accounts to display for: {dgvInfo.viewDate}");
+                            adapter.SelectCommand = command;
+                            adapter.Fill(dgvInfo.AccountsDataTable);
                         }
                     }
                 }

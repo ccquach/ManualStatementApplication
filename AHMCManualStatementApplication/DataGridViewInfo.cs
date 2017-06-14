@@ -42,9 +42,7 @@ namespace AHMCManualStatementApplication
             isRangeDate = false;
         }
 
-        public DataTable AccountsDataTable { get; set; } 
-        //public DataGridView AccountsDataGridView { get; set; }
-        //public string TotalRowsLabel { get; set; }
+        public DataTable AccountsDataTable { get; set; }
         public StringBuilder FilterStringBuilder { get { return _filterStringBuilding; } }
 
         public void BuildAccountQuery()
