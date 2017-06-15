@@ -30,11 +30,6 @@ namespace AHMCManualStatementApplication
         private void View_OnShowAccountsDataGridView(object sender, EventArgs e)
         {
             var gridData = _service.GetAccountsDataGridView(_form.facility, _form.viewOption, _form.statementCycle, _form.IsCheckedCompleted, _form.IsCheckedUncompleted);
-            if (gridData.AccountsDataTable.Rows.Count == 0)
-            {
-                MessageBox.Show($"There are no accounts to display for the selected date(s).");
-                return;
-            }
 
             DataView view = gridData.AccountsDataTable.DefaultView;
             view.Sort = "[Date Requested] desc";
@@ -48,6 +43,12 @@ namespace AHMCManualStatementApplication
             MessageBox.Show(gridData.FilterStringBuilder.ToString());                                               //debug
             view.RowFilter = gridData.FilterStringBuilder.ToString();
             gridData.AccountsDataTable = view.ToTable();
+
+            if (gridData.AccountsDataTable.Rows.Count == 0)
+            {
+                MessageBox.Show($"There are no accounts to display for the selected date(s).");
+                return;
+            }
 
             _form.AccountsDataGridView.DataSource = gridData.AccountsDataTable;
             _form.AccountsDataGridView.AutoResizeColumns();
