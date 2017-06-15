@@ -156,6 +156,11 @@ namespace AHMCManualStatementApplication
             }
         }
 
+        private void FilterByStatementCycle()
+        {
+
+        }
+
         private void FilterByCompleted()
         {
             string completedFilterString = String.Empty;
