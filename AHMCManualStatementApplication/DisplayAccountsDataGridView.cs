@@ -29,31 +29,38 @@ namespace AHMCManualStatementApplication
 
         private void View_OnShowAccountsDataGridView(object sender, EventArgs e)
         {
-            var gridData = _service.GetAccountsDataGridView(_form.facility, _form.viewOption, _form.statementCycle, _form.IsCheckedCompleted, _form.IsCheckedUncompleted);
-
-            DataView view = gridData.AccountsDataTable.DefaultView;
-            view.Sort = "[Date Requested] desc";
-
-            gridData.BuildAccountQuery();
-            if (gridData.IsCancel == true)
+            try
             {
-                return;
+                var gridData = _service.GetAccountsDataGridView(_form.facility, _form.viewOption, _form.statementCycle, _form.IsCheckedCompleted, _form.IsCheckedUncompleted);
+
+                DataView view = gridData.AccountsDataTable.DefaultView;
+                view.Sort = "[Date Requested] desc";
+
+                gridData.BuildAccountQuery();
+                if (gridData.IsCancel == true)
+                {
+                    return;
+                }
+
+                MessageBox.Show(gridData.FilterStringBuilder.ToString());                                               //debug
+                view.RowFilter = gridData.FilterStringBuilder.ToString();
+                gridData.AccountsDataTable = view.ToTable();
+
+                if (gridData.AccountsDataTable.Rows.Count == 0)
+                {
+                    MessageBox.Show($"There are no accounts to display for the selected date(s).");
+                    return;
+                }
+
+                _form.AccountsDataGridView.DataSource = gridData.AccountsDataTable;
+                _form.AccountsDataGridView.AutoResizeColumns();
+                _form.AccountsDataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
+                _form.TotalRowsLabel = $"Total rows: {_form.AccountsDataGridView.RowCount}";
             }
-
-            MessageBox.Show(gridData.FilterStringBuilder.ToString());                                               //debug
-            view.RowFilter = gridData.FilterStringBuilder.ToString();
-            gridData.AccountsDataTable = view.ToTable();
-
-            if (gridData.AccountsDataTable.Rows.Count == 0)
+            finally
             {
-                MessageBox.Show($"There are no accounts to display for the selected date(s).");
-                return;
+                _form.OnShowAccountDataGridView -= View_OnShowAccountsDataGridView;
             }
-
-            _form.AccountsDataGridView.DataSource = gridData.AccountsDataTable;
-            _form.AccountsDataGridView.AutoResizeColumns();
-            _form.AccountsDataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
-            _form.TotalRowsLabel = $"Total rows: {_form.AccountsDataGridView.RowCount}";
         }
     }
 }

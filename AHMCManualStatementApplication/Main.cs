@@ -368,7 +368,7 @@ namespace AHMCManualStatementApplication
                 Cursor.Current = Cursors.WaitCursor;
                 new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
                 OnShowAccountDataGridView(this, EventArgs.Empty);
-
+                
                 if (dataGridAccounts.Rows.Count != 0)
                 {
                     tbCtrlPages.SelectedTab = tbAccounts;

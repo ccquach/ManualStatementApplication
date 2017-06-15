@@ -326,7 +326,7 @@
             this.tsmAll,
             this.tsmByAccountNumber});
             this.ctxViewMenu.Name = "ctxViewMenu";
-            this.ctxViewMenu.Size = new System.Drawing.Size(211, 170);
+            this.ctxViewMenu.Size = new System.Drawing.Size(211, 148);
             // 
             // tsmToday
             // 
@@ -354,6 +354,7 @@
             this.tsmRangeDates.Name = "tsmRangeDates";
             this.tsmRangeDates.Size = new System.Drawing.Size(210, 24);
             this.tsmRangeDates.Text = "&Range of Dates";
+            this.tsmRangeDates.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // tsmAll
             // 
@@ -367,6 +368,7 @@
             this.tsmByAccountNumber.Name = "tsmByAccountNumber";
             this.tsmByAccountNumber.Size = new System.Drawing.Size(210, 24);
             this.tsmByAccountNumber.Text = "&By Account Number";
+            this.tsmByAccountNumber.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // lblActiveFacility
             // 
