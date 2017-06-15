@@ -11,7 +11,7 @@ namespace AHMCManualStatementApplication
 {
     public class DataGridViewInfo
     {
-        public string viewDate;
+        private string viewDate;
         private string viewDateStr;
         private string first;
         private string last;
@@ -22,6 +22,7 @@ namespace AHMCManualStatementApplication
         private string _statementCycle;
         private bool _isCheckedCompleted;
         private bool _isCheckedUncompleted;
+        private bool _isCancel;
 
         public DataGridViewInfo(string viewOption, string statementCycle, bool isCheckedCompleted, bool isCheckedUncompleted)
         {
@@ -35,6 +36,7 @@ namespace AHMCManualStatementApplication
             _isCheckedCompleted = isCheckedCompleted;
             _isCheckedUncompleted = isCheckedUncompleted;
             _filterStringBuilder = new StringBuilder();
+            _isCancel = false;
 
             viewDate = String.Empty;
             viewDateStr = String.Empty;
@@ -44,13 +46,17 @@ namespace AHMCManualStatementApplication
         }
 
         public DataTable AccountsDataTable { get; set; }
-        public StringBuilder FilterStringBuilder { get { return _filterStringBuilder; } }
+        public StringBuilder FilterStringBuilder {
+            get { return _filterStringBuilder; }
+        }
+        public bool IsCancel {
+            get { return _isCancel; }
+        }
 
         public void BuildAccountQuery()
         {
             _filterStringBuilder.Clear();
             FilterByViewOption();
-            //FilterByStatementDate();
             FilterByCompleted();
         }
 
@@ -87,6 +93,7 @@ namespace AHMCManualStatementApplication
                         {
                             if (IsWeekend(dtPicker.ReturnSpecificDate))
                             {
+                                _isCancel = true;
                                 return;
                             }
                             else
@@ -97,6 +104,7 @@ namespace AHMCManualStatementApplication
                         }
                         else
                         {
+                            _isCancel = true;
                             return;
                         }
                     }
@@ -219,22 +227,5 @@ namespace AHMCManualStatementApplication
             }
 
         }
-
-        //private void FilterByStatementDate()
-        //{
-        //    if (_filterStringBuilding.Length > 0)
-        //    {
-        //        _filterStringBuilding.Append(" AND ");
-        //    }
-
-        //    if (viewDateStr != String.Empty)
-        //    {
-        //        if (isRangeDate)
-        //        {
-        //            viewDateStr = $"[{_statementCycle}] >= '{first}' AND [{_statementCycle}] <= '{last}'";
-        //        }
-        //        _filterStringBuilding.Append($"{viewDateStr}");
-        //    }
-        //}
     }
 }

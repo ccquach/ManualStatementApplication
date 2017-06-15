@@ -52,7 +52,7 @@ namespace AHMCManualStatementApplication
             account = String.Empty;
         }
 
-        #region Variables
+        #region Member Variables
         public event EventHandler OnShowAccountInfo;
         public event EventHandler OnShowAccountDataGridView;
 

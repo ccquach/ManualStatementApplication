@@ -32,7 +32,7 @@ namespace AHMCManualStatementApplication
             var gridData = _service.GetAccountsDataGridView(_form.facility, _form.viewOption, _form.statementCycle, _form.IsCheckedCompleted, _form.IsCheckedUncompleted);
             if (gridData.AccountsDataTable.Rows.Count == 0)
             {
-                MessageBox.Show($"There are no accounts to display for {gridData.viewDate}.");
+                MessageBox.Show($"There are no accounts to display for the selected date(s).");
                 return;
             }
 
@@ -40,6 +40,11 @@ namespace AHMCManualStatementApplication
             view.Sort = "[Date Requested] desc";
 
             gridData.BuildAccountQuery();
+            if (gridData.IsCancel == true)
+            {
+                return;
+            }
+
             MessageBox.Show(gridData.FilterStringBuilder.ToString());                                               //debug
             view.RowFilter = gridData.FilterStringBuilder.ToString();
             gridData.AccountsDataTable = view.ToTable();
