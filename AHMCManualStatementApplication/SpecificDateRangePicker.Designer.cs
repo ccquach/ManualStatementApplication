@@ -45,6 +45,7 @@
             this.btnDateCancelPickerCancel.TabIndex = 5;
             this.btnDateCancelPickerCancel.Text = "Cancel";
             this.btnDateCancelPickerCancel.UseSelectable = true;
+            this.btnDateCancelPickerCancel.Click += new System.EventHandler(this.btnDateCancelPickerCancel_Click);
             // 
             // btnDateRangePickerOK
             // 
@@ -54,6 +55,7 @@
             this.btnDateRangePickerOK.TabIndex = 6;
             this.btnDateRangePickerOK.Text = "OK";
             this.btnDateRangePickerOK.UseSelectable = true;
+            this.btnDateRangePickerOK.Click += new System.EventHandler(this.btnDateRangePickerOK_Click);
             // 
             // dtPickerToDate
             // 
@@ -63,6 +65,7 @@
             this.dtPickerToDate.Size = new System.Drawing.Size(200, 29);
             this.dtPickerToDate.Style = MetroFramework.MetroColorStyle.Red;
             this.dtPickerToDate.TabIndex = 4;
+            this.dtPickerToDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPickerFromDate_MouseDown);
             // 
             // metroLabel1
             // 
@@ -82,6 +85,7 @@
             this.dtPickerFromDate.Size = new System.Drawing.Size(200, 29);
             this.dtPickerFromDate.Style = MetroFramework.MetroColorStyle.Red;
             this.dtPickerFromDate.TabIndex = 4;
+            this.dtPickerFromDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPickerToDate_MouseDown);
             // 
             // metroLabel2
             // 
@@ -108,6 +112,7 @@
             this.MinimizeBox = false;
             this.Name = "SpecificDateRangePicker";
             this.Style = MetroFramework.MetroColorStyle.Red;
+            this.Load += new System.EventHandler(this.SpecificDateRangePicker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

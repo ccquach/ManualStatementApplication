@@ -16,5 +16,43 @@ namespace AHMCManualStatementApplication
         {
             InitializeComponent();
         }
+
+        public DateTime? ReturnToDate { get; set; }
+        public DateTime? ReturnFromDate { get; set; }
+
+        private void dtPickerFromDate_MouseDown(object sender, MouseEventArgs e)
+        {
+            dtPickerFromDate.Open();
+        }
+
+        private void dtPickerToDate_MouseDown(object sender, MouseEventArgs e)
+        {
+            dtPickerToDate.Open();
+        }
+
+        private void SpecificDateRangePicker_Load(object sender, EventArgs e)
+        {
+            dtPickerFromDate.MinDate = new DateTime(2016, 1, 1);
+            dtPickerFromDate.MaxDate = DateTime.Now;
+
+            dtPickerToDate.MinDate = new DateTime(2016, 1, 1);
+            dtPickerToDate.MaxDate = DateTime.Now;
+        }
+
+        private void btnDateCancelPickerCancel_Click(object sender, EventArgs e)
+        {
+            this.ReturnFromDate = null;
+            this.ReturnToDate = null;
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnDateRangePickerOK_Click(object sender, EventArgs e)
+        {
+            this.ReturnFromDate = dtPickerFromDate.Value;
+            this.ReturnToDate = dtPickerToDate.Value;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
     }
 }

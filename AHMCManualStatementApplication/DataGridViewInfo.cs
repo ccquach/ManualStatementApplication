@@ -110,7 +110,19 @@ namespace AHMCManualStatementApplication
                     }
                     break;
                 case "&Range of Dates":
-
+                    using (SpecificDateRangePicker dtPicker = new SpecificDateRangePicker())
+                    {
+                        var result = dtPicker.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            //first = dtPic
+                        }
+                        else
+                        {
+                            _isCancel = true;
+                            return;
+                        }
+                    }
                     break;
                 case "&By Account Number":
 
@@ -127,69 +139,6 @@ namespace AHMCManualStatementApplication
             if (viewDateStr != String.Empty)
                 _filterStringBuilder.Append(viewDateStr);
         }
-
-        //private string FilterByViewOption()
-        //{
-        //    DateTime today = DateTime.Today;
-
-        //    switch (_viewOption)
-        //    {
-        //        case "&Today":
-        //            if (today.DayOfWeek == DayOfWeek.Monday)
-        //            {
-        //                first = new DateTime(today.Year, today.AddMonths(-1).Month, today.AddDays(-2).Day).ToShortDateString();
-        //                last = today.AddMonths(-1).ToShortDateString();
-        //                //viewDateStr = $">= '{first}' AND [{_statementCycle}] <= '{last}'";
-        //                isRangeDate = true;
-        //            }
-        //            else
-        //            {
-        //                viewDate = today.AddMonths(-1).ToShortDateString();
-        //                viewDateStr = $"[{_statementCycle}] = '{viewDate}'";
-        //            }
-        //            break;
-        //        case "&Last Month":
-        //            var month = new DateTime(today.Year, today.Month, 1);
-        //            first = month.AddMonths(-1).ToShortDateString();
-        //            last = month.AddDays(-1).ToShortDateString();
-        //            //viewDateStr = $">= '{first}' AND [{_statementCycle}] <= '{last}'";
-        //            isRangeDate = true;
-        //            break;
-        //        case "&Specific Date":
-        //            using (SpecificDatePicker dtPicker = new SpecificDatePicker())
-        //            {
-        //                var result = dtPicker.ShowDialog();
-        //                if (result == DialogResult.OK)
-        //                {
-        //                    if (IsWeekend(dtPicker.ReturnSpecificDate))
-        //                    {
-        //                        return String.Empty;
-        //                    }
-        //                    else
-        //                    {
-        //                        viewDate = dtPicker.ReturnSpecificDate.Value.ToShortDateString();
-        //                        viewDateStr = $"[{_statementCycle}] = '{viewDate}'";
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    return String.Empty;
-        //                }
-        //            }
-        //            break;
-        //        case "&Range of Dates":
-
-        //            break;
-        //        case "&By Account Number":
-
-        //            break;
-        //        case "&All":
-        //        default:
-        //            viewDateStr = String.Empty;
-        //            break;
-        //    }
-        //    return viewDateStr;
-        //}
 
         private bool IsWeekend(DateTime? date)
         {
