@@ -52,3 +52,4 @@ C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementAppl
 C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\ManualStatementApplication.csproj.GenerateResource.Cache
 C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.exe
 C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.pdb
+C:\Users\cynthia.quach\Documents\Visual Studio 2017\Projects\ManualStatementApplication\AHMCManualStatementApplication\obj\Debug\AHMCManualStatementApplication.SpecificDateRangePicker.resources

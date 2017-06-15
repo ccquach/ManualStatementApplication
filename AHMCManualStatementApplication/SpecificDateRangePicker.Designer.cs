@@ -30,9 +30,9 @@
         {
             this.btnDateCancelPickerCancel = new MetroFramework.Controls.MetroButton();
             this.btnDateRangePickerOK = new MetroFramework.Controls.MetroButton();
-            this.dtPickerToDate = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.dtPickerFromDate = new MetroFramework.Controls.MetroDateTime();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.dtPickerToDate = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
@@ -42,7 +42,7 @@
             this.btnDateCancelPickerCancel.Location = new System.Drawing.Point(260, 140);
             this.btnDateCancelPickerCancel.Name = "btnDateCancelPickerCancel";
             this.btnDateCancelPickerCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnDateCancelPickerCancel.TabIndex = 5;
+            this.btnDateCancelPickerCancel.TabIndex = 3;
             this.btnDateCancelPickerCancel.Text = "Cancel";
             this.btnDateCancelPickerCancel.UseSelectable = true;
             this.btnDateCancelPickerCancel.Click += new System.EventHandler(this.btnDateCancelPickerCancel_Click);
@@ -52,20 +52,20 @@
             this.btnDateRangePickerOK.Location = new System.Drawing.Point(148, 140);
             this.btnDateRangePickerOK.Name = "btnDateRangePickerOK";
             this.btnDateRangePickerOK.Size = new System.Drawing.Size(75, 23);
-            this.btnDateRangePickerOK.TabIndex = 6;
+            this.btnDateRangePickerOK.TabIndex = 2;
             this.btnDateRangePickerOK.Text = "OK";
             this.btnDateRangePickerOK.UseSelectable = true;
             this.btnDateRangePickerOK.Click += new System.EventHandler(this.btnDateRangePickerOK_Click);
             // 
-            // dtPickerToDate
+            // dtPickerFromDate
             // 
-            this.dtPickerToDate.Location = new System.Drawing.Point(23, 82);
-            this.dtPickerToDate.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtPickerToDate.Name = "dtPickerToDate";
-            this.dtPickerToDate.Size = new System.Drawing.Size(200, 29);
-            this.dtPickerToDate.Style = MetroFramework.MetroColorStyle.Red;
-            this.dtPickerToDate.TabIndex = 4;
-            this.dtPickerToDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPickerFromDate_MouseDown);
+            this.dtPickerFromDate.Location = new System.Drawing.Point(23, 82);
+            this.dtPickerFromDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtPickerFromDate.Name = "dtPickerFromDate";
+            this.dtPickerFromDate.Size = new System.Drawing.Size(200, 29);
+            this.dtPickerFromDate.Style = MetroFramework.MetroColorStyle.Red;
+            this.dtPickerFromDate.TabIndex = 0;
+            this.dtPickerFromDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPickerFromDate_MouseDown);
             // 
             // metroLabel1
             // 
@@ -77,15 +77,15 @@
             this.metroLabel1.TabIndex = 3;
             this.metroLabel1.Text = "Please select a date range to view:";
             // 
-            // dtPickerFromDate
+            // dtPickerToDate
             // 
-            this.dtPickerFromDate.Location = new System.Drawing.Point(260, 82);
-            this.dtPickerFromDate.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtPickerFromDate.Name = "dtPickerFromDate";
-            this.dtPickerFromDate.Size = new System.Drawing.Size(200, 29);
-            this.dtPickerFromDate.Style = MetroFramework.MetroColorStyle.Red;
-            this.dtPickerFromDate.TabIndex = 4;
-            this.dtPickerFromDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPickerToDate_MouseDown);
+            this.dtPickerToDate.Location = new System.Drawing.Point(260, 82);
+            this.dtPickerToDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtPickerToDate.Name = "dtPickerToDate";
+            this.dtPickerToDate.Size = new System.Drawing.Size(200, 29);
+            this.dtPickerToDate.Style = MetroFramework.MetroColorStyle.Red;
+            this.dtPickerToDate.TabIndex = 1;
+            this.dtPickerToDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPickerToDate_MouseDown);
             // 
             // metroLabel2
             // 
@@ -104,8 +104,8 @@
             this.ClientSize = new System.Drawing.Size(479, 186);
             this.Controls.Add(this.btnDateCancelPickerCancel);
             this.Controls.Add(this.btnDateRangePickerOK);
-            this.Controls.Add(this.dtPickerFromDate);
             this.Controls.Add(this.dtPickerToDate);
+            this.Controls.Add(this.dtPickerFromDate);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.MaximizeBox = false;
@@ -122,9 +122,9 @@
 
         private MetroFramework.Controls.MetroButton btnDateCancelPickerCancel;
         private MetroFramework.Controls.MetroButton btnDateRangePickerOK;
-        private MetroFramework.Controls.MetroDateTime dtPickerToDate;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroDateTime dtPickerFromDate;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroDateTime dtPickerToDate;
         private MetroFramework.Controls.MetroLabel metroLabel2;
     }
 }

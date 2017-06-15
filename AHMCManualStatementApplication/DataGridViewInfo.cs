@@ -115,7 +115,9 @@ namespace AHMCManualStatementApplication
                         var result = dtPicker.ShowDialog();
                         if (result == DialogResult.OK)
                         {
-                            //first = dtPic
+                            first = dtPicker.ReturnFromDate.Value.ToShortDateString();
+                            last = dtPicker.ReturnToDate.Value.ToShortDateString();
+                            isRangeDate = true;
                         }
                         else
                         {

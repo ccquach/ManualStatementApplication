@@ -17,8 +17,8 @@ namespace AHMCManualStatementApplication
             InitializeComponent();
         }
 
-        public DateTime? ReturnToDate { get; set; }
         public DateTime? ReturnFromDate { get; set; }
+        public DateTime? ReturnToDate { get; set; }
 
         private void dtPickerFromDate_MouseDown(object sender, MouseEventArgs e)
         {
