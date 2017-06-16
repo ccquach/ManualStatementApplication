@@ -51,8 +51,10 @@ namespace AHMCManualStatementApplication
             this.facility = String.Empty;
             this.account = String.Empty;
 
-            this.StartDate.Value = new DateTime(2016, 1, 1);
-            this.EndDate.Value = DateTime.Today;
+            this.StartDate.MinDate = new DateTime(2016, 1, 1);
+            this.StartDate.MaxDate = DateTime.Now;
+            this.EndDate.MinDate = new DateTime(2016, 1, 1);
+            this.EndDate.MaxDate = DateTime.Now;
         }
 
         #region Member Variables
@@ -451,9 +453,9 @@ namespace AHMCManualStatementApplication
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
 
+        // Get Date Range date values
         private void dtPickerDate_MouseDown(object sender, MouseEventArgs e)
         {
             (sender as MetroDateTime).Open();

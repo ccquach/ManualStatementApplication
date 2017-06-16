@@ -57,14 +57,10 @@ namespace AHMCManualStatementApplication
                 _form.AccountsDataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
                 _form.TotalRowsLabel = $"Total rows: {_form.AccountsDataGridView.RowCount}";
 
-                _form.StartDate.Value = gridData.first;
-                _form.StartDate.Format = DateTimePickerFormat.Custom;
-                _form.StartDate.CustomFormat = gridData.first.ToString("MM/dd/yyyy");
+                _form.StartDate.Value = gridData.first.Date;
                 _form.StartDate.Checked = true;
 
-                _form.EndDate.Value = gridData.last;
-                _form.EndDate.Format = DateTimePickerFormat.Custom;
-                _form.EndDate.CustomFormat = gridData.last.ToString("MM/dd/yyyy");
+                _form.EndDate.Value = gridData.last.Date;
                 _form.EndDate.Checked = true;
             }
             finally
