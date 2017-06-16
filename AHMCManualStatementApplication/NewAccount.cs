@@ -80,13 +80,27 @@ namespace AHMCManualStatementApplication
 
         private void ClearTextBoxes(Control parent)
         {
-            foreach (Control child in this.Controls) {
+            foreach (Control child in parent.Controls) {
                 MetroTextBox textBox = child as MetroTextBox;
                 if (textBox == null) {
                     ClearTextBoxes(child);
                 }
                 else {
-                    textBox.Text = String.Empty;
+                    switch (textBox.Name)
+                    {
+                        case "txtNewPatientName":
+                        case "txtNewPtLiab":
+                        case "txtNewDischarge":
+                        case "txtNewAddress1":
+                        case "txtNewAddress2":
+                        case "txtNewCity":
+                        case "txtNewState":
+                        case "txtNewZipcode":
+                            textBox.Text = String.Empty;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }

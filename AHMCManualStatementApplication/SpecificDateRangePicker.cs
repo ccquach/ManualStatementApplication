@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Controls;
 
 namespace AHMCManualStatementApplication
 {
@@ -20,27 +21,33 @@ namespace AHMCManualStatementApplication
         public DateTime? ReturnStartDate { get; set; }
         public DateTime? ReturnEndDate { get; set; }
 
-        private void dtPickerFromDate_MouseDown(object sender, MouseEventArgs e)
+        private void dtPickerDate_MouseDown(object sender, MouseEventArgs e)
         {
-            dtPickerStartDate.Open();
-        }
-
-        private void dtPickerToDate_MouseDown(object sender, MouseEventArgs e)
-        {
-            dtPickerEndDate.Open();
+            (sender as MetroDateTime).Open();
         }
 
         private void SpecificDateRangePicker_Load(object sender, EventArgs e)
         {
-            dtPickerStartDate.MinDate = new DateTime(2016, 1, 1);
-            dtPickerStartDate.MaxDate = DateTime.Now;
-            dtPickerStartDate.Format = DateTimePickerFormat.Custom;
-            dtPickerStartDate.CustomFormat = dtPickerStartDate.Value.ToString("MM/dd/yyyy");
+            FormatDateTimePicker(this);
+        }
 
-            dtPickerEndDate.MinDate = new DateTime(2016, 1, 1);
-            dtPickerEndDate.MaxDate = DateTime.Now;
-            dtPickerEndDate.Format = DateTimePickerFormat.Custom;
-            dtPickerEndDate.CustomFormat = dtPickerEndDate.Value.ToString("MM/dd/yyyy");
+        private void FormatDateTimePicker(Control parent)
+        {
+            foreach (Control child in parent.Controls)
+            {
+                MetroDateTime dateTimePicker = child as MetroDateTime;
+                if (dateTimePicker == null)
+                {
+                    FormatDateTimePicker(child);
+                }
+                else
+                {
+                    dateTimePicker.MinDate = new DateTime(2016, 1, 1);
+                    dateTimePicker.MaxDate = DateTime.Now;
+                    dateTimePicker.Format = DateTimePickerFormat.Custom;
+                    dateTimePicker.CustomFormat = dateTimePicker.Value.ToString("MM/dd/yyyy");
+                }
+            }
         }
 
         private void btnDateCancelPickerCancel_Click(object sender, EventArgs e)
@@ -59,14 +66,10 @@ namespace AHMCManualStatementApplication
             this.Close();
         }
 
-        private void dtPickerStartDate_ValueChanged(object sender, EventArgs e)
+        private void dtPicker_ValueChanged(object sender, EventArgs e)
         {
-            dtPickerStartDate.CustomFormat = dtPickerStartDate.Value.ToString("MM/dd/yyyy");
-        }
-
-        private void dtPickerEndDate_ValueChanged(object sender, EventArgs e)
-        {
-            dtPickerEndDate.CustomFormat = dtPickerEndDate.Value.ToString("MM/dd/yyyy");
+            MetroDateTime dateTimePicker = sender as MetroDateTime;
+            dateTimePicker.CustomFormat = dateTimePicker.Value.ToString("MM/dd/yyyy");
         }
     }
 }

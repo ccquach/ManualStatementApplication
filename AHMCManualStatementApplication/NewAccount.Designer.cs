@@ -597,7 +597,7 @@
             this.btnCancelNewAccount.Location = new System.Drawing.Point(589, 386);
             this.btnCancelNewAccount.Name = "btnCancelNewAccount";
             this.btnCancelNewAccount.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelNewAccount.TabIndex = 4;
+            this.btnCancelNewAccount.TabIndex = 5;
             this.btnCancelNewAccount.Text = "&Cancel";
             this.btnCancelNewAccount.UseSelectable = true;
             this.btnCancelNewAccount.Click += new System.EventHandler(this.btnCancelNewAccount_Click);
