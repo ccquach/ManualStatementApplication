@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Controls;
 using System.Data;
 using System.Data.OleDb;
 
@@ -95,9 +96,9 @@ namespace AHMCManualStatementApplication
             return null;
         }
 
-        public DataGridViewInfo GetAccountsDataGridView(string facility, string viewOption, string stmntCycle, bool isCheckedCompleted, bool isCheckedUncompleted)
+        public DataGridViewInfo GetAccountsDataGridView(string facility, string viewOption, string stmntCycle, bool isCheckedCompleted, bool isCheckedUncompleted, MetroDateTime startDate, MetroDateTime endDate)
         {
-            DataGridViewInfo dgvInfo = new DataGridViewInfo(viewOption, stmntCycle, isCheckedCompleted, isCheckedUncompleted);
+            DataGridViewInfo dgvInfo = new DataGridViewInfo(viewOption, stmntCycle, isCheckedCompleted, isCheckedUncompleted, startDate, endDate);
 
             using (OleDbConnection connection = new OleDbConnection(_connectionStringStatement))
             {

@@ -13,8 +13,10 @@ namespace AHMCManualStatementApplication
     {
         private string viewDate;
         private string viewDateStr;
-        private string first;
-        private string last;
+        //public string first;
+        //public string last;
+        public DateTime first;
+        public DateTime last;
         private bool isRangeDate;
 
         private StringBuilder _filterStringBuilder;
@@ -23,8 +25,12 @@ namespace AHMCManualStatementApplication
         private bool _isCheckedCompleted;
         private bool _isCheckedUncompleted;
         private bool _isCancel;
+        //private string _startDate;
+        //private string _endDate;
+        private MetroDateTime _startDate;
+        private MetroDateTime _endDate;
 
-        public DataGridViewInfo(string viewOption, string statementCycle, bool isCheckedCompleted, bool isCheckedUncompleted)
+        public DataGridViewInfo(string viewOption, string statementCycle, bool isCheckedCompleted, bool isCheckedUncompleted, MetroDateTime startDate, MetroDateTime endDate)
         {
             _viewOption = viewOption;
 
@@ -37,11 +43,13 @@ namespace AHMCManualStatementApplication
             _isCheckedUncompleted = isCheckedUncompleted;
             _filterStringBuilder = new StringBuilder();
             _isCancel = false;
+            _startDate = startDate;
+            _endDate = endDate;
 
             viewDate = String.Empty;
             viewDateStr = String.Empty;
-            first = String.Empty;
-            last = String.Empty;
+            //first = null;
+            //last = null;
             isRangeDate = false;
         }
 
@@ -64,80 +72,88 @@ namespace AHMCManualStatementApplication
         {
             DateTime today = DateTime.Today;
 
-            switch (_viewOption)
+            if (!_startDate.Checked && !_endDate.Checked)
             {
-                case "&Today":
-                    if (today.DayOfWeek == DayOfWeek.Monday)
-                    {
-                        first = new DateTime(today.Year, today.AddMonths(-1).Month, today.AddDays(-2).Day).ToShortDateString();
-                        last = today.AddMonths(-1).ToShortDateString();
-                    }
-                    else
-                    {
-                        first = today.AddMonths(-1).ToShortDateString();
-                        last = first;
-                    }
-                    break;
-                case "&Last Month":
-                    var month = new DateTime(today.Year, today.Month, 1);
-                    first = month.AddMonths(-1).ToShortDateString();
-                    last = month.AddDays(-1).ToShortDateString();
-                    break;
-                case "&Specific Date":
-                    using (SpecificDatePicker dtPicker = new SpecificDatePicker())
-                    {
-                        var result = dtPicker.ShowDialog();
-                        if (result == DialogResult.OK)
+                switch (_viewOption)
+                {
+                    case "&Today":
+                        if (today.DayOfWeek == DayOfWeek.Monday)
                         {
-                            if (IsWeekend(dtPicker.ReturnSpecificDate))
+                            first = new DateTime(today.Year, today.AddMonths(-1).Month, today.AddDays(-2).Day);
+                            last = today.AddMonths(-1);
+                        }
+                        else
+                        {
+                            first = today.AddMonths(-1);
+                            last = first;
+                        }
+                        break;
+                    case "&Last Month":
+                        var month = new DateTime(today.Year, today.Month, 1);
+                        first = month.AddMonths(-1);
+                        last = month.AddDays(-1);
+                        break;
+                    case "&Specific Date":
+                        using (SpecificDatePicker dtPicker = new SpecificDatePicker())
+                        {
+                            var result = dtPicker.ShowDialog();
+                            if (result == DialogResult.OK)
+                            {
+                                if (IsWeekend(dtPicker.ReturnSpecificDate))
+                                {
+                                    _isCancel = true;
+                                    return;
+                                }
+                                else
+                                {
+                                    first = dtPicker.ReturnSpecificDate.Value;
+                                    last = first;
+                                }
+                            }
+                            else
                             {
                                 _isCancel = true;
                                 return;
                             }
+                        }
+                        break;
+                    case "&Range of Dates":
+                        using (SpecificDateRangePicker dtPicker = new SpecificDateRangePicker())
+                        {
+                            var result = dtPicker.ShowDialog();
+                            if (result == DialogResult.OK)
+                            {
+                                first = dtPicker.ReturnStartDate.Value;
+                                last = dtPicker.ReturnEndDate.Value;
+                            }
                             else
                             {
-                                first = dtPicker.ReturnSpecificDate.Value.ToShortDateString();
-                                last = first;
+                                _isCancel = true;
+                                return;
                             }
                         }
-                        else
-                        {
-                            _isCancel = true;
-                            return;
-                        }
-                    }
-                    break;
-                case "&Range of Dates":
-                    using (SpecificDateRangePicker dtPicker = new SpecificDateRangePicker())
-                    {
-                        var result = dtPicker.ShowDialog();
-                        if (result == DialogResult.OK)
-                        {
-                            first = dtPicker.ReturnStartDate.Value.ToShortDateString();
-                            last = dtPicker.ReturnEndDate.Value.ToShortDateString();
-                        }
-                        else
-                        {
-                            _isCancel = true;
-                            return;
-                        }
-                    }
-                    break;
-                case "&By Account Number":
+                        break;
+                    case "&By Account Number":
 
-                    break;
-                case "&All":
-                    first = new DateTime(2016, 1, 1).ToShortDateString();
-                    last = DateTime.Now.ToShortDateString();
-                    break;
-                default:
-                    first = String.Empty;
-                    last = String.Empty;
-                    break;
+                        break;
+                    case "&All":
+                        first = new DateTime(2016, 1, 1);
+                        last = DateTime.Now;
+                        break;
+                    default:
+                        first = DateTime.MinValue;
+                        last = DateTime.MinValue;
+                        break;
+                }
+            }
+            else
+            {
+                first = _startDate.Value;
+                last = _endDate.Value;
             }
 
-            if (first != String.Empty && last != String.Empty)
-                viewDateStr = $"[{_statementCycle}] >= '{first}' AND [{_statementCycle}] <= '{last}'";
+            if (first != DateTime.MinValue && last != DateTime.MinValue)
+                viewDateStr = $"[{_statementCycle}] >= '{first.ToShortDateString()}' AND [{_statementCycle}] <= '{last.ToShortDateString()}'";
 
             if (viewDateStr != String.Empty)
                 _filterStringBuilder.Append(viewDateStr);

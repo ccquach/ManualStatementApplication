@@ -184,10 +184,8 @@ namespace AHMCManualStatementApplication
             try
             {
                 ActivateFunctions();
-                this.dtPickerStartDate.Format = DateTimePickerFormat.Custom;
-                this.dtPickerStartDate.CustomFormat = "";
-                this.dtPickerEndDate.Format = DateTimePickerFormat.Custom;
-                this.dtPickerEndDate.CustomFormat = "";
+                this.dtPickerStartDate.Checked = false;
+                this.dtPickerEndDate.Checked = false;
             }
             catch (Exception ex)
             {
@@ -380,6 +378,9 @@ namespace AHMCManualStatementApplication
             viewOption = (sender as ToolStripMenuItem).Text;
             try {
                 Cursor.Current = Cursors.WaitCursor;
+                this.dtPickerStartDate.Checked = false;
+                this.dtPickerEndDate.Checked = false;
+
                 new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
                 OnShowAccountDataGridView(this, EventArgs.Empty);
                 
