@@ -58,11 +58,13 @@ namespace AHMCManualStatementApplication
                 _form.TotalRowsLabel = $"Total rows: {_form.AccountsDataGridView.RowCount}";
 
                 _form.StartDate.Value = gridData.first;
-                _form.StartDate.CustomFormat = gridData.first.ToShortDateString();
+                _form.StartDate.Format = DateTimePickerFormat.Custom;
+                _form.StartDate.CustomFormat = gridData.first.ToString("MM/dd/yyyy");
                 _form.StartDate.Checked = true;
 
                 _form.EndDate.Value = gridData.last;
-                _form.EndDate.CustomFormat = gridData.last.ToShortDateString();
+                _form.EndDate.Format = DateTimePickerFormat.Custom;
+                _form.EndDate.CustomFormat = gridData.last.ToString("MM/dd/yyyy");
                 _form.EndDate.Checked = true;
             }
             finally
