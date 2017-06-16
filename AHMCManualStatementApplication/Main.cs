@@ -84,6 +84,16 @@ namespace AHMCManualStatementApplication
             get { return this.ckBoxUncompletedFilter.Checked; }
             set { this.ckBoxUncompletedFilter.Checked = value; }
         }
+        public MetroDateTime StartDate
+        {
+            get { return this.dtPickerStartDate; }
+            set { this.dtPickerStartDate = value; }
+        }
+        public MetroDateTime EndDate
+        {
+            get { return this.dtPickerEndDate; }
+            set { this.dtPickerEndDate = value; }
+        }
 
         // Statement History
         public string Facility {
