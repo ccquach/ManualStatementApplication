@@ -34,9 +34,13 @@ namespace AHMCManualStatementApplication
         {
             dtPickerStartDate.MinDate = new DateTime(2016, 1, 1);
             dtPickerStartDate.MaxDate = DateTime.Now;
+            dtPickerStartDate.Format = DateTimePickerFormat.Custom;
+            dtPickerStartDate.CustomFormat = dtPickerStartDate.Value.ToString("MM/dd/yyyy");
 
             dtPickerEndDate.MinDate = new DateTime(2016, 1, 1);
             dtPickerEndDate.MaxDate = DateTime.Now;
+            dtPickerEndDate.Format = DateTimePickerFormat.Custom;
+            dtPickerEndDate.CustomFormat = dtPickerEndDate.Value.ToString("MM/dd/yyyy");
         }
 
         private void btnDateCancelPickerCancel_Click(object sender, EventArgs e)
@@ -53,6 +57,16 @@ namespace AHMCManualStatementApplication
             this.ReturnEndDate = dtPickerEndDate.Value;
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void dtPickerStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtPickerStartDate.CustomFormat = dtPickerStartDate.Value.ToString("MM/dd/yyyy");
+        }
+
+        private void dtPickerEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtPickerEndDate.CustomFormat = dtPickerEndDate.Value.ToString("MM/dd/yyyy");
         }
     }
 }

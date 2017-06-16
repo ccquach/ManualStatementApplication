@@ -65,6 +65,7 @@
             this.dtPickerStartDate.Size = new System.Drawing.Size(200, 29);
             this.dtPickerStartDate.Style = MetroFramework.MetroColorStyle.Red;
             this.dtPickerStartDate.TabIndex = 0;
+            this.dtPickerStartDate.ValueChanged += new System.EventHandler(this.dtPickerStartDate_ValueChanged);
             this.dtPickerStartDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPickerFromDate_MouseDown);
             // 
             // metroLabel1
@@ -85,6 +86,7 @@
             this.dtPickerEndDate.Size = new System.Drawing.Size(200, 29);
             this.dtPickerEndDate.Style = MetroFramework.MetroColorStyle.Red;
             this.dtPickerEndDate.TabIndex = 1;
+            this.dtPickerEndDate.ValueChanged += new System.EventHandler(this.dtPickerEndDate_ValueChanged);
             this.dtPickerEndDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPickerToDate_MouseDown);
             // 
             // metroLabel2
