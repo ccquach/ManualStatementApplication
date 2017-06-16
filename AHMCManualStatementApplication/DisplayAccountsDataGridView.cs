@@ -55,11 +55,14 @@ namespace AHMCManualStatementApplication
                 _form.AccountsDataGridView.DataSource = gridData.AccountsDataTable;
                 _form.AccountsDataGridView.AutoResizeColumns();
                 _form.AccountsDataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
-
                 _form.TotalRowsLabel = $"Total rows: {_form.AccountsDataGridView.RowCount}";
+
+                _form.StartDate.Value = gridData.first;
                 _form.StartDate.CustomFormat = gridData.first.ToShortDateString();
-                _form.EndDate.CustomFormat = gridData.last.ToShortDateString();
                 _form.StartDate.Checked = true;
+
+                _form.EndDate.Value = gridData.last;
+                _form.EndDate.CustomFormat = gridData.last.ToShortDateString();
                 _form.EndDate.Checked = true;
             }
             finally

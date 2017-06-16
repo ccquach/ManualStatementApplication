@@ -48,8 +48,11 @@ namespace AHMCManualStatementApplication
             this.StyleManager = msmMain;
 
             // Default values
-            facility = String.Empty;
-            account = String.Empty;
+            this.facility = String.Empty;
+            this.account = String.Empty;
+
+            this.StartDate.Value = new DateTime(2016, 1, 1);
+            this.EndDate.Value = DateTime.Today;
         }
 
         #region Member Variables
@@ -184,8 +187,6 @@ namespace AHMCManualStatementApplication
             try
             {
                 ActivateFunctions();
-                this.dtPickerStartDate.Checked = false;
-                this.dtPickerEndDate.Checked = false;
             }
             catch (Exception ex)
             {
@@ -378,8 +379,13 @@ namespace AHMCManualStatementApplication
             viewOption = (sender as ToolStripMenuItem).Text;
             try {
                 Cursor.Current = Cursors.WaitCursor;
+
+                // Reset filter values
                 this.dtPickerStartDate.Checked = false;
                 this.dtPickerEndDate.Checked = false;
+                this.btnFirstStatement.Checked = true;
+                this.ckBoxCompletedFilter.Checked = true;
+                this.ckBoxUncompletedFilter.Checked = true;
 
                 new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
                 OnShowAccountDataGridView(this, EventArgs.Empty);

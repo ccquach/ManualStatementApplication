@@ -137,12 +137,9 @@ namespace AHMCManualStatementApplication
 
                         break;
                     case "&All":
+                    default:
                         first = new DateTime(2016, 1, 1);
                         last = DateTime.Now;
-                        break;
-                    default:
-                        first = DateTime.MinValue;
-                        last = DateTime.MinValue;
                         break;
                 }
             }
@@ -152,8 +149,7 @@ namespace AHMCManualStatementApplication
                 last = _endDate.Value;
             }
 
-            if (first != DateTime.MinValue && last != DateTime.MinValue)
-                viewDateStr = $"[{_statementCycle}] >= '{first.ToShortDateString()}' AND [{_statementCycle}] <= '{last.ToShortDateString()}'";
+            viewDateStr = $"[{_statementCycle}] >= '{first.ToShortDateString()}' AND [{_statementCycle}] <= '{last.ToShortDateString()}'";
 
             if (viewDateStr != String.Empty)
                 _filterStringBuilder.Append(viewDateStr);
