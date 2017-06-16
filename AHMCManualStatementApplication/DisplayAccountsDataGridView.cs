@@ -56,6 +56,8 @@ namespace AHMCManualStatementApplication
                 _form.AccountsDataGridView.AutoResizeColumns();
                 _form.AccountsDataGridView.Columns["Patient Responsibility"].DefaultCellStyle.Format = "#,##0.00";
                 _form.TotalRowsLabel = $"Total rows: {_form.AccountsDataGridView.RowCount}";
+
+
             }
             finally
             {

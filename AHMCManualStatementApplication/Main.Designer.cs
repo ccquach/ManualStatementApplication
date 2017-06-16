@@ -124,10 +124,10 @@
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.tbGenerateStmnt = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
-            this.lblStartDate = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel26 = new MetroFramework.Controls.MetroLabel();
-            this.lblEndDate = new MetroFramework.Controls.MetroLabel();
+            this.dtPickerStartDate = new MetroFramework.Controls.MetroDateTime();
+            this.dtPickerEndDate = new MetroFramework.Controls.MetroDateTime();
             this.panelNavMain.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelNext.SuspendLayout();
@@ -158,7 +158,7 @@
             this.panelNavMain.HorizontalScrollbarSize = 10;
             this.panelNavMain.Location = new System.Drawing.Point(20, 60);
             this.panelNavMain.Name = "panelNavMain";
-            this.panelNavMain.Size = new System.Drawing.Size(141, 646);
+            this.panelNavMain.Size = new System.Drawing.Size(141, 693);
             this.panelNavMain.TabIndex = 2;
             this.panelNavMain.VerticalScrollbarBarColor = true;
             this.panelNavMain.VerticalScrollbarHighlightOnWheel = false;
@@ -396,7 +396,7 @@
             this.tbCtrlPages.Location = new System.Drawing.Point(161, 60);
             this.tbCtrlPages.Name = "tbCtrlPages";
             this.tbCtrlPages.SelectedIndex = 1;
-            this.tbCtrlPages.Size = new System.Drawing.Size(914, 646);
+            this.tbCtrlPages.Size = new System.Drawing.Size(1023, 693);
             this.tbCtrlPages.TabIndex = 0;
             this.tbCtrlPages.UseSelectable = true;
             // 
@@ -521,10 +521,10 @@
             // tbAccounts
             // 
             this.tbAccounts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbAccounts.Controls.Add(this.dtPickerEndDate);
+            this.tbAccounts.Controls.Add(this.dtPickerStartDate);
             this.tbAccounts.Controls.Add(this.metroLabel26);
             this.tbAccounts.Controls.Add(this.metroLabel4);
-            this.tbAccounts.Controls.Add(this.lblEndDate);
-            this.tbAccounts.Controls.Add(this.lblStartDate);
             this.tbAccounts.Controls.Add(this.btnFinalStatement);
             this.tbAccounts.Controls.Add(this.btnSecondStatement);
             this.tbAccounts.Controls.Add(this.btnFirstStatement);
@@ -541,7 +541,7 @@
             this.tbAccounts.HorizontalScrollbarSize = 10;
             this.tbAccounts.Location = new System.Drawing.Point(4, 38);
             this.tbAccounts.Name = "tbAccounts";
-            this.tbAccounts.Size = new System.Drawing.Size(906, 604);
+            this.tbAccounts.Size = new System.Drawing.Size(1015, 651);
             this.tbAccounts.TabIndex = 1;
             this.tbAccounts.Text = "Accounts";
             this.tbAccounts.VerticalScrollbarBarColor = true;
@@ -552,7 +552,7 @@
             // 
             this.btnFinalStatement.AutoSize = true;
             this.btnFinalStatement.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.btnFinalStatement.Location = new System.Drawing.Point(258, 64);
+            this.btnFinalStatement.Location = new System.Drawing.Point(356, 75);
             this.btnFinalStatement.Name = "btnFinalStatement";
             this.btnFinalStatement.Size = new System.Drawing.Size(120, 19);
             this.btnFinalStatement.TabIndex = 2;
@@ -564,7 +564,7 @@
             // 
             this.btnSecondStatement.AutoSize = true;
             this.btnSecondStatement.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.btnSecondStatement.Location = new System.Drawing.Point(258, 38);
+            this.btnSecondStatement.Location = new System.Drawing.Point(356, 49);
             this.btnSecondStatement.Name = "btnSecondStatement";
             this.btnSecondStatement.Size = new System.Drawing.Size(136, 19);
             this.btnSecondStatement.TabIndex = 2;
@@ -577,7 +577,7 @@
             this.btnFirstStatement.AutoSize = true;
             this.btnFirstStatement.Checked = true;
             this.btnFirstStatement.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.btnFirstStatement.Location = new System.Drawing.Point(258, 12);
+            this.btnFirstStatement.Location = new System.Drawing.Point(356, 23);
             this.btnFirstStatement.Name = "btnFirstStatement";
             this.btnFirstStatement.Size = new System.Drawing.Size(118, 19);
             this.btnFirstStatement.TabIndex = 2;
@@ -589,7 +589,7 @@
             // tileEdit
             // 
             this.tileEdit.ActiveControl = null;
-            this.tileEdit.Location = new System.Drawing.Point(727, 3);
+            this.tileEdit.Location = new System.Drawing.Point(830, 12);
             this.tileEdit.Name = "tileEdit";
             this.tileEdit.Size = new System.Drawing.Size(83, 55);
             this.tileEdit.TabIndex = 9;
@@ -608,7 +608,7 @@
             this.ckBoxUncompletedFilter.Checked = true;
             this.ckBoxUncompletedFilter.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckBoxUncompletedFilter.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.ckBoxUncompletedFilter.Location = new System.Drawing.Point(430, 38);
+            this.ckBoxUncompletedFilter.Location = new System.Drawing.Point(519, 48);
             this.ckBoxUncompletedFilter.Name = "ckBoxUncompletedFilter";
             this.ckBoxUncompletedFilter.Size = new System.Drawing.Size(107, 19);
             this.ckBoxUncompletedFilter.TabIndex = 6;
@@ -622,7 +622,7 @@
             this.ckBoxCompletedFilter.Checked = true;
             this.ckBoxCompletedFilter.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckBoxCompletedFilter.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.ckBoxCompletedFilter.Location = new System.Drawing.Point(430, 13);
+            this.ckBoxCompletedFilter.Location = new System.Drawing.Point(519, 23);
             this.ckBoxCompletedFilter.Name = "ckBoxCompletedFilter";
             this.ckBoxCompletedFilter.Size = new System.Drawing.Size(92, 19);
             this.ckBoxCompletedFilter.TabIndex = 5;
@@ -634,7 +634,7 @@
             // 
             this.lblTotalRows.AutoSize = true;
             this.lblTotalRows.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblTotalRows.Location = new System.Drawing.Point(740, 79);
+            this.lblTotalRows.Location = new System.Drawing.Point(843, 88);
             this.lblTotalRows.Name = "lblTotalRows";
             this.lblTotalRows.Size = new System.Drawing.Size(78, 19);
             this.lblTotalRows.TabIndex = 6;
@@ -671,7 +671,7 @@
             this.dataGridAccounts.EnableHeadersVisualStyles = false;
             this.dataGridAccounts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridAccounts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridAccounts.Location = new System.Drawing.Point(0, 101);
+            this.dataGridAccounts.Location = new System.Drawing.Point(0, 120);
             this.dataGridAccounts.MultiSelect = false;
             this.dataGridAccounts.Name = "dataGridAccounts";
             this.dataGridAccounts.ReadOnly = true;
@@ -686,14 +686,14 @@
             this.dataGridAccounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridAccounts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridAccounts.Size = new System.Drawing.Size(904, 501);
+            this.dataGridAccounts.Size = new System.Drawing.Size(1013, 529);
             this.dataGridAccounts.TabIndex = 1;
             this.dataGridAccounts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridAccounts_CellDoubleClick);
             // 
             // tileExport
             // 
             this.tileExport.ActiveControl = null;
-            this.tileExport.Location = new System.Drawing.Point(816, 3);
+            this.tileExport.Location = new System.Drawing.Point(919, 12);
             this.tileExport.Name = "tileExport";
             this.tileExport.Size = new System.Drawing.Size(83, 55);
             this.tileExport.TabIndex = 10;
@@ -708,7 +708,7 @@
             // tileDeleteAccount
             // 
             this.tileDeleteAccount.ActiveControl = null;
-            this.tileDeleteAccount.Location = new System.Drawing.Point(639, 3);
+            this.tileDeleteAccount.Location = new System.Drawing.Point(742, 12);
             this.tileDeleteAccount.Name = "tileDeleteAccount";
             this.tileDeleteAccount.Size = new System.Drawing.Size(83, 55);
             this.tileDeleteAccount.TabIndex = 8;
@@ -723,7 +723,7 @@
             // tileAddAccount
             // 
             this.tileAddAccount.ActiveControl = null;
-            this.tileAddAccount.Location = new System.Drawing.Point(550, 3);
+            this.tileAddAccount.Location = new System.Drawing.Point(653, 12);
             this.tileAddAccount.Name = "tileAddAccount";
             this.tileAddAccount.Size = new System.Drawing.Size(83, 55);
             this.tileAddAccount.TabIndex = 7;
@@ -1732,21 +1732,11 @@
             this.metroLabel25.Text = "GENERATE STATEMENT";
             this.metroLabel25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblStartDate
-            // 
-            this.lblStartDate.AutoSize = true;
-            this.lblStartDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblStartDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblStartDate.Location = new System.Drawing.Point(111, 13);
-            this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(0, 0);
-            this.lblStartDate.TabIndex = 11;
-            // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel4.Location = new System.Drawing.Point(19, 13);
+            this.metroLabel4.Location = new System.Drawing.Point(32, 33);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(74, 19);
             this.metroLabel4.TabIndex = 12;
@@ -1756,27 +1746,33 @@
             // 
             this.metroLabel26.AutoSize = true;
             this.metroLabel26.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel26.Location = new System.Drawing.Point(19, 39);
+            this.metroLabel26.Location = new System.Drawing.Point(32, 68);
             this.metroLabel26.Name = "metroLabel26";
             this.metroLabel26.Size = new System.Drawing.Size(68, 19);
             this.metroLabel26.TabIndex = 12;
             this.metroLabel26.Text = "End Date:";
             // 
-            // lblEndDate
+            // dtPickerStartDate
             // 
-            this.lblEndDate.AutoSize = true;
-            this.lblEndDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEndDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblEndDate.Location = new System.Drawing.Point(111, 38);
-            this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(0, 0);
-            this.lblEndDate.TabIndex = 11;
+            this.dtPickerStartDate.Location = new System.Drawing.Point(112, 23);
+            this.dtPickerStartDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtPickerStartDate.Name = "dtPickerStartDate";
+            this.dtPickerStartDate.Size = new System.Drawing.Size(175, 29);
+            this.dtPickerStartDate.TabIndex = 13;
+            // 
+            // dtPickerEndDate
+            // 
+            this.dtPickerEndDate.Location = new System.Drawing.Point(112, 58);
+            this.dtPickerEndDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtPickerEndDate.Name = "dtPickerEndDate";
+            this.dtPickerEndDate.Size = new System.Drawing.Size(175, 29);
+            this.dtPickerEndDate.TabIndex = 13;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1095, 726);
+            this.ClientSize = new System.Drawing.Size(1204, 773);
             this.Controls.Add(this.lblActiveFacility);
             this.Controls.Add(this.panelHome);
             this.Controls.Add(this.panelNavMain);
@@ -1904,10 +1900,10 @@
         private MetroFramework.Controls.MetroButton btnEditCancel;
         private System.Windows.Forms.ToolStripMenuItem tsmRangeDates;
         private System.Windows.Forms.ToolStripMenuItem tsmByAccountNumber;
-        private MetroFramework.Controls.MetroLabel lblStartDate;
         private MetroFramework.Controls.MetroLabel metroLabel26;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroLabel lblEndDate;
+        private MetroFramework.Controls.MetroDateTime dtPickerEndDate;
+        private MetroFramework.Controls.MetroDateTime dtPickerStartDate;
     }
 }
 

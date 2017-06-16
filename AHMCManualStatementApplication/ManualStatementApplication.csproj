@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
