@@ -11,13 +11,9 @@ namespace AHMCManualStatementApplication
 {
     public class DataGridViewInfo
     {
-        private string viewDate;
         private string viewDateStr;
-        //public string first;
-        //public string last;
         public DateTime first;
         public DateTime last;
-        private bool isRangeDate;
 
         private StringBuilder _filterStringBuilder;
         private string _viewOption;
@@ -25,8 +21,6 @@ namespace AHMCManualStatementApplication
         private bool _isCheckedCompleted;
         private bool _isCheckedUncompleted;
         private bool _isCancel;
-        //private string _startDate;
-        //private string _endDate;
         private MetroDateTime _startDate;
         private MetroDateTime _endDate;
 
@@ -46,11 +40,7 @@ namespace AHMCManualStatementApplication
             _startDate = startDate;
             _endDate = endDate;
 
-            viewDate = String.Empty;
             viewDateStr = String.Empty;
-            //first = null;
-            //last = null;
-            isRangeDate = false;
         }
 
         public DataTable AccountsDataTable { get; set; }
@@ -154,89 +144,7 @@ namespace AHMCManualStatementApplication
             if (viewDateStr != String.Empty)
                 _filterStringBuilder.Append(viewDateStr);
         }
-
-        //private void FilterByViewOption()
-        //{
-        //    DateTime today = DateTime.Today;
-
-        //    switch (_viewOption)
-        //    {
-        //        case "&Today":
-        //            if (today.DayOfWeek == DayOfWeek.Monday)
-        //            {
-        //                first = new DateTime(today.Year, today.AddMonths(-1).Month, today.AddDays(-2).Day).ToShortDateString();
-        //                last = today.AddMonths(-1).ToShortDateString();
-        //                isRangeDate = true;
-        //            }
-        //            else
-        //            {
-        //                viewDate = today.AddMonths(-1).ToShortDateString();
-        //                viewDateStr = $"[{_statementCycle}] = '{viewDate}'";
-        //            }
-        //            break;
-        //        case "&Last Month":
-        //            var month = new DateTime(today.Year, today.Month, 1);
-        //            first = month.AddMonths(-1).ToShortDateString();
-        //            last = month.AddDays(-1).ToShortDateString();
-        //            isRangeDate = true;
-        //            break;
-        //        case "&Specific Date":
-        //            using (SpecificDatePicker dtPicker = new SpecificDatePicker())
-        //            {
-        //                var result = dtPicker.ShowDialog();
-        //                if (result == DialogResult.OK)
-        //                {
-        //                    if (IsWeekend(dtPicker.ReturnSpecificDate))
-        //                    {
-        //                        _isCancel = true;
-        //                        return;
-        //                    }
-        //                    else
-        //                    {
-        //                        viewDate = dtPicker.ReturnSpecificDate.Value.ToShortDateString();
-        //                        viewDateStr = $"[{_statementCycle}] = '{viewDate}'";
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    _isCancel = true;
-        //                    return;
-        //                }
-        //            }
-        //            break;
-        //        case "&Range of Dates":
-        //            using (SpecificDateRangePicker dtPicker = new SpecificDateRangePicker())
-        //            {
-        //                var result = dtPicker.ShowDialog();
-        //                if (result == DialogResult.OK)
-        //                {
-        //                    first = dtPicker.ReturnFromDate.Value.ToShortDateString();
-        //                    last = dtPicker.ReturnToDate.Value.ToShortDateString();
-        //                    isRangeDate = true;
-        //                }
-        //                else
-        //                {
-        //                    _isCancel = true;
-        //                    return;
-        //                }
-        //            }
-        //            break;
-        //        case "&By Account Number":
-
-        //            break;
-        //        case "&All":
-        //        default:
-        //            viewDateStr = String.Empty;
-        //            break;
-        //    }
-
-        //    if (isRangeDate)
-        //        viewDateStr = $"[{_statementCycle}] >= '{first}' AND [{_statementCycle}] <= '{last}'";
-
-        //    if (viewDateStr != String.Empty)
-        //        _filterStringBuilder.Append(viewDateStr);
-        //}
-
+        
         private bool IsWeekend(DateTime? date)
         {
             DateTime dateValue = date.Value;
@@ -249,11 +157,6 @@ namespace AHMCManualStatementApplication
             else {
                 return false;
             }
-        }
-
-        private void FilterByStatementCycle()
-        {
-
         }
 
         private void FilterByCompleted()
