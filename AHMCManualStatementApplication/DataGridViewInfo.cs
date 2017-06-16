@@ -71,19 +71,17 @@ namespace AHMCManualStatementApplication
                     {
                         first = new DateTime(today.Year, today.AddMonths(-1).Month, today.AddDays(-2).Day).ToShortDateString();
                         last = today.AddMonths(-1).ToShortDateString();
-                        isRangeDate = true;
                     }
                     else
                     {
-                        viewDate = today.AddMonths(-1).ToShortDateString();
-                        viewDateStr = $"[{_statementCycle}] = '{viewDate}'";
+                        first = today.AddMonths(-1).ToShortDateString();
+                        last = first;
                     }
                     break;
                 case "&Last Month":
                     var month = new DateTime(today.Year, today.Month, 1);
                     first = month.AddMonths(-1).ToShortDateString();
                     last = month.AddDays(-1).ToShortDateString();
-                    isRangeDate = true;
                     break;
                 case "&Specific Date":
                     using (SpecificDatePicker dtPicker = new SpecificDatePicker())
@@ -98,8 +96,8 @@ namespace AHMCManualStatementApplication
                             }
                             else
                             {
-                                viewDate = dtPicker.ReturnSpecificDate.Value.ToShortDateString();
-                                viewDateStr = $"[{_statementCycle}] = '{viewDate}'";
+                                first = dtPicker.ReturnSpecificDate.Value.ToShortDateString();
+                                last = first;
                             }
                         }
                         else
@@ -115,9 +113,8 @@ namespace AHMCManualStatementApplication
                         var result = dtPicker.ShowDialog();
                         if (result == DialogResult.OK)
                         {
-                            first = dtPicker.ReturnFromDate.Value.ToShortDateString();
-                            last = dtPicker.ReturnToDate.Value.ToShortDateString();
-                            isRangeDate = true;
+                            first = dtPicker.ReturnStartDate.Value.ToShortDateString();
+                            last = dtPicker.ReturnEndDate.Value.ToShortDateString();
                         }
                         else
                         {
@@ -130,17 +127,103 @@ namespace AHMCManualStatementApplication
 
                     break;
                 case "&All":
+                    first = new DateTime(2016, 1, 1).ToShortDateString();
+                    last = DateTime.Now.ToShortDateString();
+                    break;
                 default:
-                    viewDateStr = String.Empty;
+                    first = String.Empty;
+                    last = String.Empty;
                     break;
             }
 
-            if (isRangeDate)
+            if (first != String.Empty && last != String.Empty)
                 viewDateStr = $"[{_statementCycle}] >= '{first}' AND [{_statementCycle}] <= '{last}'";
 
             if (viewDateStr != String.Empty)
                 _filterStringBuilder.Append(viewDateStr);
         }
+
+        //private void FilterByViewOption()
+        //{
+        //    DateTime today = DateTime.Today;
+
+        //    switch (_viewOption)
+        //    {
+        //        case "&Today":
+        //            if (today.DayOfWeek == DayOfWeek.Monday)
+        //            {
+        //                first = new DateTime(today.Year, today.AddMonths(-1).Month, today.AddDays(-2).Day).ToShortDateString();
+        //                last = today.AddMonths(-1).ToShortDateString();
+        //                isRangeDate = true;
+        //            }
+        //            else
+        //            {
+        //                viewDate = today.AddMonths(-1).ToShortDateString();
+        //                viewDateStr = $"[{_statementCycle}] = '{viewDate}'";
+        //            }
+        //            break;
+        //        case "&Last Month":
+        //            var month = new DateTime(today.Year, today.Month, 1);
+        //            first = month.AddMonths(-1).ToShortDateString();
+        //            last = month.AddDays(-1).ToShortDateString();
+        //            isRangeDate = true;
+        //            break;
+        //        case "&Specific Date":
+        //            using (SpecificDatePicker dtPicker = new SpecificDatePicker())
+        //            {
+        //                var result = dtPicker.ShowDialog();
+        //                if (result == DialogResult.OK)
+        //                {
+        //                    if (IsWeekend(dtPicker.ReturnSpecificDate))
+        //                    {
+        //                        _isCancel = true;
+        //                        return;
+        //                    }
+        //                    else
+        //                    {
+        //                        viewDate = dtPicker.ReturnSpecificDate.Value.ToShortDateString();
+        //                        viewDateStr = $"[{_statementCycle}] = '{viewDate}'";
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    _isCancel = true;
+        //                    return;
+        //                }
+        //            }
+        //            break;
+        //        case "&Range of Dates":
+        //            using (SpecificDateRangePicker dtPicker = new SpecificDateRangePicker())
+        //            {
+        //                var result = dtPicker.ShowDialog();
+        //                if (result == DialogResult.OK)
+        //                {
+        //                    first = dtPicker.ReturnFromDate.Value.ToShortDateString();
+        //                    last = dtPicker.ReturnToDate.Value.ToShortDateString();
+        //                    isRangeDate = true;
+        //                }
+        //                else
+        //                {
+        //                    _isCancel = true;
+        //                    return;
+        //                }
+        //            }
+        //            break;
+        //        case "&By Account Number":
+
+        //            break;
+        //        case "&All":
+        //        default:
+        //            viewDateStr = String.Empty;
+        //            break;
+        //    }
+
+        //    if (isRangeDate)
+        //        viewDateStr = $"[{_statementCycle}] >= '{first}' AND [{_statementCycle}] <= '{last}'";
+
+        //    if (viewDateStr != String.Empty)
+        //        _filterStringBuilder.Append(viewDateStr);
+        //}
 
         private bool IsWeekend(DateTime? date)
         {

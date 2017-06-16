@@ -184,6 +184,10 @@ namespace AHMCManualStatementApplication
             try
             {
                 ActivateFunctions();
+                this.dtPickerStartDate.Format = DateTimePickerFormat.Custom;
+                this.dtPickerStartDate.CustomFormat = "";
+                this.dtPickerEndDate.Format = DateTimePickerFormat.Custom;
+                this.dtPickerEndDate.CustomFormat = "";
             }
             catch (Exception ex)
             {

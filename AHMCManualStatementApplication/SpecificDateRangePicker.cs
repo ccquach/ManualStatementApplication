@@ -17,40 +17,40 @@ namespace AHMCManualStatementApplication
             InitializeComponent();
         }
 
-        public DateTime? ReturnFromDate { get; set; }
-        public DateTime? ReturnToDate { get; set; }
+        public DateTime? ReturnStartDate { get; set; }
+        public DateTime? ReturnEndDate { get; set; }
 
         private void dtPickerFromDate_MouseDown(object sender, MouseEventArgs e)
         {
-            dtPickerFromDate.Open();
+            dtPickerStartDate.Open();
         }
 
         private void dtPickerToDate_MouseDown(object sender, MouseEventArgs e)
         {
-            dtPickerToDate.Open();
+            dtPickerEndDate.Open();
         }
 
         private void SpecificDateRangePicker_Load(object sender, EventArgs e)
         {
-            dtPickerFromDate.MinDate = new DateTime(2016, 1, 1);
-            dtPickerFromDate.MaxDate = DateTime.Now;
+            dtPickerStartDate.MinDate = new DateTime(2016, 1, 1);
+            dtPickerStartDate.MaxDate = DateTime.Now;
 
-            dtPickerToDate.MinDate = new DateTime(2016, 1, 1);
-            dtPickerToDate.MaxDate = DateTime.Now;
+            dtPickerEndDate.MinDate = new DateTime(2016, 1, 1);
+            dtPickerEndDate.MaxDate = DateTime.Now;
         }
 
         private void btnDateCancelPickerCancel_Click(object sender, EventArgs e)
         {
-            this.ReturnFromDate = null;
-            this.ReturnToDate = null;
+            this.ReturnStartDate = null;
+            this.ReturnEndDate = null;
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void btnDateRangePickerOK_Click(object sender, EventArgs e)
         {
-            this.ReturnFromDate = dtPickerFromDate.Value;
-            this.ReturnToDate = dtPickerToDate.Value;
+            this.ReturnStartDate = dtPickerStartDate.Value;
+            this.ReturnEndDate = dtPickerEndDate.Value;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
