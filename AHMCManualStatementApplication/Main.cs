@@ -453,8 +453,37 @@ namespace AHMCManualStatementApplication
             }
             
         }
+
+        private void dtPickerDate_MouseDown(object sender, MouseEventArgs e)
+        {
+            (sender as MetroDateTime).Open();
+        }
+
+        private void dtPickerDate_ValueChanged(object sender, EventArgs e)
+        {
+            MetroDateTime dateTimePicker = sender as MetroDateTime;
+            dateTimePicker.Format = DateTimePickerFormat.Custom;
+            dateTimePicker.CustomFormat = dateTimePicker.Value.ToString("MM/dd/yyyy");
+        }
+
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+            if (this.StartDate.Value <= this.EndDate.Value)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                new DisplayAccountsDataGridView(this, new AccountDataService(DatabaseManager.GetStatementConnectionString(), DatabaseManager.GetDemoConnectionString(this.facility)));
+                OnShowAccountDataGridView(this, EventArgs.Empty);
+                dataGridAccounts.Focus();
+                Cursor.Current = Cursors.Default;
+            }
+            else
+            {
+                MessageBox.Show("The Start Date needs to be on or before the End Date.");
+            }
+        }
         #endregion
 
+        // Query account details
         private void dataGridAccounts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var g = sender as DataGridView;
@@ -622,6 +651,7 @@ namespace AHMCManualStatementApplication
         {
 
         }
+
         #endregion
     }
 }
