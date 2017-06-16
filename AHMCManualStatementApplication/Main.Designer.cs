@@ -124,6 +124,10 @@
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.tbGenerateStmnt = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
+            this.lblStartDate = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel26 = new MetroFramework.Controls.MetroLabel();
+            this.lblEndDate = new MetroFramework.Controls.MetroLabel();
             this.panelNavMain.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelNext.SuspendLayout();
@@ -517,6 +521,10 @@
             // tbAccounts
             // 
             this.tbAccounts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbAccounts.Controls.Add(this.metroLabel26);
+            this.tbAccounts.Controls.Add(this.metroLabel4);
+            this.tbAccounts.Controls.Add(this.lblEndDate);
+            this.tbAccounts.Controls.Add(this.lblStartDate);
             this.tbAccounts.Controls.Add(this.btnFinalStatement);
             this.tbAccounts.Controls.Add(this.btnSecondStatement);
             this.tbAccounts.Controls.Add(this.btnFirstStatement);
@@ -543,9 +551,10 @@
             // btnFinalStatement
             // 
             this.btnFinalStatement.AutoSize = true;
-            this.btnFinalStatement.Location = new System.Drawing.Point(192, 66);
+            this.btnFinalStatement.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.btnFinalStatement.Location = new System.Drawing.Point(258, 64);
             this.btnFinalStatement.Name = "btnFinalStatement";
-            this.btnFinalStatement.Size = new System.Drawing.Size(105, 15);
+            this.btnFinalStatement.Size = new System.Drawing.Size(120, 19);
             this.btnFinalStatement.TabIndex = 2;
             this.btnFinalStatement.Text = "Final Statement";
             this.btnFinalStatement.UseSelectable = true;
@@ -554,9 +563,10 @@
             // btnSecondStatement
             // 
             this.btnSecondStatement.AutoSize = true;
-            this.btnSecondStatement.Location = new System.Drawing.Point(192, 40);
+            this.btnSecondStatement.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.btnSecondStatement.Location = new System.Drawing.Point(258, 38);
             this.btnSecondStatement.Name = "btnSecondStatement";
-            this.btnSecondStatement.Size = new System.Drawing.Size(119, 15);
+            this.btnSecondStatement.Size = new System.Drawing.Size(136, 19);
             this.btnSecondStatement.TabIndex = 2;
             this.btnSecondStatement.Text = "Second Statement";
             this.btnSecondStatement.UseSelectable = true;
@@ -566,9 +576,10 @@
             // 
             this.btnFirstStatement.AutoSize = true;
             this.btnFirstStatement.Checked = true;
-            this.btnFirstStatement.Location = new System.Drawing.Point(192, 14);
+            this.btnFirstStatement.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.btnFirstStatement.Location = new System.Drawing.Point(258, 12);
             this.btnFirstStatement.Name = "btnFirstStatement";
-            this.btnFirstStatement.Size = new System.Drawing.Size(102, 15);
+            this.btnFirstStatement.Size = new System.Drawing.Size(118, 19);
             this.btnFirstStatement.TabIndex = 2;
             this.btnFirstStatement.TabStop = true;
             this.btnFirstStatement.Text = "First Statement";
@@ -596,9 +607,10 @@
             this.ckBoxUncompletedFilter.AutoSize = true;
             this.ckBoxUncompletedFilter.Checked = true;
             this.ckBoxUncompletedFilter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckBoxUncompletedFilter.Location = new System.Drawing.Point(372, 40);
+            this.ckBoxUncompletedFilter.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.ckBoxUncompletedFilter.Location = new System.Drawing.Point(430, 38);
             this.ckBoxUncompletedFilter.Name = "ckBoxUncompletedFilter";
-            this.ckBoxUncompletedFilter.Size = new System.Drawing.Size(95, 15);
+            this.ckBoxUncompletedFilter.Size = new System.Drawing.Size(107, 19);
             this.ckBoxUncompletedFilter.TabIndex = 6;
             this.ckBoxUncompletedFilter.Text = "Uncompleted";
             this.ckBoxUncompletedFilter.UseSelectable = true;
@@ -609,9 +621,10 @@
             this.ckBoxCompletedFilter.AutoSize = true;
             this.ckBoxCompletedFilter.Checked = true;
             this.ckBoxCompletedFilter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckBoxCompletedFilter.Location = new System.Drawing.Point(372, 15);
+            this.ckBoxCompletedFilter.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.ckBoxCompletedFilter.Location = new System.Drawing.Point(430, 13);
             this.ckBoxCompletedFilter.Name = "ckBoxCompletedFilter";
-            this.ckBoxCompletedFilter.Size = new System.Drawing.Size(82, 15);
+            this.ckBoxCompletedFilter.Size = new System.Drawing.Size(92, 19);
             this.ckBoxCompletedFilter.TabIndex = 5;
             this.ckBoxCompletedFilter.Text = "Completed";
             this.ckBoxCompletedFilter.UseSelectable = true;
@@ -621,7 +634,7 @@
             // 
             this.lblTotalRows.AutoSize = true;
             this.lblTotalRows.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblTotalRows.Location = new System.Drawing.Point(19, 59);
+            this.lblTotalRows.Location = new System.Drawing.Point(740, 79);
             this.lblTotalRows.Name = "lblTotalRows";
             this.lblTotalRows.Size = new System.Drawing.Size(78, 19);
             this.lblTotalRows.TabIndex = 6;
@@ -1719,6 +1732,46 @@
             this.metroLabel25.Text = "GENERATE STATEMENT";
             this.metroLabel25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // lblStartDate
+            // 
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblStartDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblStartDate.Location = new System.Drawing.Point(111, 13);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(0, 0);
+            this.lblStartDate.TabIndex = 11;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel4.Location = new System.Drawing.Point(19, 13);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel4.TabIndex = 12;
+            this.metroLabel4.Text = "Start Date:";
+            // 
+            // metroLabel26
+            // 
+            this.metroLabel26.AutoSize = true;
+            this.metroLabel26.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel26.Location = new System.Drawing.Point(19, 39);
+            this.metroLabel26.Name = "metroLabel26";
+            this.metroLabel26.Size = new System.Drawing.Size(68, 19);
+            this.metroLabel26.TabIndex = 12;
+            this.metroLabel26.Text = "End Date:";
+            // 
+            // lblEndDate
+            // 
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEndDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblEndDate.Location = new System.Drawing.Point(111, 38);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(0, 0);
+            this.lblEndDate.TabIndex = 11;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1851,6 +1904,10 @@
         private MetroFramework.Controls.MetroButton btnEditCancel;
         private System.Windows.Forms.ToolStripMenuItem tsmRangeDates;
         private System.Windows.Forms.ToolStripMenuItem tsmByAccountNumber;
+        private MetroFramework.Controls.MetroLabel lblStartDate;
+        private MetroFramework.Controls.MetroLabel metroLabel26;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel lblEndDate;
     }
 }
 
