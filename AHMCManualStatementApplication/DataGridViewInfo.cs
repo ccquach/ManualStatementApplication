@@ -124,9 +124,9 @@ namespace AHMCManualStatementApplication
                         }
                         break;
                     case "&By Account Number":
-                        using (SearchByAccount account = new SearchByAccount())
+                        using (SearchByAccount searchAccountNumber = new SearchByAccount())
                         {
-                            var result = account.DialogResult;
+                            var result = searchAccountNumber.ShowDialog();
                             if (result == DialogResult.OK)
                             {
                                 first = new DateTime(2016, 1, 1);

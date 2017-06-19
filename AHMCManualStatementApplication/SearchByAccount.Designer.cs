@@ -69,7 +69,7 @@
             this.txtSearchAccountNumber.SelectionStart = 0;
             this.txtSearchAccountNumber.ShortcutsEnabled = true;
             this.txtSearchAccountNumber.Size = new System.Drawing.Size(261, 23);
-            this.txtSearchAccountNumber.TabIndex = 1;
+            this.txtSearchAccountNumber.TabIndex = 0;
             this.txtSearchAccountNumber.UseSelectable = true;
             this.txtSearchAccountNumber.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearchAccountNumber.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -79,7 +79,7 @@
             this.btnOK.Location = new System.Drawing.Point(61, 126);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 2;
+            this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.UseSelectable = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
