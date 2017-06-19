@@ -124,7 +124,19 @@ namespace AHMCManualStatementApplication
                         }
                         break;
                     case "&By Account Number":
+                        using (SearchByAccount account = new SearchByAccount())
+                        {
+                            var result = account.DialogResult;
+                            if (result == DialogResult.OK)
+                            {
 
+                            }
+                            else
+                            {
+                                _isCancel = true;
+                                return;
+                            }
+                        }
                         break;
                     case "&All":
                     default:

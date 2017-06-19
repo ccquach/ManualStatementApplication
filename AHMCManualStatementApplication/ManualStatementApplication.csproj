@@ -87,6 +87,12 @@
       <DependentUpon>NewAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="DisplayNewAccountInfo.cs" />
+    <Compile Include="SearchByAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchByAccount.Designer.cs">
+      <DependentUpon>SearchByAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpecificDatePicker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewAccount.resx">
       <DependentUpon>NewAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchByAccount.resx">
+      <DependentUpon>SearchByAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SpecificDatePicker.resx">
       <DependentUpon>SpecificDatePicker.cs</DependentUpon>

@@ -74,9 +74,9 @@
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel1.Location = new System.Drawing.Point(23, 38);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(217, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(176, 19);
             this.metroLabel1.TabIndex = 3;
-            this.metroLabel1.Text = "Please select a date range to view:";
+            this.metroLabel1.Text = "Select a date range to view:";
             // 
             // dtPickerEndDate
             // 
