@@ -58,9 +58,11 @@ namespace AHMCManualStatementApplication
                 _form.TotalRowsLabel = $"Total rows: {_form.AccountsDataGridView.RowCount}";
 
                 _form.StartDate.Value = gridData.first.Date;
+                _form.StartDate.ShowCheckBox = true;
                 _form.StartDate.Checked = true;
 
                 _form.EndDate.Value = gridData.last.Date;
+                _form.EndDate.ShowCheckBox = true;
                 _form.EndDate.Checked = true;
             }
             finally
