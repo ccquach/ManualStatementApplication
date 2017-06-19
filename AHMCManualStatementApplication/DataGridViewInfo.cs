@@ -129,6 +129,9 @@ namespace AHMCManualStatementApplication
                             var result = account.DialogResult;
                             if (result == DialogResult.OK)
                             {
+                                first = new DateTime(2016, 1, 1);
+                                last = DateTime.Now;
+
 
                             }
                             else

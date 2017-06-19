@@ -135,5 +135,32 @@ namespace AHMCManualStatementApplication
             }
             return dgvInfo;
         }
+
+        public bool AccountExists(string account)
+        {
+            using(OleDbConnection connection = new OleDbConnection(_connectionStringStatement))
+            {
+                connection.Open();
+
+                using (OleDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = @"SELECT COUNT(AcctNumber)
+                                            FROM tblAccounts
+                                            WHERE AcctNumber = @Account";
+
+                    command.Parameters.Add("@Account", OleDbType.VarChar).Value = account;
+
+                    if ((int)command.ExecuteScalar() > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }
